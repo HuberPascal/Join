@@ -1,0 +1,39 @@
+<div class="add-contact-overlay">
+
+</div>
+
+<div class="add-contact-container">
+    <div class="add-contact-card" id="contactCard">
+        <div class="add-contact-card-header">
+            <div class="add-contact-card-header-content">
+                <img src="./assets/image/join-logo-white.svg">
+                <h1 id='contactTemplateTitle'></h1>
+                <h4>Tasks are better with a team!</h4>
+                <div class="add-contact-blue-line"></div>
+            </div>
+        </div>
+        <div id="contactCredentials">
+            <img src="./assets/icons/empty-user-avatar.png">
+        </div>
+        <form class="add-contact-card-form" id="changeContact">
+            <div class="contact-form-area">
+                <div><input type="text" id="contactNameInput" placeholder="Name" required><img
+                        src="./assets/icons/person-icon.svg">
+                </div>
+                <div><input type="email" id="contactMailInput" placeholder="Email" required><img
+                        src="./assets/icons/mail-icon.svg">
+                </div>
+                <div><input type="number" id="contactPhoneInput" placeholder="Phone" required><img
+                        src="./assets/icons/call-icon.svg">
+                </div>
+            </div>
+            <div id="addContactFormActions">
+
+            </div>
+        </form>
+        <img id='closeAddContactCardIcon' onclick="removeElementsByPartialClassName('add-contact')"
+            src="./assets/icons/x-icon.svg">
+    </div>
+</div>
+<div class="contact-change-notification-container" id="changeContactNotification">
+</div>

@@ -1,0 +1,111 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f6f7f8;
+    font-family: 'Inter', sans-serif;
+}
+
+h1 {
+    font-size: 61px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 8px;
+}
+
+h2 {
+    font-size: 64px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    color: #000000;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2A3647;
+    margin-bottom: 13px;
+}
+
+
+.circle {
+    width: 42px;
+    min-width: 42px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1 / 1;
+    /* border: 2px solid white; */
+    box-sizing: border-box;
+}
+
+.circle-text {
+    color: white;
+    font-size: 12px;
+}
+
+.default-button {
+    font-size: 21px;
+    padding: 12px 24px 12px 24px;
+    margin: 22px 0;
+    border-radius: 8px;
+    background: #2A3647;
+    color: white;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: 0em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    width: fit-content;
+    border: unset;
+    transition: all 0.1s ease-in-out;
+}
+
+.default-button:hover {
+    background-color: #29ABE2;
+    box-shadow: 0px 4px 9px -1px rgba(0, 0, 0, 0.4);
+}
+
+.default-button:active {
+    background-color: #091931;
+}
+
+.alternative-button {
+    padding: 15px 24px 15px 24px;
+    margin: 22px 0;
+    border-radius: 8px;
+    border: 1px solid #2A3647;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: 0em;
+    text-align: left;
+    cursor: pointer;
+    background-color: white;
+    transition: all 0.1s ease-in-out;
+}
+
+.alternative-button:hover {
+    border: 1px solid #29ABE2;
+    color: #29ABE2;
+    box-shadow: 0px 4px 9px -1px rgba(0, 0, 0, 0.4);
+}
+
+#loadingContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hide-overflow{
+    overflow: hidden;
+}
+
+.hide {
+    display: none;
+}

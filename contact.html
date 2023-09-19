@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Join</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/header-responsive.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/sidebar-responsive.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/contact-responsiv.css">
+    <link rel="icon" type="image/x-icon" href="./assets\image\join-logo.svg">
+</head>
+
+<body onload="contactInit()" id="body">
+    <div include-html="./assets/templates/add_contact.html"></div>
+    <div w3-include-html="assets/templates/header.html"></div>
+    <div w3-include-html="assets/templates/header_responsive.html"></div>
+    <div class="sidebar-responsive" w3-include-html="assets/templates/sidebar-responsive.html"></div>
+    <div class="sidebar" w3-include-html="assets/templates/sidebar.html"></div>
+
+    <div class="contacts-container">
+        <div class="contact-list-container" id="contactListSection">
+            <button style="margin: 0 0 22px 0;" type="button" class="default-button contact-button" onclick="includeContactHTML('addContact')">
+                Add new contact
+                <img src='./assets/icons/person-add.svg'>
+            </button>
+            <div onclick="includeContactHTML('addContact')" class="contact-button-mobile dNone">
+                <div>
+                    <img src='./assets/icons/person-add.svg'>
+                </div>
+            </div>
+
+            <div id="contactList" class="user-list scrollable"></div>
+        </div>
+        <div class="selected-contact-container" id="selectedContactContainer">
+            <div class="selected-contact-header">
+                <div>
+                    <h1>Contacts</h1>
+                 </div>
+                <div class="horizontal-blue-line"></div>
+                <h4>Better with a team</h4>
+                <div class="vertical-blue-line"></div>
+            </div>
+            <img onclick="unsetSelectedContact()" id="goBack" src="assets/image/sidebar/arrow-left-line.svg">
+            
+            <div class="selected-contact-body" id="selectedContactBody">
+            </div>
+
+            <img class="menu-button-mobile dNone" onclick='toggleEditContactMenu()' src='assets/icons/menuContactOptions.svg'>
+            <div id="responsiveMenuContainer" class="responsive-menu-container"></div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+    <script src="./js/storage.js"></script>
+    <script src="./js/contacts.js"></script>
+    <script src="./js/contact_form.js"></script>
+    <script src="./js/contact_form_submit.js"></script>
+    <script src="./js/username.js"></script>
+    <script src="./js/board.js"></script>
+</body>
+</html>

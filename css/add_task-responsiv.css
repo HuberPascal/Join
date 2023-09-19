@@ -1,0 +1,157 @@
+@media (max-width: 1250px) {
+    #addTaskTitle {
+        margin-bottom: 64px !important;
+    }
+
+    #addTaskContainer .task-input-container {
+        flex-direction: column;
+        align-items: center;
+        margin: unset;
+    }
+
+    #addTaskContainer .task-input-container .task-input-not-first-col {
+        margin-top: 32px;
+        border: none;
+        padding-left: 0;
+    }
+
+    .task-input-col {
+        padding: unset !important;
+    }
+
+    #addTaskContainer {
+        align-items: center;
+    }
+
+    #addTaskContainer h1 {
+        margin: 28px 64px 28px 64px;
+    }
+
+    #addTaskContainer #formOptions {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+@media (max-width: 1000px) {
+    #addTaskContainer #newTaskPriority {
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 800px) {
+    .add-task-page-container {
+        left: 0;
+        right: 0;
+        top: 82px;
+        bottom: 82px;
+    }
+}
+
+@media (max-width: 600px) {
+    #addTaskContainer .task-input-container {
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+
+    #addTaskTitle {
+        font-size: 40px !important;
+        padding: 40px 12px !important;
+        margin: unset !important;
+        margin-bottom: unset !important;
+    }
+
+    #newTaskDescription {
+        height: 86px !important;
+        font-size: 18px !important;
+    }
+
+    #newTaskTitle {
+        font-size: 18px !important;
+    }
+
+    #dropDownContactsTextFieldInput {
+        font-size: 18px !important;
+    }
+
+    #newTaskDate {
+        font-size: 18px !important;
+    }
+
+    #newTaskPriority {
+        flex-direction: row !important;
+        gap: unset;
+        justify-content: space-between;
+    }
+
+    .priority-button {
+        font-size: 16px !important;
+        height: 43px !important;
+        width: 120px !important;
+    }
+
+    .alternative-button {
+        display: none;
+    }
+
+    .add-task {
+        width: 100% !important;
+    }
+
+    #addTaskContainer #formOptions {
+        width: 97%;
+    }
+}
+
+@media (max-width: 500px) {
+    .priority-button {
+        font-size: 14px !important;
+        height: 38px !important;
+        width: 100px !important;
+    }
+
+    #dropDownContactsTextFieldInput {
+        font-size: 16px !important;
+        height: 38px !important;
+
+    }
+
+    #newTaskTitle {
+        font-size: 16px !important;
+        height: 38px !important;
+    }
+
+    #newTaskDescription {
+        height: 80px !important;
+        font-size: 16px !important;
+        padding: 12px !important;
+    }
+
+    #newTaskDate {
+        font-size: 16px !important;
+        height: 38px !important;
+    }
+
+    #selectCategory {
+        font-size: 16px !important;
+        height: 38px !important;
+    }
+
+    .category-select {
+        height: 38px !important;
+    }
+
+    .subtask-field {
+        height: 38px !important;
+    }
+
+    .subtask-input-field {
+        font-size: 16px !important;
+        height: 38px !important;
+    }
+
+    #formOptions {
+        margin: 32px 0px 18px -12px !important;
+        width: 100% !important;
+    }
+}

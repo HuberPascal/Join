@@ -1,0 +1,162 @@
+@media(max-width: 1000px) {
+    .login-heading {
+        text-align: center;
+    }
+
+    .logo {
+        height: 250px;
+        object-fit: cover;
+    }
+}
+
+@media(max-width: 900px) {
+    .forgot-password-form {
+        width: 396px;
+        height: 500px;
+        margin: 150px 0 150px 0;
+        border-radius: 30px
+    }
+}
+
+@media(max-width: 700px) {
+    #homepage {
+        height: fit-content;
+        min-height: 100vh;
+    }
+
+    .logo {
+        height: 160px;
+        object-fit: cover;
+    }
+
+    @keyframes moveLogo {
+        0% {
+            transform: scale(0.1);
+            transform: translate(-50%, -50%);
+        }
+
+        100% {
+            transform: scale(0.5);
+            top: -15px;
+            left: -5px;
+        }
+    }
+
+    #login-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #login-form {
+        width: 396px;
+        height: 550px;
+        margin: 150px 0 230px 0px;
+        border-radius: 30px;
+    }
+
+    .sign-up-form {
+        width: 396px;
+        height: 595px;
+        margin: 150px 0 150px 0px;
+        border-radius: 30px;
+        padding: 12px 0 12px 0;
+    }
+
+    .login-heading {
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 56px;
+        letter-spacing: 0em;
+    }
+
+    .seperator {
+        width: 88px;
+    }
+
+    .input-login {
+        width: 300px;
+    }
+
+    .login-checkbox {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 14px;
+    }
+
+    .login-button-container {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    #sign-up-btn-container {
+        justify-content: center;
+        bottom: 120px;
+        top: unset;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        width: 300px;
+    }
+
+    .checkbox-container {
+        flex-direction: column-reverse;
+        gap: 12px;
+    }
+
+    .signed-up-message {
+        top: 45px;
+        width: 116px;
+        text-align: center;
+    }
+}
+
+@media(max-width: 600px) {
+    .forgot-password-form {
+        width: 320px;
+        padding: 32px;
+    }
+}
+
+@media(max-width: 500px) {
+    #login-form {
+        width: 320px;
+        height: 550px;
+        gap: 30px;
+    }
+
+    .sign-up-form {
+        width: 320px;
+    }
+
+    .sign-up-arrow {
+        left: 16px
+    }
+
+    .forgot-password-arrow {
+        left: 16px;
+    }
+
+    .input-login {
+        width: 250px;
+        height: 20px;
+        font-size: 18px;
+    }
+
+    .logo {
+        height: 140px;
+        object-fit: cover;
+    }
+
+    .forgot-password-form {
+        width: 280px;
+    }
+
+    .forgot-password-message-text {
+        font-size: 17px;
+    }
+
+    .forgot-password-message {
+        padding: 12px 18px;
+    }
+}

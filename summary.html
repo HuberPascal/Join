@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Summary | Join</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/header-responsive.css">
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/sidebar-responsive.css">
+    <link rel="stylesheet" href="css/summary.css">
+    <link rel="icon" type="image/x-icon" href="./assets\image\join-logo.svg">
+</head>
+
+<body onload="initSummary()">
+    <div w3-include-html="assets/templates/header.html"></div>
+    <div w3-include-html="assets/templates/header_responsive.html"></div>
+    <div class="sidebar" w3-include-html="assets/templates/sidebar.html"></div>
+    <div class="sidebar-responsive" w3-include-html="assets/templates/sidebar-responsive.html"></div>
+
+    <div class="body">
+        <div class="headline-h1">
+            <h1>Summary</h1>
+            <img class="seperator" src="assets/image/Summary/blue-line.svg" alt="blue line" />
+            <span>Everything in a nutshell!</span>
+            <img class="seperator-responsiv" src="assets/image/Summary/blue-line.svg" alt="blue line" />
+        </div>
+
+        <div class="summary-content">
+            <div class="summery-elements">
+                <div class="summery-container">
+                    <a class="tasks-top box-left backgroundBlack" onclick="openBoard()">
+                        <h2 id="tasks-in-board"></h2>
+                        <div class="task-text">
+                            Tasks in
+                            <br />
+                            Board
+                        </div>
+                    </a>
+                    <a class="tasks-top box-middle backgroundBlack" onclick="openBoard()">
+                        <h2 id="tasks-in-progress"></h2>
+                        <div class="task-text">
+                            Tasks in
+                            <br />
+                            Progress
+                        </div>
+                    </a>
+                    <a class="tasks-top box-right backgroundBlack" onclick="openBoard()">
+                        <h2 id="awaiting-feedback"></h2>
+                        <div class="task-text">
+                            Awaiting
+                            <br />
+                            Feedback
+                        </div>
+                    </a>
+                </div>
+                <div class="summery-container">
+                    <a class="task-middle box-middle backgroundBlack" onclick="openBoard()">
+                        <div class="summary-field">
+                            <img src="assets/image/Summary/prio-height.svg" alt="">
+                            <div>
+                                <h2 id="urgent"></h2>
+                                <div class="font-16">Urgent</div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="seperator-deadline"></div>
+                        </div>
+                        <div>
+                            <h3 id="upcoming-deadline"></h3>
+                            <div class="font-16">Upcoming Deadline</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="summery-container">
+                    <a class="task-bottom box-left backgroundBlack" onmouseover="hoverLeftButton()"
+                        onmouseout="hoverOffLeftButton()" onclick="openBoard()">
+                        <div class="summary-field">
+                            <img id="button-left-hover1" src="assets/image/Summary/blue-button-summary.svg" alt="">
+                            <img id="button-left-hover2" class="task-bottom-img1"
+                                src="assets/image/Summary/pencil-1.svg" alt="">
+                            <div>
+                                <h2 id="to-do"></h2>
+                                <div class="font-16">To-do</div>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="task-bottom box-right backgroundBlack" onmouseover="hoverRightButton()"
+                        onmouseout="hoverOffRightButton()" onclick="openBoard()">
+                        <div class="summary-field">
+                            <img id="button-right-hover1" src="assets/image/Summary/blue-button-summary.svg" alt="">
+                            <img id="button-right-hover2" class="task-bottom-img2"
+                                src="assets/image/Summary/check-icon-white.svg" alt="">
+                            <div>
+                                <h2 id="done"></h2>
+                                <div class="font-16">Done</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="greet-section">
+                <div class="greeting">
+                    <span id="greeting-time">Good morning,</span>
+                    <h1 id="greeting-name" class="blue-text">Sofia Müller</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="./js/summary.js"></script>
+    <script src="./js/storage.js"></script>
+    <script src="./js/add_task.js"></script>
+    <script src="./js/username.js"></script>
+</body>
+
+</html>
