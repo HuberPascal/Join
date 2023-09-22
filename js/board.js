@@ -35,16 +35,26 @@ function loadTasksHTML(filter = null) {
   const awaitFeedback = tasks.filter((t) => t["status"] == "awaitFeedback" && checkFilter(t, filter));
   const done = tasks.filter((t) => t["status"] == "done" && checkFilter(t, filter));
 
-  for (let index = 0; index < tasks.length; index++) {
-    const task = tasks[index];
-    if (checkFilter(task, filter)) {
-      renderTodoTaskHTML(todo, task, index);
-      renderInProgressTaskHTML(inProgress, task, index);
-      renderAwaitFeedbackTaskHTML(awaitFeedback, task, index);
-      renderDoneTaskHTML(done, task, index);
+  const tasksMatchFilter = todo.length > 0 || inProgress.length > 0 || awaitFeedback.length > 0 || done.length > 0;
+
+  if (tasksMatchFilter) {
+    for (let index = 0; index < tasks.length; index++) {
+      const task = tasks[index];
+      if (checkFilter(task, filter)) {
+        renderTodoTaskHTML(todo, task, index);
+        renderInProgressTaskHTML(inProgress, task, index);
+        renderAwaitFeedbackTaskHTML(awaitFeedback, task, index);
+        renderDoneTaskHTML(done, task, index);
+      }
     }
+  } else {
+    document.getElementById('toDo').innerHTML = renderNoTaskToDo();
+    document.getElementById('inProgress').innerHTML = renderNoInProgress();
+    document.getElementById('awaitFeedback').innerHTML = renderNoAwaitFeedback();
+    document.getElementById('done').innerHTML = renderNoDone();
   }
 }
+
 
 function checkFilter(task, filter) {
   return (
@@ -295,20 +305,20 @@ async function deleteTask(taskIndex) {
  * @function
  * @returns {void}
  */
-function filterToDo() {
-  let searchInput = document.getElementById("search-input").value;
-  if (searchInput > "") {
-    searchInput = searchInput.toLowerCase();
-    console.log(searchInput)
-    let list = document.getElementById("toDo");
-    list.innerHTML = "";
+// function filterToDo() {
+//   let searchInput = document.getElementById("search-input").value;
+//   if (searchInput > "") {
+//     searchInput = searchInput.toLowerCase();
+//     console.log(searchInput)
+//     let list = document.getElementById("toDo");
+//     list.innerHTML = "";
 
-    let todo = tasks.filter((t) => t["status"] == "toDo");
-    renderSearchListToDo(todo, list, searchInput);
-  } else {
-    loadTasksHTML();
-  }
-}
+//     let todo = tasks.filter((t) => t["status"] == "toDo");
+//     renderSearchListToDo(todo, list, searchInput);
+//   } else {
+//     loadTasksHTML();
+//   }
+// }
 
 /**
  * Filters and updates the 'Todo' task section in a responsive manner based on a search input.
@@ -340,22 +350,22 @@ function filterToDoResponsive() {
  * @param {string} searchInput - The search query to filter tasks.
  * @returns {void}
  */
-function renderSearchListToDo(todo, list, searchInput) {
-  searchElementsFound = false;
+// function renderSearchListToDo(todo, list, searchInput) {
+//   searchElementsFound = false;
 
-  if (todo.length > 0) {
-    for (let i = 0; i < todo.length; i++) {
-      let element = todo[i];
-      if (element["taskName"].toLowerCase().includes(searchInput)) {
-        list.innerHTML += generateHTML(element);
-        searchElementsFound = true;
-      }
-    }
-  }
-  if (!searchElementsFound) {
-    list.innerHTML = renderNoTaskToDo();
-  }
-}
+//   if (todo.length > 0) {
+//     for (let i = 0; i < todo.length; i++) {
+//       let element = todo[i];
+//       if (element["taskName"].toLowerCase().includes(searchInput)) {
+//         list.innerHTML += generateHTML(element);
+//         searchElementsFound = true;
+//       }
+//     }
+//   }
+//   if (!searchElementsFound) {
+//     list.innerHTML = renderNoTaskToDo();
+//   }
+// }
 
 /**
  * Filters and updates the 'In Progress' category based on a search query.
@@ -363,17 +373,17 @@ function renderSearchListToDo(todo, list, searchInput) {
  * @function
  * @returns {void}
  */
-function filterInProgress() {
-  let searchInput = document.getElementById("search-input").value;
-  if (searchInput > "") {
-    searchInput = searchInput.toLowerCase();
-    let list = document.getElementById("inProgress");
-    list.innerHTML = "";
+// function filterInProgress() {
+//   let searchInput = document.getElementById("search-input").value;
+//   if (searchInput > "") {
+//     searchInput = searchInput.toLowerCase();
+//     let list = document.getElementById("inProgress");
+//     list.innerHTML = "";
 
-    let progress = tasks.filter((t) => t["status"] == "inProgress");
-    renderSearchListInProgress(progress, list, searchInput);
-  }
-}
+//     let progress = tasks.filter((t) => t["status"] == "inProgress");
+//     renderSearchListInProgress(progress, list, searchInput);
+//   }
+// }
 
 /**
  * Filters and updates the 'In Progress' task section in a responsive manner based on a search input.
@@ -383,18 +393,18 @@ function filterInProgress() {
  * @function
  * @returns {void}
  */
-function filterInProgressResponsive() {
-  let searchInput = document.getElementById("search-input-responsive").value;
+// function filterInProgressResponsive() {
+//   let searchInput = document.getElementById("search-input-responsive").value;
 
-  if (searchInput > "") {
-    searchInput = searchInput.toLowerCase();
-    let list = document.getElementById("inProgress");
-    list.innerHTML = "";
+//   if (searchInput > "") {
+//     searchInput = searchInput.toLowerCase();
+//     let list = document.getElementById("inProgress");
+//     list.innerHTML = "";
 
-    let inProgress = tasks.filter((t) => t["status"] == "inProgress");
-    renderSearchListToDo(inProgress, list, searchInput);
-  }
-}
+//     let inProgress = tasks.filter((t) => t["status"] == "inProgress");
+//     renderSearchListToDo(inProgress, list, searchInput);
+//   }
+// }
 
 /**
  * Renders a filtered list of 'In Progress' category tasks based on a search query.
@@ -405,22 +415,22 @@ function filterInProgressResponsive() {
  * @param {string} searchInput - The search query to filter tasks.
  * @returns {void}
  */
-function renderSearchListInProgress(progress, list, searchInput) {
-  searchElementsFound = false;
+// function renderSearchListInProgress(progress, list, searchInput) {
+//   searchElementsFound = false;
 
-  if (progress.length > 0) {
-    for (let i = 0; i < progress.length; i++) {
-      let element = progress[i];
-      if (element["taskName"].toLowerCase().includes(searchInput)) {
-        list.innerHTML += generateHTML(element, i);
-        searchElementsFound = true;
-      }
-    }
-  }
-  if (!searchElementsFound) {
-    list.innerHTML = renderNoInProgress();
-  }
-}
+//   if (progress.length > 0) {
+//     for (let i = 0; i < progress.length; i++) {
+//       let element = progress[i];
+//       if (element["taskName"].toLowerCase().includes(searchInput)) {
+//         list.innerHTML += generateHTML(element, i);
+//         searchElementsFound = true;
+//       }
+//     }
+//   }
+//   if (!searchElementsFound) {
+//     list.innerHTML = renderNoInProgress();
+//   }
+// }
 
 /**
  * Filters and updates the 'Await Feedback' category based on a search query.
@@ -428,17 +438,17 @@ function renderSearchListInProgress(progress, list, searchInput) {
  * @function
  * @returns {void}
  */
-function filterAwaitFeedback() {
-  let searchInput = document.getElementById("search-input").value;
-  if (searchInput > "") {
-    searchInput = searchInput.toLowerCase();
-    let list = document.getElementById("awaitFeedback");
-    list.innerHTML = "";
+// function filterAwaitFeedback() {
+//   let searchInput = document.getElementById("search-input").value;
+//   if (searchInput > "") {
+//     searchInput = searchInput.toLowerCase();
+//     let list = document.getElementById("awaitFeedback");
+//     list.innerHTML = "";
 
-    let feedback = tasks.filter((t) => t["status"] == "awaitFeedback");
-    renderSearchListAwaitFeedback(feedback, list, searchInput);
-  }
-}
+//     let feedback = tasks.filter((t) => t["status"] == "awaitFeedback");
+//     renderSearchListAwaitFeedback(feedback, list, searchInput);
+//   }
+// }
 
 /**
  * Filters and updates the 'Await Feedback' task section in a responsive manner based on a search input.
@@ -448,18 +458,18 @@ function filterAwaitFeedback() {
  * @function
  * @returns {void}
  */
-function filterAwaitFeedbackResponsive() {
-  let searchInput = document.getElementById("search-input-responsive").value;
+// function filterAwaitFeedbackResponsive() {
+//   let searchInput = document.getElementById("search-input-responsive").value;
 
-  if (searchInput > "") {
-    searchInput = searchInput.toLowerCase();
-    let list = document.getElementById("awaitFeedback");
-    list.innerHTML = "";
+//   if (searchInput > "") {
+//     searchInput = searchInput.toLowerCase();
+//     let list = document.getElementById("awaitFeedback");
+//     list.innerHTML = "";
 
-    let awaitFeedback = tasks.filter((t) => t["status"] == "awaitFeedback");
-    renderSearchListToDo(awaitFeedback, list, searchInput);
-  }
-}
+//     let awaitFeedback = tasks.filter((t) => t["status"] == "awaitFeedback");
+//     renderSearchListToDo(awaitFeedback, list, searchInput);
+//   }
+// }
 
 /**
  * Renders a filtered list of 'Await Feedback' category tasks based on a search query.
@@ -470,22 +480,22 @@ function filterAwaitFeedbackResponsive() {
  * @param {string} searchInput - The search query to filter tasks.
  * @returns {void}
  */
-function renderSearchListAwaitFeedback(feedback, list, searchInput) {
-  searchElementsFound = false;
+// function renderSearchListAwaitFeedback(feedback, list, searchInput) {
+//   searchElementsFound = false;
 
-  if (feedback.length > 0) {
-    for (let i = 0; i < feedback.length; i++) {
-      let element = feedback[i];
-      if (element["taskName"].toLowerCase().includes(searchInput)) {
-        list.innerHTML += generateHTML(element, i);
-        searchElementsFound = true;
-      }
-    }
-  }
-  if (!searchElementsFound) {
-    list.innerHTML = renderNoAwaitFeedback();
-  }
-}
+//   if (feedback.length > 0) {
+//     for (let i = 0; i < feedback.length; i++) {
+//       let element = feedback[i];
+//       if (element["taskName"].toLowerCase().includes(searchInput)) {
+//         list.innerHTML += generateHTML(element, i);
+//         searchElementsFound = true;
+//       }
+//     }
+//   }
+//   if (!searchElementsFound) {
+//     list.innerHTML = renderNoAwaitFeedback();
+//   }
+// }
 
 /**
  * Filters and updates the 'Done' category based on a search query.
@@ -493,17 +503,17 @@ function renderSearchListAwaitFeedback(feedback, list, searchInput) {
  * @function
  * @returns {void}
  */
-function filterDone() {
-  let searchInput = document.getElementById("search-input").value;
-  if (searchInput > "") {
-    searchInput = searchInput.toLowerCase();
-    let list = document.getElementById("done");
-    list.innerHTML = "";
+// function filterDone() {
+//   let searchInput = document.getElementById("search-input").value;
+//   if (searchInput > "") {
+//     searchInput = searchInput.toLowerCase();
+//     let list = document.getElementById("done");
+//     list.innerHTML = "";
 
-    let done = tasks.filter((t) => t["status"] == "done");
-    renderSearchListDone(done, list, searchInput);
-  }
-}
+//     let done = tasks.filter((t) => t["status"] == "done");
+//     renderSearchListDone(done, list, searchInput);
+//   }
+// }
 
 /**
  * Filters and updates the 'Done' task section in a responsive manner based on a search input.
@@ -513,18 +523,18 @@ function filterDone() {
  * @function
  * @returns {void}
  */
-function filterDoneResponsive() {
-  let searchInput = document.getElementById("search-input-responsive").value;
+// function filterDoneResponsive() {
+//   let searchInput = document.getElementById("search-input-responsive").value;
 
-  if (searchInput > "") {
-    searchInput = searchInput.toLowerCase();
-    let list = document.getElementById("done");
-    list.innerHTML = "";
+//   if (searchInput > "") {
+//     searchInput = searchInput.toLowerCase();
+//     let list = document.getElementById("done");
+//     list.innerHTML = "";
 
-    let done = tasks.filter((t) => t["status"] == "done");
-    renderSearchListToDo(done, list, searchInput);
-  }
-}
+//     let done = tasks.filter((t) => t["status"] == "done");
+//     renderSearchListToDo(done, list, searchInput);
+//   }
+// }
 
 /**
  * Renders a filtered list of 'Done' category tasks based on a search query.
@@ -535,22 +545,22 @@ function filterDoneResponsive() {
  * @param {string} searchInput - The search query to filter tasks.
  * @returns {void}
  */
-function renderSearchListDone(done, list, searchInput) {
-  searchElementsFound = false;
+// function renderSearchListDone(done, list, searchInput) {
+//   searchElementsFound = false;
 
-  if (done.length > 0) {
-    for (let i = 0; i < done.length; i++) {
-      let element = done[i];
-      if (element["taskName"].toLowerCase().includes(searchInput)) {
-        list.innerHTML += generateHTML(element, i);
-        searchElementsFound = true;
-      }
-    }
-  }
-  if (!searchElementsFound) {
-    list.innerHTML = renderNoDone();
-  }
-}
+//   if (done.length > 0) {
+//     for (let i = 0; i < done.length; i++) {
+//       let element = done[i];
+//       if (element["taskName"].toLowerCase().includes(searchInput)) {
+//         list.innerHTML += generateHTML(element, i);
+//         searchElementsFound = true;
+//       }
+//     }
+//   }
+//   if (!searchElementsFound) {
+//     list.innerHTML = renderNoDone();
+//   }
+// }
 
 /**
  * Display a detailed task card for a specific task.

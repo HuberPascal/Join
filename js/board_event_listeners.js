@@ -19,7 +19,7 @@ function addOnkeyDownEventListeners() {
   var searchInputResponsive = document.getElementById("search-input-responsive");
   if (searchInputResponsive) {
     searchInputResponsive.addEventListener("keyup", function (event) {
-      filter = document.getElementById("search-input").value;
+      filter = document.getElementById("search-input-responsive").value;
       loadTasksHTML(filter);
     });
   }
@@ -43,7 +43,7 @@ function addOnClickEventListeners() {
   var searchResponsive = document.getElementById("search-responsive");
   if (searchResponsive) {
     searchResponsive.addEventListener("click", function (event) {
-      filter = document.getElementById("search-input").value;
+      filter = document.getElementById("search-responsive").value;
       loadTasksHTML(filter);
     });
   }
