@@ -25,6 +25,10 @@
     display: flex;
 }
 
+.board-section h1 {
+    margin: 0;
+}
+
 .board-section .input-section {
     position: relative;
     display: flex;

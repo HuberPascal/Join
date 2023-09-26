@@ -1,11 +1,12 @@
 .add-task-page-container {
     position: absolute;
-    left: 232px;
+    left: 0;
     right: 0;
-    top: 96px;
+    top: 0;
     bottom: 0;
-    margin: 0;
+    padding: 96px 64px 0 328px;
     overflow-y: scroll;
+    max-width: 1160px;
 }
 
 #addTaskContainer {
@@ -24,8 +25,7 @@
 #addTaskContainer h1 {
     font-weight: 700;
     font-size: 61px;
-    margin: 64px;
-    margin-bottom: 0;
+    margin: 80px 0 0 0;
 }
 
 #addTaskContainer label {
@@ -35,7 +35,6 @@
 #addTaskContainer .task-input-container {
     display: flex;
     height: fit-content;
-    margin: 64px;
 }
 
 #addTaskContainer .task-input-container .task-input {
@@ -49,8 +48,7 @@
     justify-content: flex-start;
     flex-direction: column;
     gap: 20px;
-    min-width: 350px;
-    max-width: 550px;
+    min-width: 270px;
     width: 100%;
     padding-right: 32px;
 }
@@ -70,7 +68,8 @@
 #addTaskContainer .task-subtask {
     width: 100%;
     font-family: 'Inter', sans-serif;
-
+    display: flex;
+    flex-direction: column;
 }
 
 #addTaskContainer #newTaskSubTask,
@@ -79,7 +78,9 @@
 #addTaskContainer #newTaskDate,
 #addTaskContainer #newTaskAssignedContact {
     height: 48px;
-    width: calc(100% - 42px);
+    /* width: calc(100% - 42px); */
+    width: 100%;
+    box-sizing: border-box;
     font-size: 20px;
     border-radius: 10px;
     margin: 12px 0;
@@ -384,10 +385,15 @@
     justify-content: space-between;
     flex-direction: row;
     gap: 16px;
+    max-width: 100%;
 }
 
 #addTaskContainer .prio-radio-option {
     display: none;
+}
+
+label {
+    width: 100%;
 }
 
 #addTaskContainer .priority-button {
@@ -398,7 +404,7 @@
     height: 56px;
     box-sizing: border-box;
     min-width: 80px;
-    width: 143px;
+    /* width: 143px; */
     gap: 8px;
     font-size: 20px;
     background-color: white;
@@ -455,12 +461,11 @@
 
 /* Form Options */
 #addTaskContainer #formOptions {
-    width: calc(100% - 128px);
+    width: 100%;
     display: flex;
     justify-content: flex-end;
     position: relative;
     gap: 10px;
-    margin: 0 64px;
 }
 
 /* Animated Icons */

@@ -8,6 +8,10 @@
     font-family: 'Inter', sans-serif;
 }
 
+.headline-h1 h1 {
+    margin: 0 !important;
+}
+
 .headline-h1 {
     display: flex;
     align-items: center;
@@ -34,6 +38,7 @@
 .summery-container {
     display: flex;
     justify-content: space-between;
+    max-width: 580px;
 }
 
 .tasks-top {
@@ -58,7 +63,7 @@
 }
 
 .task-middle {
-    width: 560px;
+    width: 100%;
     height: 168px;
     border-radius: 30px;
     display: flex;
@@ -86,7 +91,7 @@
 }
 
 .task-bottom {
-    width: 264px;
+    width: 100%;
     height: 168px;
     border-radius: 30px;
     display: flex;
@@ -194,28 +199,57 @@
     margin-block-end: 0.67em;
 }
 
-@media(max-width: 1200px) {
+@media (max-width: 1300px) {
+    #greeting-time {
+        font-size: 38px;
+    }
+
+    .greeting h1 {
+        font-size: 52px;
+    }
+
+    .headline-h1 h1 {
+        font-size: 47px;
+    }
+
+    .summery-container {
+        max-width: 480px;
+    }
+
+    .tasks-top {
+        width: 140px;
+        height: 140px;
+    }
+
+    .summary-field {
+        margin-left: 36px;
+    }
+
+    .task-middle {
+        gap: 32px;
+    }
+}
+
+@media (max-width: 1250px) {
+    .body {
+        margin: 96px 30px 0 260px;
+    }
+}
+
+@media(max-width: 1080px) {
     .greeting {
         display: none;
     }
 
 }
 
-@media(max-width: 970px) {
-    .summery-elements {
-        width: 450px;
-    }
-
-    .task-middle {
-        gap: 43px;
-    }
-
-    .summary-field {
-        margin-left: 45px;
+@media(max-width: 900px) {
+    .headline-h1 {
+        gap: 15px;
     }
 
     .headline-h1 span {
-        font-size: 23px;
+        font-size: 22px;
     }
 }
 
@@ -238,10 +272,17 @@
 }
 
 @media(max-width: 600px) {
+    .body {
+        margin: 0 32px;
+        align-items: flex-start;
+    }
+
     .headline-h1 {
         position: relative;
         flex-direction: column;
+        align-items: flex-start;
         gap: 6px;
+        margin-left: 10px;
     }
 
     .headline-h1 h1 {
@@ -255,8 +296,14 @@
     .seperator-responsiv {
         display: inline;
         position: absolute;
-        top: 100px;
-        left: 35px;
+        top: 65px;
+        left: 30px;
+    }
+}
+
+@media(max-width: 530px) {
+    .body {
+        margin: 0 12px;
     }
 }
 
@@ -278,7 +325,7 @@
     }
 
     .summery-elements {
-        width: 360px;
+        width: 420px;
     }
 
     .task-middle {
@@ -316,7 +363,7 @@
     .body {
         position: relative;
         height: fit-content;
-        margin: 116px 0;
+        margin: 116px 12px;
     }
 
     .task-bottom {
@@ -328,11 +375,11 @@
     }
 
     .headline-h1 {
-        margin: 0 0 40px 0;
+        margin: 0 0 40px 10px;
     }
 
     .seperator-responsiv {
-        top: 77px;
+        top: 65px;
         left: 33px;
     }
 
@@ -342,7 +389,17 @@
 
 }
 
+@media (max-width: 440px) {
+    .summery-elements {
+        width: 380px;
+    }
+}
+
 @media(max-width: 400px) {
+    .summery-elements {
+        width: 370px;
+    }
+
     .task-bottom {
         height: 100px;
     }
@@ -367,5 +424,15 @@
 
     h3 {
         font-size: 16px;
+    }
+
+    .body {
+        margin: 116px 8px;
+    }
+}
+
+@media (max-width: 380px) {
+    .summery-elements {
+        width: 350px;
     }
 }

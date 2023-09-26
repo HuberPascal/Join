@@ -13,20 +13,24 @@ function renderLoginContainer() {
 
 function renderLoginContainerTemplate() {
   return /*html*/ `
-  <div id="sign-up-btn-container" class=" animation"><span class="sign-up-text">Not a Join user?</span>
-  <span onclick="renderSignUpForm()" class=sign-up-btn>Sign up</span></div>
+  <div id="sign-up-btn-container" class=" animation">
+    <span class="sign-up-text">Not a Join user?</span>
+    <span onclick="renderSignUpForm()" class=sign-up-btn>Sign up</span>
+  </div>
   <form id="login-form" class="animation" onsubmit="login(); return false">
-  <div class="heading-seperator">
-  <h2 class="login-heading">Log in</h2>
-  <div class="seperator"></div></div>
-  <input required id="login-email" class="input-login email" type="email" placeholder="Email">
-  <input required id="login-password" class="input-login password" type="password" placeholder="Password">
-  <span style="color: red" id="login-message"></span><div class="checkbox-container">
-  <div class="login-checkbox-container"><input class="login-checkbox" id="checkbox" type="checkbox">
-  <label class="checkbox-label" for="checkbox">Remember me</label></div>
-  <span onclick="renderForgotPasswordForm()" class="forgot-password-span">I forgot my Password</span></div> 
-  <div class="login-button-container"><button type="submit" class="login-button">Log in</button>
-  <button onclick="guestLogin()" class="guest-button">Guest Log in</button></div>
+    <div class="heading-seperator">
+      <h2 class="login-heading">Log in</h2>
+      <div class="seperator"></div>
+    </div>
+    <input required id="login-email" class="input-login email" type="email" placeholder="Email">
+    <input required id="login-password" class="input-login password" type="password" placeholder="Password">
+    <span style="color: red" id="login-message"></span><div class="checkbox-container">
+    <div class="login-checkbox-container"><input class="login-checkbox" id="checkbox" type="checkbox">
+      <label class="checkbox-label" for="checkbox">Remember me</label></div>
+      <span onclick="renderForgotPasswordForm()" class="forgot-password-span">I forgot my Password</span></div> 
+      <div class="login-button-container"><button type="submit" class="login-button">Log in</button>
+      <button onclick="guestLogin()" class="guest-button">Guest Log in</button>
+    </div>
   </form>`;
 }
 

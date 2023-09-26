@@ -5,8 +5,6 @@
 
     #addTaskContainer .task-input-container {
         flex-direction: column;
-        align-items: center;
-        margin: unset;
     }
 
     #addTaskContainer .task-input-container .task-input-not-first-col {
@@ -21,15 +19,27 @@
 
     #addTaskContainer {
         align-items: center;
+        /* margin: 96px ; */
+    }
+
+    #addTaskContainer .add-task {
+        width: 100%;
     }
 
     #addTaskContainer h1 {
-        margin: 28px 64px 28px 64px;
+        margin: 80px 0 0 0;
     }
 
     #addTaskContainer #formOptions {
         width: 100%;
-        margin: 0;
+    }
+
+    #addTaskContainer h1 {
+        font-size: 47px;
+    }
+
+    .add-task-page-container {
+        padding: 96px 30px 0 260px
     }
 }
 
@@ -41,19 +51,16 @@
 
 @media (max-width: 800px) {
     .add-task-page-container {
-        left: 0;
-        right: 0;
-        top: 82px;
-        bottom: 82px;
+        padding: 80px 16px 100px 16px;
+    }
+
+    #addTaskContainer h1 {
+        margin: 48px 0 0 0;
     }
 }
 
-@media (max-width: 600px) {
-    #addTaskContainer .task-input-container {
-        margin-left: 16px;
-        margin-right: 16px;
-    }
 
+@media (max-width: 600px) {
     #addTaskTitle {
         font-size: 40px !important;
         padding: 40px 12px !important;
@@ -87,7 +94,6 @@
     .priority-button {
         font-size: 16px !important;
         height: 43px !important;
-        width: 120px !important;
     }
 
     .alternative-button {
@@ -107,7 +113,6 @@
     .priority-button {
         font-size: 14px !important;
         height: 38px !important;
-        width: 100px !important;
     }
 
     #dropDownContactsTextFieldInput {
@@ -151,7 +156,6 @@
     }
 
     #formOptions {
-        margin: 32px 0px 18px -12px !important;
         width: 100% !important;
     }
 }
