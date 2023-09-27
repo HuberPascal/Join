@@ -199,6 +199,19 @@
     margin-block-end: 0.67em;
 }
 
+
+.summeryLogIn {
+    opacity: 0;
+    animation: logInText 0.5s ease-in-out 1s forwards;
+}
+
+@keyframes logInText {
+    to {
+        opacity: 1;
+    }
+}
+
+
 @media (max-width: 1300px) {
     #greeting-time {
         font-size: 38px;

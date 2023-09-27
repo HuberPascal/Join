@@ -13,7 +13,7 @@ function renderLoginContainer() {
 
 function renderLoginContainerTemplate() {
   return /*html*/ `
-  <div id="sign-up-btn-container" class=" animation">
+  <div id="sign-up-btn-container" class="animation">
     <span class="sign-up-text">Not a Join user?</span>
     <span onclick="renderSignUpForm()" class=sign-up-btn>Sign up</span>
   </div>
@@ -180,5 +180,6 @@ async function action(formData) {
  * Redirects the user to a guest login page.
  */
 function guestLogin() {
+  
   window.location.href = `./summary.html?name=Guest`;
 }
