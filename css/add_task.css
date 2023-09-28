@@ -25,7 +25,7 @@
 #addTaskContainer h1 {
     font-weight: 700;
     font-size: 61px;
-    margin: 80px 0 0 0;
+    margin: 64px 0 24px 0;
 }
 
 #addTaskContainer label {
@@ -47,16 +47,15 @@
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    gap: 20px;
-    min-width: 270px;
-    width: 100%;
+    gap: 16px;
+    width: 440px;
     padding-right: 32px;
 }
 
+
 #addTaskContainer .task-input-container .task-input-not-first-col {
     border-left: 1px solid #D1D1D1;
-    padding-right: 0px;
-    padding-left: 32px;
+    padding: 0 0 0 32px;
 }
 
 #addTaskContainer .task-title,
@@ -78,7 +77,6 @@
 #addTaskContainer #newTaskDate,
 #addTaskContainer #newTaskAssignedContact {
     height: 48px;
-    /* width: calc(100% - 42px); */
     width: 100%;
     box-sizing: border-box;
     font-size: 20px;
@@ -385,7 +383,7 @@
     justify-content: space-between;
     flex-direction: row;
     gap: 16px;
-    max-width: 100%;
+    width: 440px;
 }
 
 #addTaskContainer .prio-radio-option {
@@ -393,7 +391,7 @@
 }
 
 label {
-    width: 100%;
+    flex: 1 0 0;
 }
 
 #addTaskContainer .priority-button {
@@ -404,7 +402,7 @@ label {
     height: 56px;
     box-sizing: border-box;
     min-width: 80px;
-    /* width: 143px; */
+    padding: 16px 10px;
     gap: 8px;
     font-size: 20px;
     background-color: white;
@@ -466,6 +464,7 @@ label {
     justify-content: flex-end;
     position: relative;
     gap: 10px;
+    margin-top: 100px;
 }
 
 /* Animated Icons */

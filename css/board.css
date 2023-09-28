@@ -624,23 +624,6 @@
         min-width: 150px;
     }
 
-    /* .creat-task-area::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-        border-radius: 10px;
-        background-color: #F5F5F5;
-    }
-
-    .creat-task-area::-webkit-scrollbar {
-        width: 12px;
-        background-color: #F5F5F5;
-    }
-
-    .creat-task-area::-webkit-scrollbar-thumb {
-        border-radius: 10px;
-        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-        background-color: #d6d6d6;
-    } */
-
     h1 {
         font-size: 47px;
     }
@@ -789,11 +772,8 @@
     display: flex;
     justify-content: center;
     align-items: start;
-    max-width: 90%;
-    height: 925px;
-    max-width: 80%;
+    padding: 0 74px;
     background-color: white;
-    gap: 32px;
     z-index: 1000;
     border-radius: 30px;
     overflow: scroll;
