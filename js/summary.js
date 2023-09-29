@@ -39,18 +39,24 @@ function greetUser() {
  */
 function greetingTime() {
   let greetingTime = document.getElementById("greeting-time");
+  let greetingTimeResponsive = document.getElementById("greeting-time-responsive");
   let hour = new Date().getHours();
   let greetingText = "";
+  let greetingTextResponsive
 
   if (hour >= 5 && hour < 12) {
     greetingText = "Good morning,";
+    greetingTextResponsive = "Good morning!";
   } else if (hour >= 12 && hour < 18) {
     greetingText = "Good afternoon,";
+    greetingTextResponsive = "Good afternoon!";
   } else {
     greetingText = "Good evening,";
+    greetingTextResponsive = "Good evening!";
   }
 
   greetingTime.innerHTML = greetingText;
+  greetingTimeResponsive.innerHTML = greetingTextResponsive;
 }
 
 /**

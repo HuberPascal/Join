@@ -123,6 +123,10 @@
     font-weight: 500;
 }
 
+#greeting-time-responsive {
+    display: none;
+}
+
 .blue-text {
     color: #29ABE2;
 }
@@ -202,12 +206,24 @@
 
 .summeryLogIn {
     opacity: 0;
-    animation: logInText 0.5s ease-in-out 1s forwards;
+    animation: logInText 0.5s ease-in-out 2s forwards;
+}
+
+#greeting-time-responsive {
+    opacity: 1;
+    animation: greetingTimeResponsive 0.5s ease-in-out 1.8s forwards;
 }
 
 @keyframes logInText {
     to {
         opacity: 1;
+    }
+}
+
+@keyframes greetingTimeResponsive {
+    to {
+        opacity: 0;
+        display: none;
     }
 }
 
@@ -250,10 +266,10 @@
 }
 
 @media(max-width: 1080px) {
-    .greeting {
+    #greeting-time,
+    .greeting h1 {
         display: none;
     }
-
 }
 
 @media(max-width: 900px) {
@@ -281,6 +297,19 @@
 
     .headline-h1 span {
         font-size: 20px;
+    }
+
+    #greeting-time-responsive {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        font-size: 36px;
+        font-family: 'Inter', sans-serif;
     }
 }
 
