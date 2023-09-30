@@ -326,9 +326,9 @@ h4 {
     left: 232px;
     top: 96px;
     width: calc(100% - 233px);
-    height: calc(100vh - 96px);
+    height: auto;
     display: flex;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 }
 
 .contact-list-container {
@@ -351,9 +351,9 @@ h4 {
     width: 100%;
 }
 
-.scrollable {
+/* .scrollable {
     overflow-y: scroll;
-}
+} */
 
 .contact-list-letter-header {
     display: flex;

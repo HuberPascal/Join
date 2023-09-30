@@ -175,6 +175,10 @@ function getCategoryClass(task) {
     categoryClass = "category-technical";
   } else if (task["taskCategoryValue"] === "Contact Story") {
     categoryClass = "category-contact-story";
+  } else if (task["taskCategoryValue"] === "User Story") {
+    categoryClass = "category-user-story";
+  } else if (task["taskCategoryValue"] === "Epic") {
+    categoryClass = "category-epic";
   }
   return categoryClass;
 }
@@ -299,26 +303,6 @@ async function deleteTask(taskIndex) {
   }, 500);
 }
 
-/**
- * Filters and updates the 'Todo' category based on a search query.
- *
- * @function
- * @returns {void}
- */
-// function filterToDo() {
-//   let searchInput = document.getElementById("search-input").value;
-//   if (searchInput > "") {
-//     searchInput = searchInput.toLowerCase();
-//     console.log(searchInput)
-//     let list = document.getElementById("toDo");
-//     list.innerHTML = "";
-
-//     let todo = tasks.filter((t) => t["status"] == "toDo");
-//     renderSearchListToDo(todo, list, searchInput);
-//   } else {
-//     loadTasksHTML();
-//   }
-// }
 
 /**
  * Filters and updates the 'Todo' task section in a responsive manner based on a search input.
@@ -350,217 +334,7 @@ function filterToDoResponsive() {
  * @param {string} searchInput - The search query to filter tasks.
  * @returns {void}
  */
-// function renderSearchListToDo(todo, list, searchInput) {
-//   searchElementsFound = false;
 
-//   if (todo.length > 0) {
-//     for (let i = 0; i < todo.length; i++) {
-//       let element = todo[i];
-//       if (element["taskName"].toLowerCase().includes(searchInput)) {
-//         list.innerHTML += generateHTML(element);
-//         searchElementsFound = true;
-//       }
-//     }
-//   }
-//   if (!searchElementsFound) {
-//     list.innerHTML = renderNoTaskToDo();
-//   }
-// }
-
-/**
- * Filters and updates the 'In Progress' category based on a search query.
- *
- * @function
- * @returns {void}
- */
-// function filterInProgress() {
-//   let searchInput = document.getElementById("search-input").value;
-//   if (searchInput > "") {
-//     searchInput = searchInput.toLowerCase();
-//     let list = document.getElementById("inProgress");
-//     list.innerHTML = "";
-
-//     let progress = tasks.filter((t) => t["status"] == "inProgress");
-//     renderSearchListInProgress(progress, list, searchInput);
-//   }
-// }
-
-/**
- * Filters and updates the 'In Progress' task section in a responsive manner based on a search input.
- * This function retrieves the search input value, converts it to lowercase, clears the 'In Progress' section content,
- * and filters 'In Progress' tasks that match the search criteria. It then renders the filtered tasks in the section.
- *
- * @function
- * @returns {void}
- */
-// function filterInProgressResponsive() {
-//   let searchInput = document.getElementById("search-input-responsive").value;
-
-//   if (searchInput > "") {
-//     searchInput = searchInput.toLowerCase();
-//     let list = document.getElementById("inProgress");
-//     list.innerHTML = "";
-
-//     let inProgress = tasks.filter((t) => t["status"] == "inProgress");
-//     renderSearchListToDo(inProgress, list, searchInput);
-//   }
-// }
-
-/**
- * Renders a filtered list of 'In Progress' category tasks based on a search query.
- *
- * @function
- * @param {Array} progress - An array of tasks in the 'In Progress' category.
- * @param {HTMLElement} list - The HTML list element where the filtered tasks will be displayed.
- * @param {string} searchInput - The search query to filter tasks.
- * @returns {void}
- */
-// function renderSearchListInProgress(progress, list, searchInput) {
-//   searchElementsFound = false;
-
-//   if (progress.length > 0) {
-//     for (let i = 0; i < progress.length; i++) {
-//       let element = progress[i];
-//       if (element["taskName"].toLowerCase().includes(searchInput)) {
-//         list.innerHTML += generateHTML(element, i);
-//         searchElementsFound = true;
-//       }
-//     }
-//   }
-//   if (!searchElementsFound) {
-//     list.innerHTML = renderNoInProgress();
-//   }
-// }
-
-/**
- * Filters and updates the 'Await Feedback' category based on a search query.
- *
- * @function
- * @returns {void}
- */
-// function filterAwaitFeedback() {
-//   let searchInput = document.getElementById("search-input").value;
-//   if (searchInput > "") {
-//     searchInput = searchInput.toLowerCase();
-//     let list = document.getElementById("awaitFeedback");
-//     list.innerHTML = "";
-
-//     let feedback = tasks.filter((t) => t["status"] == "awaitFeedback");
-//     renderSearchListAwaitFeedback(feedback, list, searchInput);
-//   }
-// }
-
-/**
- * Filters and updates the 'Await Feedback' task section in a responsive manner based on a search input.
- * This function retrieves the search input value, converts it to lowercase, clears the 'Await Feedback' section content,
- * and filters 'Await Feedback' tasks that match the search criteria. It then renders the filtered tasks in the section.
- *
- * @function
- * @returns {void}
- */
-// function filterAwaitFeedbackResponsive() {
-//   let searchInput = document.getElementById("search-input-responsive").value;
-
-//   if (searchInput > "") {
-//     searchInput = searchInput.toLowerCase();
-//     let list = document.getElementById("awaitFeedback");
-//     list.innerHTML = "";
-
-//     let awaitFeedback = tasks.filter((t) => t["status"] == "awaitFeedback");
-//     renderSearchListToDo(awaitFeedback, list, searchInput);
-//   }
-// }
-
-/**
- * Renders a filtered list of 'Await Feedback' category tasks based on a search query.
- *
- * @function
- * @param {Array} feedback - An array of tasks in the 'Await Feedback' category.
- * @param {HTMLElement} list - The HTML list element where the filtered tasks will be displayed.
- * @param {string} searchInput - The search query to filter tasks.
- * @returns {void}
- */
-// function renderSearchListAwaitFeedback(feedback, list, searchInput) {
-//   searchElementsFound = false;
-
-//   if (feedback.length > 0) {
-//     for (let i = 0; i < feedback.length; i++) {
-//       let element = feedback[i];
-//       if (element["taskName"].toLowerCase().includes(searchInput)) {
-//         list.innerHTML += generateHTML(element, i);
-//         searchElementsFound = true;
-//       }
-//     }
-//   }
-//   if (!searchElementsFound) {
-//     list.innerHTML = renderNoAwaitFeedback();
-//   }
-// }
-
-/**
- * Filters and updates the 'Done' category based on a search query.
- *
- * @function
- * @returns {void}
- */
-// function filterDone() {
-//   let searchInput = document.getElementById("search-input").value;
-//   if (searchInput > "") {
-//     searchInput = searchInput.toLowerCase();
-//     let list = document.getElementById("done");
-//     list.innerHTML = "";
-
-//     let done = tasks.filter((t) => t["status"] == "done");
-//     renderSearchListDone(done, list, searchInput);
-//   }
-// }
-
-/**
- * Filters and updates the 'Done' task section in a responsive manner based on a search input.
- * This function retrieves the search input value, converts it to lowercase, clears the 'Done' section content,
- * and filters 'Done' tasks that match the search criteria. It then renders the filtered tasks in the section.
- *
- * @function
- * @returns {void}
- */
-// function filterDoneResponsive() {
-//   let searchInput = document.getElementById("search-input-responsive").value;
-
-//   if (searchInput > "") {
-//     searchInput = searchInput.toLowerCase();
-//     let list = document.getElementById("done");
-//     list.innerHTML = "";
-
-//     let done = tasks.filter((t) => t["status"] == "done");
-//     renderSearchListToDo(done, list, searchInput);
-//   }
-// }
-
-/**
- * Renders a filtered list of 'Done' category tasks based on a search query.
- *
- * @function
- * @param {Array} done - An array of tasks in the 'Done' category.
- * @param {HTMLElement} list - The HTML list element where the filtered tasks will be displayed.
- * @param {string} searchInput - The search query to filter tasks.
- * @returns {void}
- */
-// function renderSearchListDone(done, list, searchInput) {
-//   searchElementsFound = false;
-
-//   if (done.length > 0) {
-//     for (let i = 0; i < done.length; i++) {
-//       let element = done[i];
-//       if (element["taskName"].toLowerCase().includes(searchInput)) {
-//         list.innerHTML += generateHTML(element, i);
-//         searchElementsFound = true;
-//       }
-//     }
-//   }
-//   if (!searchElementsFound) {
-//     list.innerHTML = renderNoDone();
-//   }
-// }
 
 /**
  * Display a detailed task card for a specific task.

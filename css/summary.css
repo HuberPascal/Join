@@ -16,7 +16,7 @@
     display: flex;
     align-items: center;
     gap: 30px;
-    margin: 80px 0 0 0px;
+    margin: 80px 0 0 10px;
     background-color: #F6F7F8;
     margin-bottom: 30px;
 }
@@ -204,21 +204,21 @@
 }
 
 
-.summeryLogIn {
+/* .summeryLogIn {
     opacity: 0;
     animation: logInText 0.5s ease-in-out 2s forwards;
-}
+} */
 
 #greeting-time-responsive {
     opacity: 1;
     animation: greetingTimeResponsive 0.5s ease-in-out 1.8s forwards;
 }
 
-@keyframes logInText {
+/* @keyframes logInText {
     to {
         opacity: 1;
     }
-}
+} */
 
 @keyframes greetingTimeResponsive {
     to {
@@ -263,9 +263,7 @@
     .body {
         margin: 96px 30px 0 260px;
     }
-}
 
-@media(max-width: 1080px) {
     #greeting-time,
     .greeting h1 {
         display: none;
@@ -311,6 +309,63 @@
         font-size: 36px;
         font-family: 'Inter', sans-serif;
     }
+
+    .summeryLogIn {
+        opacity: 0;
+        animation: logInText 0.5s ease-in-out 2s forwards;
+    }
+
+    @keyframes logInText {
+        to {
+            opacity: 1;
+        }
+    }
+
+    .greet-section {
+        display: none;
+    }
+}
+
+@media (max-height: 880px) {
+    .headline-h1 {
+        margin: 24px 0 24px 10px;
+    }
+
+    h2 {
+        font-size: 47px;
+    }
+
+    .tasks-top {
+        width: 140px;
+        height: 140px;
+    }
+
+    .task-middle {
+        height: 140px;
+        gap: 24px;
+    }
+
+    .task-bottom {
+        height: 140px;
+    }
+
+    .summery-elements {
+        max-width: 480px;
+    }
+
+    .summary-field {
+        margin-left: 43px;
+    }
+
+    .task-bottom-img2,
+    .task-bottom-img1 {
+        top: 24px;
+    }
+
+    .greeting h1 {
+        margin-top: 16px;
+    }
+
 }
 
 @media(max-width: 600px) {
@@ -325,6 +380,7 @@
         align-items: flex-start;
         gap: 6px;
         margin-left: 10px;
+        margin-top: 24px;
     }
 
     .headline-h1 h1 {
@@ -454,12 +510,6 @@
         height: 60px;
     }
 
-    .headline-h1 {
-        width: -webkit-fill-available;
-        align-items: flex-start;
-        margin-left: 24px;
-    }
-
     .font-16 {
         font-size: 14px;
     }
@@ -469,7 +519,25 @@
     }
 
     .body {
-        margin: 116px 8px;
+        margin: 90px 8px;
+        overflow: hidden;
+    }
+
+    .header-responsive {
+        padding: 16px;
+    }
+
+    .headline-h1 {
+        margin-bottom: 20px;
+    }
+
+    .headline-h1 h1 {
+        font-size: 40px;
+    }
+
+    .seperator-responsiv {
+        top: 55px;
+        left: 30px;
     }
 }
 

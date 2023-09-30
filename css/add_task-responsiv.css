@@ -55,6 +55,32 @@
     }
 }
 
+@media (max-height: 880px) {
+    #addTaskContainer #newTaskSubTask, #addTaskContainer .subtask-field, #addTaskContainer #newTaskTitle, #addTaskContainer #newTaskDate, #addTaskContainer #newTaskAssignedContact {
+        height: 37px;
+    }
+
+    #addTaskContainer #newTaskDescription {
+        height: 100px;
+    }
+
+    #addTaskContainer .priority-button {
+        padding: 10px;
+    }
+
+    #addTaskContainer .task-input-container .task-input-col {
+        gap: 10px;
+    }
+
+    #addTaskContainer h1 {
+        margin: 24px 0;
+    }
+
+    #addTaskContainer #formOptions {
+        margin-top: 10px;
+    }
+}
+
 
 @media (max-width: 600px) {
     #addTaskTitle {
@@ -154,4 +180,37 @@
     #formOptions {
         width: 100% !important;
     }
+}
+
+@media (max-width: 400px) {
+    #addTaskContainer .task-input-container,
+    #addTaskContainer .task-input-container .task-input-col,
+    #addTaskContainer #newTaskPriority {
+        width: 100%;
+    }
+
+    #addTaskContainer #newTaskPriority {
+        gap: 8px;
+    }
+
+    .add-task-page-container {
+        padding-top: 90px;
+    }
+
+    #addTaskTitle {
+        padding: 0 0 16px 0 !important;
+    }
+
+    #addTaskContainer .task-input-container .task-input-not-first-col {
+        margin-top: 16px;
+    }
+
+    .task-date input {
+        width: 100%;
+    }
+
+    /* #addTaskContainer #newTaskSubTask, #addTaskContainer .subtask-field, #addTaskContainer #newTaskTitle, #addTaskContainer #newTaskDate, #addTaskContainer #newTaskAssignedContact {
+        width: 300px;
+    } */
+
 }

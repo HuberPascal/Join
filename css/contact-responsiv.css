@@ -147,7 +147,7 @@
         max-width: 1000px;
         display: flex;
         justify-content: center;
-        padding: 20px;
+        padding: 20px 20px 30px 20px;
     }
 
     .contact-button {
@@ -259,7 +259,6 @@
 
     #contactList {
         margin-top: 0;
-        padding-bottom: 81px;
     }
 
     .contact-element {
@@ -345,6 +344,12 @@
     }
 }
 
+@media (max-height: 880px) {
+    .selected-contact-container {
+        padding: 24px 43px;
+    }
+}
+
 @media(max-width: 560px) {
     .add-contact-card-header-content h4 {
         margin-bottom: 5px;
@@ -415,4 +420,17 @@
         top: 20px;
         bottom: 20px;
     }
+
+    .contact-list-container {
+        height: 100%;
+    }
+
+    .contact-list-container {
+        padding: 20px 20px 130px 20px;
+    }
+
+    .contacts-container {
+        height: 100%;
+    }
 }
+

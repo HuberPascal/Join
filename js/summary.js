@@ -176,3 +176,4 @@ function filterTasks() {
   filterAndPushTasksByStatus("done");
   setNumber();
 }
+
