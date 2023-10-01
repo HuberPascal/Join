@@ -181,23 +181,24 @@ h4 {
 
 #contactChangeNotificationContainer {
     position: absolute;
+    left: 43px;
+    right: 43px;
     z-index: 999;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     border-radius: 10px;
     background-color: #2A3647;
-    left: 54px;
+    /* left: 54px; */
 }
 
 .contact-change-notification {
-    z-index: 999;
-    color: white;
-    width: 326px;
-    height: 74px;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
+    height: 74px;
+    z-index: 999;
 }
 
 .shift-in {
@@ -328,7 +329,6 @@ h4 {
     width: calc(100% - 233px);
     height: auto;
     display: flex;
-    /* overflow-y: scroll; */
 }
 
 .contact-list-container {
@@ -336,13 +336,13 @@ h4 {
     border-right: 1px solid #D1D1D1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: flex-start;
     position: relative;
     padding: 32px 24px;
     box-shadow: 4px 0 4px 0 rgba(0, 0, 0, 0.1);
     width: 30%;
     max-width: 350px;
+    height: 100vh;
 }
 
 #contactList {
@@ -350,10 +350,6 @@ h4 {
     align-items: flex-start;
     width: 100%;
 }
-
-/* .scrollable {
-    overflow-y: scroll;
-} */
 
 .contact-list-letter-header {
     display: flex;

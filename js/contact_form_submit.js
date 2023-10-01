@@ -60,7 +60,6 @@ function setNotificationValue(input) {
     const notifications = document.getElementsByClassName("change-contact-notification-text");
     for (let i = 0; i < notifications.length; i++) {
         const notification = notifications[i];
-        console.log(notification);
         switch (input) {
             case 'Created': notification.innerHTML = "Contact successfully created";
                 break;
@@ -69,7 +68,9 @@ function setNotificationValue(input) {
             case 'Delete': notification.innerHTML = "Contact deleted";
                 break;
             default: notification.innerHTML = "Error adapting contact";
-        }}}
+        }
+    }
+}
 
 /**
  * Renders the notification layout within the selected contact container
