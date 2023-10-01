@@ -778,6 +778,12 @@
     }
 }
 
+@media(max-width: 560px) {
+    #addTaskCard {
+        padding: 0 !important;
+    }
+}
+
 @media(max-width: 410px) {
     .board-section .title-h4 {
         font-size: 34px;
