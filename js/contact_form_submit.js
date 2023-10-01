@@ -130,6 +130,7 @@ function saveContact() {
         removeElementsByPartialClassName("add-contact");
         renderSelectedContactBody();
         renderContactSavedElement();
+        toggleEditContactMenu();
     }
 }
 

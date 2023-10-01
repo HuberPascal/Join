@@ -127,7 +127,6 @@ function deleteContact(contactIndex) {
   emptySelectedContactBody();
   removeElementsByPartialClassName("add-contact");
   renderContactDeleteElement();
-  toggleEditContactMenu();
 }
 
 /**

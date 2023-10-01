@@ -189,7 +189,6 @@ h4 {
     justify-content: center;
     border-radius: 10px;
     background-color: #2A3647;
-    /* left: 54px; */
 }
 
 .contact-change-notification {
@@ -556,6 +555,12 @@ h4 {
 }
 
 
+@media (min-width: 1200px) {
+    .responsive-contact-menu-container {
+        display: none;
+    }
+}
+
 @media (max-width: 800px) {
     .visible-add-contact-menu-responsive {
         bottom: 170px;
@@ -599,9 +604,3 @@ h4 {
         bottom: 170px;
     }
 }
-
-/* @media (max-height: 740px) {
-    .visible-add-contact-menu-responsive {
-        bottom: 170px;
-    }
-} */

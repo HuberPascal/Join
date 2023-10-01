@@ -5,7 +5,6 @@
 
     #addTaskContainer .task-input-container {
         flex-direction: column;
-        width: 500px;
     }
 
     #addTaskContainer .task-input-container .task-input-not-first-col {
@@ -28,10 +27,12 @@
 
     #addTaskContainer #formOptions {
         width: 100%;
+        margin-top: 30px;
     }
 
     #addTaskContainer h1 {
         font-size: 47px;
+        margin: 32px 0 !important;
     }
 
     .add-task-page-container {
@@ -48,6 +49,8 @@
 @media (max-width: 800px) {
     .add-task-page-container {
         padding: 80px 16px 100px 16px;
+        display: flex;
+        justify-content: center;
     }
 
     #addTaskContainer h1 {
@@ -129,6 +132,17 @@
     #addTaskContainer #formOptions {
         width: 97%;
     }
+
+    #addTaskContainer h1 {
+        margin: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    #addTaskContainer .task-input-container .task-input-col,
+    #addTaskContainer #newTaskPriority {
+        width: 380px;
+    }
 }
 
 @media (max-width: 500px) {
@@ -180,6 +194,11 @@
     #formOptions {
         width: 100% !important;
     }
+
+    #addTaskContainer .task-input-container .task-input-col,
+    #addTaskContainer #newTaskPriority {
+        width: 350px;
+    }
 }
 
 @media (max-width: 400px) {
@@ -198,7 +217,7 @@
     }
 
     #addTaskTitle {
-        padding: 0 0 16px 0 !important;
+        padding: 16px 0 16px 0 !important;
     }
 
     #addTaskContainer .task-input-container .task-input-not-first-col {
