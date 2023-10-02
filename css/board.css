@@ -833,7 +833,6 @@
     top: 0;
     right: 0;
     bottom: 0;
-    z-index: 999;
     margin: 12px;
     animation: rightToCenter 0.5s ease-in-out forwards;
     font-family: 'Inter', sans-serif;

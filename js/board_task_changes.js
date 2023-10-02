@@ -10,8 +10,7 @@ function openAddTaskTemplate(status = null) {
         status = "toDo";
     }
     document.body.innerHTML +=/*html*/`
-    <div id="addTaskOverlay">
-    </div>
+    <div id="addTaskOverlay"></div>
 
     <div id="addTaskWrapper">
         <div id="addTaskCard" include-tasks-html="./assets/templates/add_task_template.html"></div>

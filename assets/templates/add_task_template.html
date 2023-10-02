@@ -15,7 +15,7 @@
                         <textarea id="newTaskDescription" placeholder="Enter a Description" required></textarea>
                     </div>
                     <div class="task-assigned-contacts">
-                        <label for="newTaskAssignedContact">Assigned to</label>
+                        <label for="dropDownContactsTextFieldInput">Assigned to</label>
                         <div id="newTaskAssignedContact">
                             <input type="text" id="dropDownContactsTextFieldInput"
                                 class='dropdown-field-text toggle-dropdown' placeholder="Select contacts to assign">
@@ -41,9 +41,9 @@
                     </div>
                     <div class="task-priority">
                         <label for="newTaskPriority">Prio</label>
-                        <div id="newTaskPriority">
+                        <div id="priorityContainer">
                             <label>
-                                <input required type="radio" name="priority" value="urgent" 
+                                <input required type="radio" id="newTaskPriority" name="priority" value="urgent" 
                                 onclick="setTaskPrio('urgent')">
                                 <div id="urgentButton" class="priority-button">
                                     Urgent
@@ -84,7 +84,7 @@
                         </div>
                     </div>
                     <div class="task-subtask">
-                        <label for="newTaskSubTask">Subtasks</label>
+                        <label for="subtaskField">Subtasks</label>
                         <div class="subtask-field">
                             <input type="text" class="subtask-input-field" id="subtaskField"
                                 placeholder="Add new Subtask">

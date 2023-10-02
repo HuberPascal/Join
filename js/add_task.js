@@ -150,6 +150,7 @@ function setSelectContactEventListeners() {
   element.addEventListener("focus", function (event) {
     elementToShow.classList.toggle("show-flex");
   });
+  
 
   // Hide the dropdown menu when clicking outside of it
   document.addEventListener("click", function (event) {
