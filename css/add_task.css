@@ -89,6 +89,10 @@
 }
 
 #addTaskContainer .subtask-field {
+    border: none !important;
+}
+
+#addTaskContainer .subtask-field {
     width: 100%;
 }
 
@@ -238,6 +242,7 @@
     border-bottom-right-radius: 10px;
     border: 1px solid #D1D1D1;
     border-top: none;
+    /* margin: 8px 16px; */
 }
 
 #addTaskContainer .assign-contact-option:hover {

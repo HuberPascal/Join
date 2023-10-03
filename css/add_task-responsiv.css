@@ -41,7 +41,7 @@
 }
 
 @media (max-width: 1000px) {
-    #addTaskContainer #newTaskPriority {
+    #addTaskContainer #priorityContainer {
         flex-direction: row;
     }
 }
@@ -55,6 +55,10 @@
 
     #addTaskContainer h1 {
         margin: 48px 0 0 0;
+    }
+
+    #addTaskContainer .add-task {
+        padding-bottom: 100px;
     }
 }
 
@@ -110,7 +114,7 @@
         font-size: 18px !important;
     }
 
-    #newTaskPriority {
+    #priorityContainer {
         flex-direction: row !important;
         gap: unset;
         justify-content: space-between;
@@ -140,7 +144,7 @@
     }
 
     #addTaskContainer .task-input-container .task-input-col,
-    #addTaskContainer #newTaskPriority {
+    #addTaskContainer #priorityContainer {
         width: 380px;
     }
 }
@@ -196,7 +200,14 @@
     }
 
     #addTaskContainer .task-input-container .task-input-col,
-    #addTaskContainer #newTaskPriority {
+    #addTaskContainer #priorityContainer {
+        width: 380px;
+    }
+}
+
+@media (max-width: 420px) {
+    #addTaskContainer .task-input-container .task-input-col,
+    #addTaskContainer #priorityContainer {
         width: 350px;
     }
 }
@@ -204,11 +215,11 @@
 @media (max-width: 400px) {
     #addTaskContainer .task-input-container,
     #addTaskContainer .task-input-container .task-input-col,
-    #addTaskContainer #newTaskPriority {
+    #addTaskContainer #priorityContainer {
         width: 100%;
     }
 
-    #addTaskContainer #newTaskPriority {
+    #addTaskContainer #priorityContainer {
         gap: 8px;
     }
 
