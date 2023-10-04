@@ -6,7 +6,7 @@ async function addUser(){
     let email = document.getElementById('email');
     let password = document.getElementById('password');
 
-    let user={'username': username.value, 'email': email.value, 'password': password.value};
+    let user={'username': username.value, 'email': email.value, 'password': password.value, 'greeting': true};
     users.push(user);
     setItem("users",users);
     signedUp();

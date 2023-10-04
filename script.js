@@ -4,6 +4,8 @@ let tasks = [];
 
 let contacts = [];
 
+// let loginMessageDisplayed;
+
 let currentSelectedUser;
 
 let contactIconColors = [
@@ -127,15 +129,9 @@ function getContactInitials(contact) {
 function bgDark(x) {
   if (x < 4) {
     document.getElementById(`menu-link${x}`).classList.add("bg-dark", "white");
-    document
-      .getElementById(`menu-responsive-link${x}`)
-      .classList.add("bg-dark", "white");
-    document.getElementById(
-      `menu-img${x}`
-    ).src = `assets/image/sidebar/menu-${x}-white.svg`;
-    document.getElementById(
-      `menu-responsive-img${x}`
-    ).src = `assets/image/sidebar/menu-${x}-white.svg`;
+    document.getElementById(`menu-responsive-link${x}`).classList.add("bg-dark", "white");
+    document.getElementById(`menu-img${x}`).src = `assets/image/sidebar/menu-${x}-white.svg`;
+    document.getElementById(`menu-responsive-img${x}`).src = `assets/image/sidebar/menu-${x}-white.svg`;
   }
 }
 

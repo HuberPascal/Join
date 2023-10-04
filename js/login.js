@@ -109,9 +109,14 @@ function login() {
   );
 
   if (user) {
-    window.location.href = `./summary.html?name=${user.username}`;
-  } else message.innerHTML = "Wrong password or email! Try again.";
+      window.location.href = `./summary.html?name=${user.username}`;
+  } else {
+      message.innerHTML = "Wrong password or email! Try again.";
+  }
+
+  localStorage.setItem('loginMessageDisplayed', true);
 }
+
 
 /**
  * Check's if the user is registred, if not a message is displayed.

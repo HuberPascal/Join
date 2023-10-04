@@ -1,3 +1,5 @@
+
+
 const monthNames = [
   "January",
   "February",
@@ -21,6 +23,7 @@ let done = [];
 const today = new Date();
 
 async function initSummary() {
+  loginTimeMessage();
   await init();
   await includeHTML(0);
   greetUser();
@@ -29,10 +32,12 @@ async function initSummary() {
   setUserHeaderInitials();
 }
 
+
 function greetUser() {
   greetingTime();
   greetingUser();
 }
+
 
 /**
  * Displays a greeting message based on the current time of day.
@@ -141,6 +146,32 @@ function setNumber() {
   urgentContainer.innerHTML = toDo.length;
   toDoContainer.innerHTML = toDo.length;
   doneContainer.innerHTML = done.length;
+}
+
+
+/**
+ * Displays a greeting message if the user is logged in, specifically for responsive view.
+ * @function
+ */
+function loginTimeMessage() {
+  let loginMessageDisplayed = JSON.parse(localStorage.getItem('loginMessageDisplayed'));
+
+  if(loginMessageDisplayed) {
+    let body = document.getElementById('summaryBody');
+    let greetingResponsiveText = document.getElementById('greeting-time-responsive');
+
+    body.classList.add('summeryLogIn');
+    greetingResponsiveText.classList.add('greeting-time-responsive');
+    localStorage.setItem('loginMessageDisplayed', false);
+  }
+}
+
+/**
+ * Sets the localStorage value to control the display of the greeting message.
+ * @function
+ */
+function logoutTimeMessage() {
+  localStorage.setItem('loginMessageDisplayed', true);
 }
 
 /**
