@@ -28,7 +28,24 @@ let contactIconColors = [
 
 async function init() {
   await getStorageData();
+
+  if (!tasks) {
+      tasks = [];
+      await setItem("tasks", tasks);
+  }
+
+  if (!contacts) {
+      contacts = [];
+      await setItem("contacts", contacts);
+  }
+
+  if (!users) {
+      users = [];
+      await setItem("users", users);
+  }
 }
+
+
 
 /**
  * Asynchronously loads user,tasks data from storage and assigns it to the global variables 'users','tasks'.

@@ -8,23 +8,28 @@
  */
 function renderContactAssignmentDropDown() {
     const contactList = document.getElementById('selectAssignedContactList');
-    contactList.innerHTML = "";
 
-    for (let i = 0; i < contacts.length; i++) {
-        const contact = contacts[i];
-        let contactName = contact['name'];
-        let contactIcon = getContactIconHtml(contact);
+    // Nur fortfahren, wenn das Element vorhanden ist
+    if (contactList) {
+        contactList.innerHTML = "";
 
-        contactList.innerHTML +=/*html*/`
-        <div onclick='selectTaskContact(this)' id='assignableContact${i}' class='assign-contact-option'>
-            <div class='contact-information'>
-                ${contactIcon}
-                ${contactName}
-            </div>
-            <img src="./assets/icons/checkbox-empty.svg" id="selectedContactCheckBox${i}" class="selected-contact-checkbox">
-        </div>`;
+        for (let i = 0; i < contacts.length; i++) {
+            const contact = contacts[i];
+            let contactName = contact['name'];
+            let contactIcon = getContactIconHtml(contact);
+
+            contactList.innerHTML +=/*html*/`
+            <div onclick='selectTaskContact(this)' id='assignableContact${i}' class='assign-contact-option'>
+                <div class='contact-information'>
+                    ${contactIcon}
+                    ${contactName}
+                </div>
+                <img src="./assets/icons/checkbox-empty.svg" id="selectedContactCheckBox${i}" class="selected-contact-checkbox">
+            </div>`;
+        }
     }
 }
+
 
 /**
  * Shows or hides assignable contacts in the UI based on the input provided.

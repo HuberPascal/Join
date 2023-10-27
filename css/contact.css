@@ -181,6 +181,7 @@ h4 {
 
 #contactChangeNotificationContainer {
     position: absolute;
+    top: 50%;
     left: 43px;
     right: 43px;
     z-index: 999;

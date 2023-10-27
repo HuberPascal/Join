@@ -111,6 +111,7 @@ async function createContact() {
     }
 }
 
+
 /**
  * Saves changes made to a contact by updating its information in the contacts array.
  * If the contact form is valid, it retrieves the input values, updates the selected contact's
