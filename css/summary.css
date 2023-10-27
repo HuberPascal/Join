@@ -55,6 +55,7 @@
     margin: 10px;
     background-color: #FFFFFF;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 .task-text {
@@ -74,6 +75,7 @@
     margin: 10px;
     background-color: #FFFFFF;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 .summary-field {
@@ -102,6 +104,7 @@
     margin: 10px;
     background-color: #FFFFFF;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 .greet-section {
@@ -121,10 +124,6 @@
 #greeting-time {
     font-size: 47px;
     font-weight: 500;
-}
-
-#greeting-time-responsive {
-    display: none;
 }
 
 .blue-text {

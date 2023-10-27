@@ -107,6 +107,7 @@ async function createContact() {
         await updateContactsArray(contactName, contactMail, contactPhone, color);
         updateList();
         renderContactCreatedElement();
+        renderContactAssignmentDropDown();
     }
 }
 

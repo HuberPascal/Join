@@ -38,7 +38,7 @@ function renderContactAssignmentDropDown() {
 function showAvailableContacts(input) {
     for (let i = 0; i < contacts.length; i++) {
         const contact = contacts[i];
-        if (contact['name'].startsWith(input)) {
+        if (contact['name'].toLowerCase().startsWith(input)) {
             document.getElementById("assignableContact" + i).classList.remove('hide');
         } else {
             document.getElementById("assignableContact" + i).classList.add('hide');
