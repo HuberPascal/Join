@@ -126,7 +126,9 @@ function getContactIconHtml(contact) {
  */
 function getContactInitials(contact) {
   const contactNameParts = contact["name"].split(" ");
-  if (contactNameParts[1] != null) {
+  let contactSignature;
+
+  if (contactNameParts.length > 1 && contactNameParts[1]) {
     contactSignature =
       contactNameParts[0][0].toUpperCase() +
       contactNameParts[1][0].toUpperCase();
@@ -135,8 +137,11 @@ function getContactInitials(contact) {
       contactNameParts[0][0].toUpperCase() +
       contactNameParts[0].slice(-1).toUpperCase();
   }
+
   return contactSignature;
 }
+
+
 
 /**
  * This function marks the menu item you are on

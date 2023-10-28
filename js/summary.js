@@ -140,13 +140,31 @@ function setNumber() {
   let urgentContainer = document.getElementById("urgent");
   let toDoContainer = document.getElementById("to-do");
   let doneContainer = document.getElementById("done");
+  
   boardContainer.innerHTML = tasks.length;
   progressContainer.innerHTML = tasksInProgress.length;
   awaitingContainer.innerHTML = awaitingFeedback.length;
-  urgentContainer.innerHTML = toDo.length;
+  urgentContainer.innerHTML = urgentCounter();
   toDoContainer.innerHTML = toDo.length;
   doneContainer.innerHTML = done.length;
 }
+
+function urgentCounter() {
+  let countUrgent = 0;
+  
+  for (let i = 0; i < toDo.length; i++) {
+    if (toDo[i].priority === "urgent") {
+      countUrgent++;
+    }
+  }
+  return countUrgent;
+}
+
+
+
+
+
+
 
 
 /**
