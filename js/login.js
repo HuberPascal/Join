@@ -103,6 +103,7 @@ function checkPassword() {
 function login() {
   let message = document.getElementById("login-message");
   let email = document.getElementById("login-email");
+  console.log(email)
   let password = document.getElementById("login-password");
   let user = users.find(
     (u) => u.email == email.value && u.password == password.value
@@ -123,26 +124,45 @@ function login() {
  */
 function checkEmail(event) {
   let message = document.getElementById("forgot-password-message");
+  let messageNotFound = document.getElementById('forgot-password-info');
   let email = document.getElementById("forgot-password-email");
   let user = users.find((u) => u.email == email.value);
-  checkEmailTemplate(message, user);
+  if (user == undefined) {
+    messageNotFound.classList.remove("d-none");
+    messageNotFound.innerHTML = "This email is not registered.";
+  }  else {
+    messageNotFound.innerHTML = '';
+    checkEmailTemplate(message, user);
+  }
+  
 }
 
 async function checkEmailTemplate(message, user) {
   if (user) {
-    let formData = new FormData(event.target);
     try {
+      // Extrahiere die E-Mail-Adresse aus dem user-Objekt
+      let email = user.email;
+
+      // Erstelle ein FormData-Objekt und füge die E-Mail-Adresse hinzu
+      let formData = new FormData();
+      formData.append('email', email);
+
       let response = await action(formData);
-      if (response.ok) {
+
+      if (response !== null && response.ok) {
         showMessage(message);
       } else {
-        message.innerHTML = "This email is not registered.";
+        console.log("Error in response:", response);
+        message.innerHTML = "An error occurred. Please try again later.";
       }
     } catch (error) {
       console.error("An error occurred:", error);
+      messageNotFound.innerHTML = "An error occurred. Please try again later.";
     }
   }
 }
+
+
 
 /**
  * Displays a message element for a brief period.
@@ -174,17 +194,22 @@ async function onSubmit(event) {
  * @returns {Promise<Response>} - A promise that resolves to the fetch response.
  */
 async function action(formData) {
-  const input = "http://gruppe-671.developerakademie.net/join/send_mail.php";
+  const input = "https://pascal-huber.developerakademie.net/Join-Privat/send_mail.php";
   const requestInit = { method: "post", body: formData };
+  console.log(formData)
   const response = await fetch(input, requestInit);
 
   if (response.ok) return response;
+  
+  console.error("Response not OK:", response);
+  return null; // Return null when response is not OK
 }
+
 
 /**
  * Redirects the user to a guest login page.
  */
 function guestLogin() {
-  
-  window.location.href = `./summary.html?name=Guest`;
+    window.location.href = `./summary.html?name=Guest`;
 }
+

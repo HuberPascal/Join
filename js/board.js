@@ -6,14 +6,14 @@ let currentDraggedElement;
  * @returns {void}
  */
 async function updateBoardHTML() {
-  await init();
-  loadTasksHTML();
-  loadEventListeners();
+    await init();
+    loadTasksHTML();
+    loadEventListeners();
 }
 async function boardInit() {
-  await includeHTML(2);
-  updateBoardHTML();
-  setUserHeaderInitials();
+    await includeHTML(2);
+    updateBoardHTML();
+    setUserHeaderInitials();
 }
 
 /**
@@ -25,43 +25,38 @@ async function boardInit() {
  * @returns {void}
  */
 function loadTasksHTML(filter = null) {
-  document.getElementById("toDo").innerHTML = "";
-  document.getElementById("inProgress").innerHTML = "";
-  document.getElementById("awaitFeedback").innerHTML = "";
-  document.getElementById("done").innerHTML = "";
+    document.getElementById("toDo").innerHTML = "";
+    document.getElementById("inProgress").innerHTML = "";
+    document.getElementById("awaitFeedback").innerHTML = "";
+    document.getElementById("done").innerHTML = "";
 
-  const todo = tasks.filter((t) => t["status"] == "toDo" && checkFilter(t, filter));
-  const inProgress = tasks.filter((t) => t["status"] == "inProgress" && checkFilter(t, filter));
-  const awaitFeedback = tasks.filter((t) => t["status"] == "awaitFeedback" && checkFilter(t, filter));
-  const done = tasks.filter((t) => t["status"] == "done" && checkFilter(t, filter));
+    const todo = tasks.filter((t) => t["status"] == "toDo" && checkFilter(t, filter));
+    const inProgress = tasks.filter((t) => t["status"] == "inProgress" && checkFilter(t, filter));
+    const awaitFeedback = tasks.filter((t) => t["status"] == "awaitFeedback" && checkFilter(t, filter));
+    const done = tasks.filter((t) => t["status"] == "done" && checkFilter(t, filter));
 
-  const tasksMatchFilter = todo.length > 0 || inProgress.length > 0 || awaitFeedback.length > 0 || done.length > 0;
+    const tasksMatchFilter = todo.length > 0 || inProgress.length > 0 || awaitFeedback.length > 0 || done.length > 0;
 
-  if (tasksMatchFilter) {
-    for (let index = 0; index < tasks.length; index++) {
-      const task = tasks[index];
-      if (checkFilter(task, filter)) {
-        renderTodoTaskHTML(todo, task, index);
-        renderInProgressTaskHTML(inProgress, task, index);
-        renderAwaitFeedbackTaskHTML(awaitFeedback, task, index);
-        renderDoneTaskHTML(done, task, index);
-      }
+    if (tasksMatchFilter) {
+        for (let index = 0; index < tasks.length; index++) {
+            const task = tasks[index];
+            if (checkFilter(task, filter)) {
+                renderTodoTaskHTML(todo, task, index);
+                renderInProgressTaskHTML(inProgress, task, index);
+                renderAwaitFeedbackTaskHTML(awaitFeedback, task, index);
+                renderDoneTaskHTML(done, task, index);
+            }
+        }
+    } else {
+        document.getElementById("toDo").innerHTML = renderNoTaskToDo();
+        document.getElementById("inProgress").innerHTML = renderNoInProgress();
+        document.getElementById("awaitFeedback").innerHTML = renderNoAwaitFeedback();
+        document.getElementById("done").innerHTML = renderNoDone();
     }
-  } else {
-    document.getElementById('toDo').innerHTML = renderNoTaskToDo();
-    document.getElementById('inProgress').innerHTML = renderNoInProgress();
-    document.getElementById('awaitFeedback').innerHTML = renderNoAwaitFeedback();
-    document.getElementById('done').innerHTML = renderNoDone();
-  }
 }
 
-
 function checkFilter(task, filter) {
-  return (
-    filter == null ||
-    task["taskName"].toLowerCase().includes(filter) ||
-    task["taskDescription"].toLowerCase().includes(filter)
-  );
+    return filter == null || task["taskName"].toLowerCase().includes(filter) || task["taskDescription"].toLowerCase().includes(filter);
 }
 
 /**
@@ -71,7 +66,7 @@ function checkFilter(task, filter) {
  * @returns {string} The HTML code for displaying the message.
  */
 function renderNoTaskToDo() {
-  return `<div class="noToDo">No tasks To do</div>`;
+    return `<div class="noToDo">No tasks To do</div>`;
 }
 
 /**
@@ -81,7 +76,7 @@ function renderNoTaskToDo() {
  * @returns {string} The HTML code for displaying the message.
  */
 function renderNoInProgress() {
-  return `<div class="noToDo">No tasks In progress</div>`;
+    return `<div class="noToDo">No tasks In progress</div>`;
 }
 
 /**
@@ -91,7 +86,7 @@ function renderNoInProgress() {
  * @returns {string} The HTML code for displaying the message.
  */
 function renderNoAwaitFeedback() {
-  return `<div class="noToDo">No tasks Await feedback</div>`;
+    return `<div class="noToDo">No tasks Await feedback</div>`;
 }
 
 /**
@@ -101,7 +96,7 @@ function renderNoAwaitFeedback() {
  * @returns {string} The HTML code for displaying the message.
  */
 function renderNoDone() {
-  return `<div class="noToDo">No tasks Done</div>`;
+    return `<div class="noToDo">No tasks Done</div>`;
 }
 
 /**
@@ -112,14 +107,14 @@ function renderNoDone() {
  * @returns {string} The HTML code for the task card.
  */
 function generateHTML(task, index) {
-  const assignedContactsIcons = getAssignedContactIcons(task["assignedContacts"]);
-  const priority = task["priority"];
-  const subtaskCount = task["subTasks"] ? task["subTasks"].length : 0;
-  const completedSubtaskCount = countCompletedSubtasks(task);
-  const progressBarHTML = generateProgressBarHTML(completedSubtaskCount,subtaskCount);
-  const categoryClass = getCategoryClass(task);
-  const priorityImageSrc = getPriorityImageSrc(priority);
-  return renderTaskCards( index, task, categoryClass, progressBarHTML, assignedContactsIcons, priorityImageSrc);
+    const assignedContactsIcons = getAssignedContactIcons(task["assignedContacts"]);
+    const priority = task["priority"];
+    const subtaskCount = task["subTasks"] ? task["subTasks"].length : 0;
+    const completedSubtaskCount = countCompletedSubtasks(task);
+    const progressBarHTML = generateProgressBarHTML(completedSubtaskCount, subtaskCount);
+    const categoryClass = getCategoryClass(task);
+    const priorityImageSrc = getPriorityImageSrc(priority);
+    return renderTaskCards(index, task, categoryClass, progressBarHTML, assignedContactsIcons, priorityImageSrc);
 }
 
 /**
@@ -129,17 +124,17 @@ function generateHTML(task, index) {
  * @returns {number} The number of completed subtasks.
  */
 function countCompletedSubtasks(task) {
-  let completedSubtaskCount = 0;
-  const subtaskCount = task["subTasks"] ? task["subTasks"].length : 0;
+    let completedSubtaskCount = 0;
+    const subtaskCount = task["subTasks"] ? task["subTasks"].length : 0;
 
-  if (subtaskCount > 0) {
-    for (let i = 0; i < subtaskCount; i++) {
-      if (task["subTasks"][i]["isComplete"] === 1) {
-        completedSubtaskCount++;
-      }
+    if (subtaskCount > 0) {
+        for (let i = 0; i < subtaskCount; i++) {
+            if (task["subTasks"][i]["isComplete"] === 1) {
+                completedSubtaskCount++;
+            }
+        }
     }
-  }
-  return completedSubtaskCount;
+    return completedSubtaskCount;
 }
 
 /**
@@ -150,17 +145,13 @@ function countCompletedSubtasks(task) {
  * @returns {string} The HTML code for the progress bar.
  */
 function generateProgressBarHTML(completedSubtaskCount, subtaskCount) {
-  let progressBarHTML = "";
+    let progressBarHTML = "";
 
-  if (subtaskCount > 0) {
-    const progressPercentage = (completedSubtaskCount / subtaskCount) * 100;
-    progressBarHTML = renderProgressBar(
-      progressPercentage,
-      completedSubtaskCount,
-      subtaskCount
-    );
-  }
-  return progressBarHTML;
+    if (subtaskCount > 0) {
+        const progressPercentage = (completedSubtaskCount / subtaskCount) * 100;
+        progressBarHTML = renderProgressBar(progressPercentage, completedSubtaskCount, subtaskCount);
+    }
+    return progressBarHTML;
 }
 
 /**
@@ -170,17 +161,17 @@ function generateProgressBarHTML(completedSubtaskCount, subtaskCount) {
  * @returns {string} The CSS class corresponding to the task's category.
  */
 function getCategoryClass(task) {
-  let categoryClass = "";
-  if (task["taskCategoryValue"] === "Technical Task") {
-    categoryClass = "category-technical";
-  } else if (task["taskCategoryValue"] === "Contact Story") {
-    categoryClass = "category-contact-story";
-  } else if (task["taskCategoryValue"] === "User Story") {
-    categoryClass = "category-user-story";
-  } else if (task["taskCategoryValue"] === "Epic") {
-    categoryClass = "category-epic";
-  }
-  return categoryClass;
+    let categoryClass = "";
+    if (task["taskCategoryValue"] === "Technical Task") {
+        categoryClass = "category-technical";
+    } else if (task["taskCategoryValue"] === "Contact Story") {
+        categoryClass = "category-contact-story";
+    } else if (task["taskCategoryValue"] === "User Story") {
+        categoryClass = "category-user-story";
+    } else if (task["taskCategoryValue"] === "Epic") {
+        categoryClass = "category-epic";
+    }
+    return categoryClass;
 }
 
 /**
@@ -190,30 +181,26 @@ function getCategoryClass(task) {
  * @returns {string} The HTML code for assigned contact icons.
  */
 function getAssignedContactIcons(assignedContacts) {
-  let contactIconHtml = "";
-  let firstItem = true;
-  let insertedContacts = 0;
+    let contactIconHtml = "";
+    let firstItem = true;
+    let insertedContacts = 0;
 
-  if (assignedContacts != null) {
-    assignedContacts.forEach((assignedContact) => {
-      if (insertedContacts < 6) {
-        let contactIcon = getContactIconHtml(contacts[assignedContact]);
-        if (firstItem == true) {contactIcon = contactIcon.replace(
-            /class="circle"/g,
-            'class="circle circle-1"'
-          );
-          firstItem = false;
-        } else {contactIcon = contactIcon.replace(
-            /class="circle"/g,
-            'class="circle circle-2"'
-          );
-        }
-        contactIconHtml += contactIcon;
-        insertedContacts++;
-      }
-    });
-  }
-  return contactIconHtml;
+    if (assignedContacts != null) {
+        assignedContacts.forEach((assignedContact) => {
+            if (insertedContacts < 6) {
+                let contactIcon = getContactIconHtml(contacts[assignedContact]);
+                if (firstItem == true) {
+                    contactIcon = contactIcon.replace(/class="circle"/g, 'class="circle circle-1"');
+                    firstItem = false;
+                } else {
+                    contactIcon = contactIcon.replace(/class="circle"/g, 'class="circle circle-2"');
+                }
+                contactIconHtml += contactIcon;
+                insertedContacts++;
+            }
+        });
+    }
+    return contactIconHtml;
 }
 
 /**
@@ -224,7 +211,7 @@ function getAssignedContactIcons(assignedContacts) {
  * @returns {void}
  */
 function highlight(id) {
-  document.getElementById(id).classList.add("drag-area-highlight");
+    document.getElementById(id).classList.add("drag-area-highlight");
 }
 
 /**
@@ -235,7 +222,7 @@ function highlight(id) {
  * @returns {void}
  */
 function removeHighlight(id) {
-  document.getElementById(id).classList.remove("drag-area-highlight");
+    document.getElementById(id).classList.remove("drag-area-highlight");
 }
 
 /**
@@ -246,7 +233,7 @@ function removeHighlight(id) {
  * @returns {void}
  */
 function startDragging(id) {
-  currentDraggedElement = id;
+    currentDraggedElement = id;
 }
 
 /**
@@ -257,7 +244,7 @@ function startDragging(id) {
  * @returns {void}
  */
 function allowDrop(ev) {
-  ev.preventDefault();
+    ev.preventDefault();
 }
 
 /**
@@ -268,41 +255,40 @@ function allowDrop(ev) {
  * @returns {void}
  */
 function moveTo(ev) {
-  ev.preventDefault();
+    ev.preventDefault();
 
-  currentNode = ev.target;
-  let category = currentNode.getAttribute("data-category");
-  if (category == null) {
-    currentNode = currentNode.parentNode;
-    category = currentNode.getAttribute("data-category");
+    currentNode = ev.target;
+    let category = currentNode.getAttribute("data-category");
     if (category == null) {
-      currentNode = currentNode.parentNode;
-      category = currentNode.getAttribute("data-category");
-      if (category == null) {
         currentNode = currentNode.parentNode;
         category = currentNode.getAttribute("data-category");
-      }
+        if (category == null) {
+            currentNode = currentNode.parentNode;
+            category = currentNode.getAttribute("data-category");
+            if (category == null) {
+                currentNode = currentNode.parentNode;
+                category = currentNode.getAttribute("data-category");
+            }
+        }
     }
-  }
 
-  if (category && currentDraggedElement !== undefined) {
-    tasks[currentDraggedElement]["status"] = category;
-    setItem("tasks", tasks);
-    loadTasksHTML();
-  }
+    if (category && currentDraggedElement !== undefined) {
+        tasks[currentDraggedElement]["status"] = category;
+        setItem("tasks", tasks);
+        loadTasksHTML();
+    }
 }
 
 async function deleteTask(taskIndex) {
-  tasks.splice([taskIndex], 1);
-  setItem("tasks", tasks);
-  removeOverlayBoard();
-  renderTaskDeletedElement();
+    tasks.splice([taskIndex], 1);
+    setItem("tasks", tasks);
+    removeOverlayBoard();
+    renderTaskDeletedElement();
 
-  setTimeout(() => {
-    loadTasksHTML();
-  }, 500);
+    setTimeout(() => {
+        loadTasksHTML();
+    }, 500);
 }
-
 
 /**
  * Filters and updates the 'Todo' task section in a responsive manner based on a search input.
@@ -313,16 +299,16 @@ async function deleteTask(taskIndex) {
  * @returns {void}
  */
 function filterToDoResponsive() {
-  let searchInput = document.getElementById("search-input-responsive").value;
+    let searchInput = document.getElementById("search-input-responsive").value;
 
-  if (searchInput > "") {
-    searchInput = searchInput.toLowerCase();
-    let list = document.getElementById("todo");
-    list.innerHTML = "";
+    if (searchInput > "") {
+        searchInput = searchInput.toLowerCase();
+        let list = document.getElementById("todo");
+        list.innerHTML = "";
 
-    let todo = tasks.filter((t) => t["status"] == "toDo");
-    renderSearchListToDo(todo, list, searchInput);
-  }
+        let todo = tasks.filter((t) => t["status"] == "toDo");
+        renderSearchListToDo(todo, list, searchInput);
+    }
 }
 
 /**
@@ -335,45 +321,38 @@ function filterToDoResponsive() {
  * @returns {void}
  */
 
-
 /**
  * Display a detailed task card for a specific task.
  *
  * @param {number} index - The index of the task to display.
  */
 function showTaskCard(index) {
-  const task = tasks[index];
-  const categoryClass = getCategoryClass(task);
-  const {
-    taskCategoryValue: category,
-    taskName: name,
-    taskDescription: description,
-    taskDate: date,
-    priority,
-  } = task;
-  const assignedContactsHTML = getAssignedContacts(task["assignedContacts"]);
-  const getAssignedText = getAssignedContainer(task["assignedContacts"]);
-  const getSubtaskText = getSubtaskContainer(task["subTasks"]);
-  const subtasksHTML = getSubtasks(task["subTasks"], task, index);
+    const task = tasks[index];
+    const categoryClass = getCategoryClass(task);
+    const { taskCategoryValue: category, taskName: name, taskDescription: description, taskDate: date, priority } = task;
+    const assignedContactsHTML = getAssignedContacts(task["assignedContacts"]);
+    const getAssignedText = getAssignedContainer(task["assignedContacts"]);
+    const getSubtaskText = getSubtaskContainer(task["subTasks"]);
+    const subtasksHTML = getSubtasks(task["subTasks"], task, index);
 
-  const showTaskCard = document.getElementById("showTaskCard");
-  const priorityImageSrc = getPriorityImageSrc(priority);
+    const showTaskCard = document.getElementById("showTaskCard");
+    const priorityImageSrc = getPriorityImageSrc(priority);
 
-  showTaskCard.innerHTML = generateTaskCardHTML(
-    index,
-    categoryClass,
-    category,
-    name,
-    description,
-    date,
-    priority,
-    priorityImageSrc,
-    getAssignedText,
-    assignedContactsHTML,
-    getSubtaskText,
-    subtasksHTML
-  );
-  includeEventlistenerToCloseOverlayBoard();
+    showTaskCard.innerHTML = generateTaskCardHTML(
+        index,
+        categoryClass,
+        category,
+        name,
+        description,
+        date,
+        priority,
+        priorityImageSrc,
+        getAssignedText,
+        assignedContactsHTML,
+        getSubtaskText,
+        subtasksHTML
+    );
+    includeEventlistenerToCloseOverlayBoard();
 }
 
 /**
@@ -383,19 +362,16 @@ function showTaskCard(index) {
  * @returns {string} The HTML code for assigned contacts.
  */
 function getAssignedContacts(assignedContacts) {
-  let assignedContactsHTML = "";
+    let assignedContactsHTML = "";
 
-  if (assignedContacts) {
-    for (let i = 0; i < assignedContacts.length; i++) {
-      const assignedContact = assignedContacts[i];
+    if (assignedContacts) {
+        for (let i = 0; i < assignedContacts.length; i++) {
+            const assignedContact = assignedContacts[i];
 
-      assignedContactsHTML += getAssignedContactsRenderHTML(
-        contacts,
-        assignedContact
-      );
+            assignedContactsHTML += getAssignedContactsRenderHTML(contacts, assignedContact);
+        }
     }
-  }
-  return assignedContactsHTML;
+    return assignedContactsHTML;
 }
 
 /**
@@ -405,14 +381,14 @@ function getAssignedContacts(assignedContacts) {
  * @returns {string} The HTML code for the "Assigned To" container or an empty string if no assigned contacts are present.
  */
 function getAssignedContainer(assignedContacts) {
-  let assigned = "";
+    let assigned = "";
 
-  if (assignedContacts) {
-    assigned = `
+    if (assignedContacts) {
+        assigned = `
         <div class="dark-gray">Assigned To:</div>
         `;
-  }
-  return assigned;
+    }
+    return assigned;
 }
 
 /**
@@ -422,23 +398,23 @@ function getAssignedContainer(assignedContacts) {
  * @returns {string} The image source URL corresponding to the priority level. Returns an empty string for unknown priority levels.
  */
 function getPriorityImageSrc(priority) {
-  let imageSrc = "";
+    let imageSrc = "";
 
-  switch (priority.toLowerCase()) {
-    case "low":
-      imageSrc = "assets/icons/prio-low.svg";
-      break;
-    case "medium":
-      imageSrc = "assets/icons/prio-medium.svg";
-      break;
-    case "urgent":
-      imageSrc = "assets/icons/prio-urgent.svg";
-      break;
-    default:
-      imageSrc = "";
-      break;
-  }
-  return imageSrc;
+    switch (priority.toLowerCase()) {
+        case "low":
+            imageSrc = "assets/icons/prio-low.svg";
+            break;
+        case "medium":
+            imageSrc = "assets/icons/prio-medium.svg";
+            break;
+        case "urgent":
+            imageSrc = "assets/icons/prio-urgent.svg";
+            break;
+        default:
+            imageSrc = "";
+            break;
+    }
+    return imageSrc;
 }
 
 /**
@@ -447,21 +423,21 @@ function getPriorityImageSrc(priority) {
  * @param {string} id - The ID of the subtask field whose image should be changed.
  */
 function subtaskChangeImg(id) {
-  let subtaskField = document.getElementById(id);
-  let subtaskFieldSrc = subtaskField.src;
+    let subtaskField = document.getElementById(id);
+    let subtaskFieldSrc = subtaskField.src;
 
-  if (subtaskFieldSrc.indexOf("assets/image/board/Check-button.svg") !== -1) {
-    subtaskField.src = "assets/image/board/Check-button-empty.svg";
-  } else {
-    subtaskField.src = "assets/image/board/Check-button.svg";
-  }
+    if (subtaskFieldSrc.indexOf("assets/image/board/Check-button.svg") !== -1) {
+        subtaskField.src = "assets/image/board/Check-button-empty.svg";
+    } else {
+        subtaskField.src = "assets/image/board/Check-button.svg";
+    }
 }
 
 /**
  * Closes the overlay window on the board.
  */
 function closeBoardOverlay() {
-  document.getElementById("overlayBoard").style.display = "none";
+    document.getElementById("overlayBoard").style.display = "none";
 }
 
 /**
@@ -471,8 +447,8 @@ function closeBoardOverlay() {
  * @param {string} imageId - The ID of the image element to be changed.
  */
 function changeImage(newSrc, imageId) {
-  const image = document.getElementById(imageId);
-  image.src = newSrc;
+    const image = document.getElementById(imageId);
+    image.src = newSrc;
 }
 
 /**
@@ -482,14 +458,14 @@ function changeImage(newSrc, imageId) {
  * @returns {string} The name of the assigned contact or an empty string if no contact is assigned.
  */
 function assignedTo(index) {
-  let indexInContacts = tasks[0]["assignedContacts"][index];
+    let indexInContacts = tasks[0]["assignedContacts"][index];
 
-  if (contacts[indexInContacts] && contacts[indexInContacts]["name"]) {
-    let contactName = contacts[indexInContacts]["name"];
-    return contactName;
-  } else {
-    return "";
-  }
+    if (contacts[indexInContacts] && contacts[indexInContacts]["name"]) {
+        let contactName = contacts[indexInContacts]["name"];
+        return contactName;
+    } else {
+        return "";
+    }
 }
 
 /**
@@ -499,19 +475,19 @@ function assignedTo(index) {
  * @returns {string} The initials of the assigned contact or an empty string if no contact is assigned or available.
  */
 function assignedInicials(index) {
-  let initials = tasks[0]["assignedContacts"][index];
+    let initials = tasks[0]["assignedContacts"][index];
 
-  if (initials !== undefined && contacts[initials]) {
-    return getContactInitials(contacts[initials]);
-  } else {
-    var elementId = `initial${index}`;
-    var divElement = document.getElementById(elementId);
+    if (initials !== undefined && contacts[initials]) {
+        return getContactInitials(contacts[initials]);
+    } else {
+        var elementId = `initial${index}`;
+        var divElement = document.getElementById(elementId);
 
-    if (divElement) {
-      divElement.style.display = "none";
+        if (divElement) {
+            divElement.style.display = "none";
+        }
+        return "";
     }
-    return "";
-  }
 }
 
 /**
@@ -521,14 +497,14 @@ function assignedInicials(index) {
  * @returns {string} The HTML code for the "Subtask" container or an empty string if no subtasks are present.
  */
 function getSubtaskContainer(subtasks) {
-  let subtasksHtml = "";
+    let subtasksHtml = "";
 
-  if (subtasksHtml) {
-    subtasksHtml = `
+    if (subtasksHtml) {
+        subtasksHtml = `
             <div class="dark-gray">Subtask</div>
             `;
-  }
-  return subtasksHtml;
+    }
+    return subtasksHtml;
 }
 
 /**
@@ -540,32 +516,25 @@ function getSubtaskContainer(subtasks) {
  * @returns {string} The HTML code for subtasks or an empty string if no subtasks are present.
  */
 function getSubtasks(subtasks, task, index) {
-  let subtasksHTML = "";
+    let subtasksHTML = "";
 
-  if (subtasks) {
-    for (let i = 0; i < subtasks.length; i++) {
-      const subtask = subtasks[i];
-      const subtaskId = `subtask${i + 1}`;
-      let subtaskStatus = subtasks[i]["isComplete"];
-      let subtaskImgSrc = "";
+    if (subtasks) {
+        for (let i = 0; i < subtasks.length; i++) {
+            const subtask = subtasks[i];
+            const subtaskId = `subtask${i + 1}`;
+            let subtaskStatus = subtasks[i]["isComplete"];
+            let subtaskImgSrc = "";
 
-      if (subtaskStatus === 0) {
-        subtaskImgSrc = "assets/icons/checkbox-empty.svg";
-      } else {
-        subtaskImgSrc = "assets/icons/checkbox-filled.svg";
-      }
+            if (subtaskStatus === 0) {
+                subtaskImgSrc = "assets/icons/checkbox-empty.svg";
+            } else {
+                subtaskImgSrc = "assets/icons/checkbox-filled.svg";
+            }
 
-      subtasksHTML += renderSubtask(
-        subtaskId,
-        subtaskStatus,
-        i,
-        index,
-        subtaskImgSrc,
-        subtask
-      );
+            subtasksHTML += renderSubtask(subtaskId, subtaskStatus, i, index, subtaskImgSrc, subtask);
+        }
     }
-  }
-  return subtasksHTML;
+    return subtasksHTML;
 }
 
 /**
@@ -576,17 +545,17 @@ function getSubtasks(subtasks, task, index) {
  * @param {number} index - The index of the task.
  */
 function saveSubtask(subtaskStatus, i, index) {
-  if (subtaskStatus == 0) {
-    subtaskStatus = 1;
-  } else {
-    subtaskStatus = 0;
-  }
+    if (subtaskStatus == 0) {
+        subtaskStatus = 1;
+    } else {
+        subtaskStatus = 0;
+    }
 
-  if (subtaskStatus !== undefined) {
-    tasks[index]["subTasks"][i]["isComplete"] = subtaskStatus;
-    setItem("tasks", tasks);
-  }
-  showTaskCard(index);
+    if (subtaskStatus !== undefined) {
+        tasks[index]["subTasks"][i]["isComplete"] = subtaskStatus;
+        setItem("tasks", tasks);
+    }
+    showTaskCard(index);
 }
 
 /**
@@ -597,19 +566,19 @@ function saveSubtask(subtaskStatus, i, index) {
  * @param {string} category - The target category ('toDo', 'inProgress', 'awaitFeedback', or 'done').
  */
 function showMoveTo(event, index, category) {
-  event.stopPropagation();
+    event.stopPropagation();
 
-  document.getElementById(`taskCard${index}`).innerHTML = renderMoveToInTaskCards(index);
+    document.getElementById(`taskCard${index}`).innerHTML = renderMoveToInTaskCards(index);
 
-  if (category == 'toDo') {
-    document.getElementById('moveToDo').classList.add('current-category');
-  } else if (category == 'inProgress') {
-    document.getElementById('moveInProgress').classList.add('current-category');
-  } else if (category == 'awaitFeedback') {
-    document.getElementById('moveAwaitFeedback').classList.add('current-category');
-  } else if (category == 'done') {
-    document.getElementById('moveDone').classList.add('current-category');
-  }
+    if (category == "toDo") {
+        document.getElementById("moveToDo").classList.add("current-category");
+    } else if (category == "inProgress") {
+        document.getElementById("moveInProgress").classList.add("current-category");
+    } else if (category == "awaitFeedback") {
+        document.getElementById("moveAwaitFeedback").classList.add("current-category");
+    } else if (category == "done") {
+        document.getElementById("moveDone").classList.add("current-category");
+    }
 }
 
 /**
@@ -618,8 +587,8 @@ function showMoveTo(event, index, category) {
  * @param {Event} event - The triggering event.
  */
 function renderTaskCardAgain(event) {
-  event.stopPropagation();
-  loadTasksHTML();
+    event.stopPropagation();
+    loadTasksHTML();
 }
 
 /**
@@ -630,11 +599,11 @@ function renderTaskCardAgain(event) {
  * @param {number} index - The index of the task to be updated.
  */
 function newDataCategory(event, category, index) {
-  event.stopPropagation();
+    event.stopPropagation();
 
-  if (category) {
-    tasks[index]['status'] = category;
-    setItem("tasks", tasks);
-    loadTasksHTML();
-  }
+    if (category) {
+        tasks[index]["status"] = category;
+        setItem("tasks", tasks);
+        loadTasksHTML();
+    }
 }

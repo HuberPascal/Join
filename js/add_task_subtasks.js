@@ -75,9 +75,9 @@ function editSubTask(element) {
     document.getElementById("editSubTaskField").innerHTML =/*html*/`
     <input type='text' class='edit-subtask-field' id='editSubtaskField${i}' value='${valueToEdit}'>
     <div class='edit-subtask-menu'>
-        <img src='./assets/icons/trashcan-icon.svg' id='deleteSubTask${i}' class='animated-icon' onclick='deleteSubTask(this)'>
+        <img src='./assets/icons/trashcan-icon.svg' id='deleteSubTask${i}' class='animated-icon-subtask' onclick='deleteSubTask(this)'>
         <div class='approve-subtask-menu-border'></div>
-        <img src='./assets/icons/checkmark-icon.svg' id='approveSubTask${i}' class='animated-icon' onclick='approveSubTask(this)'>
+        <img src='./assets/icons/checkmark-icon.svg' id='approveSubTask${i}' class='animated-icon-subtask' onclick='approveSubTask(this)'>
     </div>`;
     setElementHtml("currentSelectedSubtasks", "");
 }

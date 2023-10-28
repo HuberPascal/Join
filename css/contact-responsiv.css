@@ -418,6 +418,17 @@
     }
 }
 
+@media(max-width: 400px) {
+    .contact-name-row .circle {
+        width: 70px;
+        height: 70px;
+    }
+
+    .selected-contact-container h2 {
+        font-size: 30px;
+    }
+}
+
 @media (max-height: 800px) {
     .add-contact-container {
         top: 20px;
