@@ -77,13 +77,35 @@ function renderSelectedContactIcons() {
  */
 function selectTaskContact(row) {
     let contactId = row.getAttribute("id").replace("assignableContact", "");
-    assignedContacts.push(contactId);
-    row.onclick = () => unselectTaskContact(row);
 
-    renderSelectionOfContactFromTask(row, contactId)
-    renderSelectedContactIcons();
-    unfinishedTaskData["assignedContacts"] = assignedContacts;
+    // Überprüfen, ob der Kontakt bereits in assignedContacts ist
+    if (assignedContacts.indexOf(contactId) === -1) {
+        assignedContacts.push(contactId);
+        row.onclick = () => unselectTaskContact(row);
+
+        renderSelectionOfContactFromTask(row, contactId);
+        renderSelectedContactIcons();
+        unfinishedTaskData["assignedContacts"] = assignedContacts;
+    } else {
+        document.getElementById("contactAvailable").classList.remove('dNone');
+        setTimeout(function () {
+            hideContactAvailable();
+        }, 3000);
+    }
+    
+    function hideContactAvailable() {
+        document.getElementById("contactAvailable").classList.add('dNone');
+    }
+    
 }
+
+function displayErrorMessage(message) {
+    // Hier implementierst du die Logik, um die Fehlermeldung auf dem Bildschirm anzuzeigen.
+    // Das könnte z.B. ein Modalfenster, eine Benachrichtigung oder eine Konsolenausgabe sein.
+    console.error(message); // Beispiel: Fehlermeldung in der Konsole ausgeben
+}
+
+
 
 /**
  * Handles the unselection of a task contact row by removing it from the 'assignedContacts' array

@@ -207,6 +207,7 @@
     border-radius: 10px;
     border: 1px solid #D1D1D1;
     padding: 0px 21px 0px 21px;
+    cursor: pointer;
 }
 
 #addTaskContainer #selectAssignedContactList {
@@ -483,6 +484,10 @@ label {
     cursor: pointer;
 }
 
+#addTaskContainer .animated-icon-subtask {
+    cursor: pointer;
+}
+
 /* Task Created Notification */
 #addTaskContainer .task-created-notification-container {
     position: fixed;
@@ -521,6 +526,7 @@ label {
     }
 }
 
+
 #addTaskContainer .task-created-notification p {
     color: white;
     font-size: 20px;
@@ -547,3 +553,21 @@ label {
 #addTaskContainer .hide {
     display: none;
 }
+
+#contactAvailable {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #2A3647;
+    color: white;
+    border-radius: 20px;
+    width: 326px;
+    height: 74px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', sans-serif; 
+    animation: alignAnimation 0.5s ease-out forwards;
+}
+
