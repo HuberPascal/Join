@@ -1,4 +1,4 @@
-let container = document.getElementById("login-container");
+let loginContainer = document.getElementById("login-container");
 let hasExecuted = false;
 
 async function loginInit() {
@@ -7,7 +7,7 @@ async function loginInit() {
 }
 
 function renderLoginContainer() {
-  container.innerHTML = renderLoginContainerTemplate();
+  loginContainer.innerHTML = renderLoginContainerTemplate();
   removeAnimationClass();
 }
 
@@ -35,7 +35,7 @@ function renderLoginContainerTemplate() {
 }
 
 function renderSignUpForm() {
-  container.innerHTML = /*html*/ ` 
+  loginContainer.innerHTML = /*html*/ ` 
   <form onsubmit="checkPassword(); return false" class="sign-up-form">
   <img onclick="renderLoginContainer()" class="sign-up-arrow arrow" src="./assets/image/arrow-left-line.png">
   <div class="heading-seperator"><h2 class="login-heading">Sign up</h2>
@@ -52,7 +52,7 @@ function renderSignUpForm() {
 }
 
 function renderForgotPasswordForm() {
-  container.innerHTML = /*html*/ `
+  loginContainer.innerHTML = /*html*/ `
   <form onsubmit="onSubmit(event)" class="forgot-password-form">
   <img onclick="renderLoginContainer()" class="forgot-password-arrow arrow" src="./assets/image/arrow-left-line.png">
   <div class="heading-seperator"><h2 class="login-heading">I forgot my Password</h2><div class="seperator"></div></div>
