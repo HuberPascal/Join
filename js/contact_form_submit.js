@@ -84,6 +84,7 @@ function renderNotificationLayout() {
     </div>`;
     if (document.getElementById("selectedContactContainer") != null) {
         document.getElementById("selectedContactContainer").appendChild(newDiv);
+        document.getElementById("contacts-container").appendChild(newDiv);
     } else if (document.getElementById("addTaskContainer")) {
         document.getElementById("addTaskContainer").appendChild(newDiv);
     }
@@ -108,6 +109,7 @@ async function createContact() {
         updateList();
         renderContactCreatedElement();
         renderContactAssignmentDropDown();
+        renderContacts();
     }
 }
 

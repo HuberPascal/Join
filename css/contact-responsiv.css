@@ -311,6 +311,12 @@
     }
 }
 
+@media (min-width: 800px) {
+    #contactChangeNotificationContainer {
+        top: 50%;
+    }
+}
+
 @media (max-width: 800px) {
     .contacts-container {
         top: 80px;
