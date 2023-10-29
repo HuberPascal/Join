@@ -1,5 +1,3 @@
-
-
 const monthNames = [
   "January",
   "February",
@@ -32,12 +30,10 @@ async function initSummary() {
   setUserHeaderInitials();
 }
 
-
 function greetUser() {
   greetingTime();
   greetingUser();
 }
-
 
 /**
  * Displays a greeting message based on the current time of day.
@@ -159,13 +155,6 @@ function urgentCounter() {
   }
   return countUrgent;
 }
-
-
-
-
-
-
-
 
 /**
  * Displays a greeting message if the user is logged in, specifically for responsive view.

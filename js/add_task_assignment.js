@@ -7,7 +7,7 @@
  * @returns {void}
  */
 function renderContactAssignmentDropDown() {
-    const contactList = document.getElementById('selectAssignedContactList');
+    const contactList = document.getElementById("selectAssignedContactList");
 
     // Nur fortfahren, wenn das Element vorhanden ist
     if (contactList) {
@@ -15,10 +15,10 @@ function renderContactAssignmentDropDown() {
 
         for (let i = 0; i < contacts.length; i++) {
             const contact = contacts[i];
-            let contactName = contact['name'];
+            let contactName = contact["name"];
             let contactIcon = getContactIconHtml(contact);
 
-            contactList.innerHTML +=/*html*/`
+            contactList.innerHTML += /*html*/ `
             <div onclick='selectTaskContact(this)' id='assignableContact${i}' class='assign-contact-option'>
                 <div class='contact-information'>
                     ${contactIcon}
@@ -29,7 +29,6 @@ function renderContactAssignmentDropDown() {
         }
     }
 }
-
 
 /**
  * Shows or hides assignable contacts in the UI based on the input provided.
@@ -43,11 +42,10 @@ function renderContactAssignmentDropDown() {
 function showAvailableContacts(input) {
     for (let i = 0; i < contacts.length; i++) {
         const contact = contacts[i];
-        if (contact['name'].toLowerCase().startsWith(input)) {
-            document.getElementById("assignableContact" + i).classList.remove('hide');
+        if (contact["name"].toLowerCase().startsWith(input)) {
+            document.getElementById("assignableContact" + i).classList.remove("hide");
         } else {
-            document.getElementById("assignableContact" + i).classList.add('hide');
-
+            document.getElementById("assignableContact" + i).classList.add("hide");
         }
     }
 }
@@ -78,34 +76,63 @@ function renderSelectedContactIcons() {
 function selectTaskContact(row) {
     let contactId = row.getAttribute("id").replace("assignableContact", "");
 
-    // Überprüfen, ob der Kontakt bereits in assignedContacts ist
     if (assignedContacts.indexOf(contactId) === -1) {
         assignedContacts.push(contactId);
         row.onclick = () => unselectTaskContact(row);
 
         renderSelectionOfContactFromTask(row, contactId);
         renderSelectedContactIcons();
+        assignedContact();
         unfinishedTaskData["assignedContacts"] = assignedContacts;
     } else {
-        document.getElementById("contactAvailable").classList.remove('dNone');
+        indexAvailable();
+        renderSelectedContactIcons();
+        hideContactAvailableMessage();
+    }
+
+    /**
+     * Removes the contact ID from the 'assignedContacts' array if it is already present.
+     *
+     * @returns {void}
+     */
+    function indexAvailable() {
+        let index = assignedContacts.indexOf(contactId);
+        if (index !== -1) {
+            assignedContacts.splice(index, 1);
+        }
+    }
+
+    /**
+     * Displays the 'contactAvailable' message and hides it after 3 seconds.
+     *
+     * @returns {void}
+     */
+    function hideContactAvailableMessage() {
+        document.getElementById("contactAvailable").classList.remove("dNone");
         setTimeout(function () {
             hideContactAvailable();
         }, 3000);
     }
-    
+
+    /**
+     * Hides the 'contactAvailable' message.
+     *
+     * @returns {void}
+     */
     function hideContactAvailable() {
-        document.getElementById("contactAvailable").classList.add('dNone');
+        document.getElementById("contactAvailable").classList.add("dNone");
     }
-    
+
+    /**
+     * Updates the 'assignedContacts' property in 'unfinishedTaskData' and returns the modified data.
+     *
+     * @returns {Object} - The updated 'unfinishedTaskData' object.
+     */
+    function assignedContact() {
+        unfinishedTaskData["assignedContacts"] = assignedContacts;
+        return unfinishedTaskData;
+    }
 }
-
-function displayErrorMessage(message) {
-    // Hier implementierst du die Logik, um die Fehlermeldung auf dem Bildschirm anzuzeigen.
-    // Das könnte z.B. ein Modalfenster, eine Benachrichtigung oder eine Konsolenausgabe sein.
-    console.error(message); // Beispiel: Fehlermeldung in der Konsole ausgeben
-}
-
-
 
 /**
  * Handles the unselection of a task contact row by removing it from the 'assignedContacts' array
@@ -138,7 +165,7 @@ function unselectTaskContact(row) {
  */
 function renderSelectionOfContactFromTask(row, contactId) {
     row.classList.add("selected-option");
-    document.getElementById("selectedContactCheckBox" + contactId).src = './assets/icons/checkbox-filled.svg';
+    document.getElementById("selectedContactCheckBox" + contactId).src = "./assets/icons/checkbox-filled.svg";
     document.getElementById("selectedContactCheckBox" + contactId).classList.add("white-symbol");
 }
 
@@ -151,7 +178,7 @@ function renderSelectionOfContactFromTask(row, contactId) {
  */
 function renderUnselectionOfContactFromTask(row, contactId) {
     row.classList.remove("selected-option");
-    document.getElementById("selectedContactCheckBox" + contactId).src = './assets/icons/checkbox-empty.svg';
+    document.getElementById("selectedContactCheckBox" + contactId).src = "./assets/icons/checkbox-empty.svg";
     document.getElementById("selectedContactCheckBox" + contactId).classList.remove("white-symbol");
 }
 

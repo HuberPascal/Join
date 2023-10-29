@@ -26,13 +26,13 @@ async function submitTask() {
  */
 function renderTaskAddedElement() {
     if (document.getElementById("addTaskContainer") != null) {
-        document.getElementById("addTaskContainer").innerHTML +=/*html*/`<div class="task-created-notification-container">
+        document.getElementById("addTaskContainer").innerHTML += /*html*/ `<div class="task-created-notification-container">
         <div class="task-created-notification"><p>Task added to board</p><img src="./assets/icons/board-icon.svg"></div>
     </div>`;
     }
 }
 
-/** 
+/**
  * Calls functions to save the data entered by the contact into the unfinishedTaskData JSON array
  * Calls a function to check wether the Task can be created
  */
@@ -43,9 +43,9 @@ function saveCurrentEntriesToTask() {
 
 /**
  * Saves validated selected global variables into the 'unfinishedTaskData' JSON array
- * 
+ *
  * @returns {void}
- * 
+ *
  */
 function saveGlobalVariables() {
     if (assignedContacts.length > 0) {
@@ -102,7 +102,7 @@ function emptyAddTaskForm() {
     renderContactAssignmentDropDown();
     resetPriority();
 
-    unfinishedTaskData = { "status": "toDo" };
+    unfinishedTaskData = { status: "toDo" };
 }
 
 /**
@@ -114,7 +114,7 @@ function emptyAddTaskForm() {
  * @returns {void}
  */
 function resetDirectInputFields() {
-    directInputFieldIds.forEach(directInputFieldId => {
+    directInputFieldIds.forEach((directInputFieldId) => {
         let field = document.getElementById(directInputFieldId);
         if (field) {
             field.value = "";
@@ -130,7 +130,7 @@ function resetDirectInputFields() {
  * @returns {void}
  */
 function resetIndirectInputs() {
-    selectedTaskPriority = null //Priorities= urgent, medium, low
+    selectedTaskPriority = null; //Priorities= urgent, medium, low
     subTasks = [];
     renderSubTasksList();
     resetSubTaskInput();
@@ -151,7 +151,7 @@ function resetPriority() {
     const radioButtons = document.querySelectorAll('input[name="priority"]');
 
     // Iterate through the radio buttons and uncheck them
-    radioButtons.forEach(button => {
+    radioButtons.forEach((button) => {
         button.checked = false;
     });
 }
@@ -165,7 +165,7 @@ function resetPriority() {
 function loadTask(taskId) {
     let task = tasks[taskId];
 
-    document.getElementById("addTaskTitle").innerHTML = 'Edit Task';
+    document.getElementById("addTaskTitle").innerHTML = "Edit Task";
     unfinishedTaskData = task;
     setNewTaskTitleFieldValue(task);
     setNewTaskDescriptionFieldValue(task);
@@ -186,7 +186,7 @@ function loadTask(taskId) {
  * @returns {void}
  */
 function setNewTaskTitleFieldValue(task) {
-    document.getElementById("newTaskTitle").value = task['taskName'];
+    document.getElementById("newTaskTitle").value = task["taskName"];
 }
 
 /**
@@ -196,7 +196,7 @@ function setNewTaskTitleFieldValue(task) {
  * @returns {void}
  */
 function setNewTaskDescriptionFieldValue(task) {
-    document.getElementById("newTaskDescription").value = task['taskDescription'];
+    document.getElementById("newTaskDescription").value = task["taskDescription"];
 }
 
 /**
@@ -223,7 +223,7 @@ function setAssignedContacts(task) {
  * @returns {void}
  */
 function setNewTaskDateFieldValue(task) {
-    document.getElementById("newTaskDate").value = task['taskDate'];
+    document.getElementById("newTaskDate").value = task["taskDate"];
 }
 
 /**
@@ -241,10 +241,10 @@ function setPriorityValue(task) {
     let radioButtons = document.getElementsByName("priority");
 
     // Store the selected task's priority.
-    selectedTaskPriority = task['priority'];
+    selectedTaskPriority = task["priority"];
 
     // Iterate through the radio buttons and check the one that matches the task's priority.
-    radioButtons.forEach(button => {
+    radioButtons.forEach((button) => {
         if (button.value === selectedTaskPriority) {
             button.checked = true;
         }
@@ -268,8 +268,8 @@ function setCategoryValue(task) {
  * @returns {void}
  */
 function setSubTaskFieldValue(task) {
-    if (task['subTasks']) {
-        subTasks = task['subTasks'];
+    if (task["subTasks"]) {
+        subTasks = task["subTasks"];
     }
     if (subTasks) {
         renderSubTasksList();
@@ -285,8 +285,8 @@ function setSubTaskFieldValue(task) {
  * @returns {void}
  */
 function replaceCurrentAddTaskSubmit(taskId) {
-    removeAllButtons('formOptions');
-    addSaveChangesButton('formOptions', taskId);
+    removeAllButtons("formOptions");
+    addSaveChangesButton("formOptions", taskId);
 }
 
 /**
@@ -318,7 +318,7 @@ function removeAllButtons(parentId) {
  * @returns {void}
  */
 function addSaveChangesButton(parentNode, taskId) {
-    document.getElementById(parentNode).innerHTML +=/*html*/`
+    document.getElementById(parentNode).innerHTML += /*html*/ `
         <button type='button' onclick='saveTaskChanges(${taskId})' class='default-button'>
             Ok<img src='./assets/icons/checkmark-icon.svg' class='white-symbol'>
         </button>`;
@@ -333,7 +333,6 @@ function addSaveChangesButton(parentNode, taskId) {
 async function saveTaskChanges(taskId) {
     saveCurrentEntriesToTask();
     if (checkIfFormSubmittable()) {
-
         tasks[taskId] = unfinishedTaskData;
         renderTaskChangesSavedElement();
         await setItem("tasks", tasks);
@@ -343,16 +342,26 @@ async function saveTaskChanges(taskId) {
     }
 }
 
+/**
+ * Renders the task changes saved notification element in the 'addTaskContainer'.
+ *
+ * @returns {void}
+ */
 function renderTaskChangesSavedElement() {
     if (document.getElementById("addTaskContainer") != null) {
-        document.getElementById("addTaskContainer").innerHTML +=/*html*/`<div class="task-created-notification-container">
+        document.getElementById("addTaskContainer").innerHTML += /*html*/ `<div class="task-created-notification-container">
         <div class="task-created-notification"><p>Task saved</p><img src="./assets/icons/board-icon.svg"></div>
     </div>`;
     }
 }
 
+/**
+ * Renders the task deleted notification element in the body and removes it after a delay.
+ *
+ * @returns {void}
+ */
 function renderTaskDeletedElement() {
-    document.body.innerHTML +=/*html*/`
+    document.body.innerHTML += /*html*/ `
         <div id="addTaskContainer">
             <div class="task-created-notification-container">
                 <div class="task-created-notification">
@@ -366,20 +375,14 @@ function renderTaskDeletedElement() {
     }, 1500);
 }
 
-/** 
- * Calls functions to see whether all required input field are set 
- * 
+/**
+ * Calls functions to see whether all required input field are set
+ *
  * @returns {boolean} true if form is submittable; false if not;
- * 
+ *
  * */
 function checkIfFormSubmittable() {
-    if (
-        validateTaskTitle()
-        & validateTaskDescription()
-        & validateTaskDate()
-        & validateTaskCategory()
-        & validateTaskPriority()
-    ) {
+    if (validateTaskTitle() & validateTaskDescription() & validateTaskDate() & validateTaskCategory() & validateTaskPriority()) {
         return true;
     } else {
         return false;
@@ -399,7 +402,6 @@ function validateTaskTitle() {
     if (taskTitleValue === "") {
         taskTitleInput.reportValidity();
         return false;
-
     } else {
         return true;
     }
@@ -416,7 +418,7 @@ function validateTaskDescription() {
     const taskDescriptionValue = taskDescriptionInput.value.trim();
 
     if (taskDescriptionValue === "") {
-        taskDescriptionInput.classList.add('inputCheck');
+        taskDescriptionInput.classList.add("inputCheck");
         taskDescriptionInput.reportValidity();
         return false;
     } else {
@@ -437,7 +439,7 @@ function validateTaskDate() {
 
     if (taskDateValue == "" || taskDateValue === "yyyy-mm-dd") {
         taskDateInput.reportValidity();
-        taskDateInput.classList.add('input-check');
+        taskDateInput.classList.add("input-check");
         return false;
     } else {
         return true;

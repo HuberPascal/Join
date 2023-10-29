@@ -133,7 +133,6 @@
         position: fixed;
         top: 126px;
         right: 30px;
-
     }
 
     .contact-button {
@@ -268,6 +267,10 @@
         width: 100%;
         padding: 17px 36px;
     }
+
+    #contactCredentials .circle {
+        margin-top: -60px;
+    }
 }
 
 @media (max-device-width: 1000px) {
@@ -276,7 +279,6 @@
         justify-content: flex-start;
         position: relative;
         overflow-y: scroll;
-        /* max-height: 90%; */
         height: fit-content;
         gap: 0px;
     }
@@ -443,5 +445,9 @@
 
     .contact-list-container {
         padding: 0 20px 65px 20px;
+    }
+
+    .add-contact-card {
+        overflow-y: scroll;
     }
 }

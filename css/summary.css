@@ -342,7 +342,7 @@
     }
 
     .summary-field {
-        margin-left: 43px;
+        margin-left: 28px;
     }
 
     .task-bottom-img2,
@@ -474,7 +474,15 @@
 
     .summary-field img {
         height: 48px;
-        object-fit: cover;
+        /* object-fit: cover; */
+    }
+
+    .summary-field .task-bottom-img1 {
+        top: 21px;
+    }
+
+    .summary-field .task-bottom-img2 {
+        top: 21px;
     }
 
     .summary-field {

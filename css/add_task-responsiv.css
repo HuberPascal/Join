@@ -60,6 +60,10 @@
     #addTaskContainer .add-task {
         padding-bottom: 100px;
     }
+
+    #contactAvailable {
+        width: 500px;
+    }
 }
 
 @media (max-height: 880px) {
@@ -149,6 +153,16 @@
     }
 }
 
+
+@media (max-width: 550px) {
+    #contactAvailable {
+        width: 380px;
+        text-align: center;
+        line-height: 1.5;
+    }
+}
+
+
 @media (max-width: 500px) {
     .priority-button {
         font-size: 14px !important;
@@ -203,12 +217,22 @@
     #addTaskContainer #priorityContainer {
         width: 380px;
     }
+
+    .brDisplayNone {
+        display: block;
+    }
 }
 
 @media (max-width: 420px) {
     #addTaskContainer .task-input-container .task-input-col,
     #addTaskContainer #priorityContainer {
         width: 350px;
+    }
+
+    @media (max-width: 550px) {
+        #contactAvailable {
+            width: 300px;
+        }
     }
 }
 
@@ -239,8 +263,5 @@
         width: 100%;
     }
 
-    /* #addTaskContainer #newTaskSubTask, #addTaskContainer .subtask-field, #addTaskContainer #newTaskTitle, #addTaskContainer #newTaskDate, #addTaskContainer #newTaskAssignedContact {
-        width: 300px;
-    } */
 
 }

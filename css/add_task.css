@@ -516,6 +516,10 @@ label {
     font-family: 'Inter', sans-serif; 
 }
 
+.brDisplayNone {
+    display: none;
+}
+
 @keyframes alignAnimation {
     from {
         top: 100vh;
@@ -523,6 +527,17 @@ label {
 
     to {
         align-items: center;
+    }
+}
+
+@keyframes contactExistAnimation {
+    from {
+        transform: translate(-50%, 100%);
+    }
+
+    to {
+        top: 50%;
+        transform: translate(-50%, -50%);
     }
 }
 
@@ -555,19 +570,24 @@ label {
 }
 
 #contactAvailable {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #2A3647;
     color: white;
     border-radius: 20px;
-    width: 326px;
+    width: 600px;
     height: 74px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'Inter', sans-serif; 
-    animation: alignAnimation 0.5s ease-out forwards;
+    z-index: 999;
+    animation: contactExistAnimation 0.5s ease-out forwards;
+}
+
+.dNone {
+    display: none !important;
 }
 
