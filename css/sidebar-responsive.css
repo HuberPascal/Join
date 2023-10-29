@@ -38,6 +38,10 @@
     margin: 0;
 }
 
+.dNone {
+    display: none;
+}
+
 @media(max-width: 800px) {
     .sidebar {
         display: none;

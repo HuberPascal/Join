@@ -168,9 +168,9 @@ function bgDarkLegalNotice(x) {
       .getElementById(`menu-link${x}`)
       .classList.add("bg-dark-legal-notice", "white");
     document.getElementById("sidebar-menu").classList.add("dNone");
-    document.getElementById(
-      `legal-notice${x}`
-    ).src = `assets/image/sidebar/legal-notice-white.svg`;
+    document.getElementById("sidebar-menu-responsive").classList.add("dNone");
+
+    document.getElementById(`legal-notice${x}`).src = `assets/image/sidebar/legal-notice-white.svg`;
   }
 }
 
