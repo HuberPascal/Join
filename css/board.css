@@ -350,7 +350,8 @@
     height: 32px;
 }
 
-.board-section .card-category-top-section:hover img {
+
+.board-section .card-category-top-section img:hover {
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 50%;
 }
@@ -594,7 +595,7 @@
 
 @media(max-width: 1250px) {
     .board-section {
-        margin: 96px 0 0 260px;
+        margin: 96px 30px 0 260px;
     }
 
     .board-section .task-area {

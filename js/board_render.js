@@ -73,7 +73,7 @@ function generateTaskCardHTML(index, categoryClass, category, name, description,
             <div id="taskCard${index}" class="task-card-overlay">
                 <div class="card-category-top-section">
                     <div class="card-category-overlay ${categoryClass}">${category}</div> 
-                    <img onclick="closeBoardOverlay(), loadTasksHTML();" src="assets/icons/close.svg">
+                    <img class="colse-icon-task" onclick="closeBoardOverlay(), loadTasksHTML();" src="assets/icons/close.svg">
                 </div>
                 <div>
                     <h4 class="title-h4">${name}</h4>

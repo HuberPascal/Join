@@ -174,8 +174,15 @@ h4 {
 
 #closeAddContactCardIcon {
     position: absolute;
-    right: 40px;
     top: 40px;
+    right: 40px;
+    cursor: pointer;
+}
+
+#closeAddContactCardIconResponsive {
+    position: absolute;
+    top: 24px;
+    right: 16px;
     cursor: pointer;
 }
 

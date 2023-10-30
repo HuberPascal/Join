@@ -1,6 +1,7 @@
 <body onload="includeHTML(1);initAddTasks();">
 
     <div include-html="./assets/templates/add_contact.html"></div>
+    <img id="addTaskOverlayCloseIcon" onclick="removeAddTaskElements()" src="assets/icons/close.svg">
     <form id="addTaskContainer" onsubmit="submitTask(); return false">
         <div class="add-task">
             <h1 id="addTaskTitle">Add Task</h1>
