@@ -21,23 +21,15 @@ let contactIconColors = [
     "#FFBB2B",
 ];
 
+/**
+ * Initializes the application, retrieves storage data, and sets default values if necessary.
+ * @returns {Promise<void>} A promise that resolves once the initialization is complete.
+ */
 async function init() {
     await getStorageData();
-
-    if (!tasks) {
-        tasks = [];
-        await setItem("tasks", tasks);
-    }
-
-    if (!contacts) {
-        contacts = [];
-        await setItem("contacts", contacts);
-    }
-
-    if (!users) {
-        users = [];
-        await setItem("users", users);
-    }
+    await initializeTasks();
+    await initializeContacts();
+    await initializeUsers();
 }
 
 /**
@@ -55,6 +47,39 @@ async function getStorageData() {
     users = await usersFetch;
     tasks = await tasksFetch;
     contacts = await contactsFetch;
+}
+
+/**
+ * Initializes tasks from storage. If not present, creates an empty array and stores it in the storage.
+ * @returns {Promise<void>} A promise that resolves once the initialization is complete.
+ */
+async function initializeTasks() {
+    if (!tasks) {
+        tasks = [];
+        await setItem("tasks", tasks);
+    }
+}
+
+/**
+ * Initializes contacts from storage. If not present, creates an empty array and stores it in the storage.
+ * @returns {Promise<void>} A promise that resolves once the initialization is complete.
+ */
+async function initializeContacts() {
+    if (!contacts) {
+        contacts = [];
+        await setItem("contacts", contacts);
+    }
+}
+
+/**
+ * Initializes users from storage. If not present, creates an empty array and stores it in the storage.
+ * @returns {Promise<void>} A promise that resolves once the initialization is complete.
+ */
+async function initializeUsers() {
+    if (!users) {
+        users = [];
+        await setItem("users", users);
+    }
 }
 
 ///************INCLUDE HTML-TEMPLATES*************///
