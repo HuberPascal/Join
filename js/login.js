@@ -2,17 +2,17 @@ let loginContainer = document.getElementById("login-container");
 let hasExecuted = false;
 
 async function loginInit() {
-  await init();
-  renderLoginContainer();
+    await init();
+    renderLoginContainer();
 }
 
 function renderLoginContainer() {
-  loginContainer.innerHTML = renderLoginContainerTemplate();
-  removeAnimationClass();
+    loginContainer.innerHTML = renderLoginContainerTemplate();
+    removeAnimationClass();
 }
 
 function renderLoginContainerTemplate() {
-  return /*html*/ `
+    return /*html*/ `
   <div id="sign-up-btn-container" class="animation">
     <span class="sign-up-text">Not a Join user?</span>
     <span onclick="renderSignUpForm()" class=sign-up-btn>Sign up</span>
@@ -35,7 +35,7 @@ function renderLoginContainerTemplate() {
 }
 
 function renderSignUpForm() {
-  loginContainer.innerHTML = /*html*/ ` 
+    loginContainer.innerHTML = /*html*/ ` 
   <form onsubmit="checkPassword(); return false" class="sign-up-form">
   <img onclick="renderLoginContainer()" class="sign-up-arrow arrow" src="./assets/image/arrow-left-line.png">
   <div class="heading-seperator"><h2 class="login-heading">Sign up</h2>
@@ -52,7 +52,7 @@ function renderSignUpForm() {
 }
 
 function renderForgotPasswordForm() {
-  loginContainer.innerHTML = /*html*/ `
+    loginContainer.innerHTML = /*html*/ `
   <form onsubmit="onSubmit(event)" class="forgot-password-form">
   <img onclick="renderLoginContainer()" class="forgot-password-arrow arrow" src="./assets/image/arrow-left-line.png">
   <div class="heading-seperator"><h2 class="login-heading">I forgot my Password</h2><div class="seperator"></div></div>
@@ -68,13 +68,13 @@ function renderForgotPasswordForm() {
  * Remove the class animation from the form and sign up button.
  */
 function removeAnimationClass() {
-  if (hasExecuted) {
-    let button = document.getElementById("sign-up-btn-container");
-    let form = document.getElementById("login-form");
-    form.classList.remove("animation");
-    button.classList.remove("animation");
-  }
-  hasExecuted = true;
+    if (hasExecuted) {
+        let button = document.getElementById("sign-up-btn-container");
+        let form = document.getElementById("login-form");
+        form.classList.remove("animation");
+        button.classList.remove("animation");
+    }
+    hasExecuted = true;
 }
 
 /**
@@ -83,86 +83,79 @@ function removeAnimationClass() {
  * @returns a boolean
  */
 function checkPassword() {
-  let password1 = document.getElementById("password").value;
-  let password2 = document.getElementById("confirmPassword").value;
-  let info = document.getElementById("info");
+    let password1 = document.getElementById("password").value;
+    let password2 = document.getElementById("confirmPassword").value;
+    let info = document.getElementById("info");
 
-  if (password1 === password2) {
-    addUser();
-    return true;
-  } else {
-    info.innerHTML =
-      "<span style='color: red'>Your password don't match</span>";
-    return false;
-  }
+    if (password1 === password2) {
+        addUser();
+        return true;
+    } else {
+        info.innerHTML = "<span style='color: red'>Your password don't match</span>";
+        return false;
+    }
 }
 
 /**
  * Check's if the user is registred, if not a message is displayed.
  */
 function login() {
-  let message = document.getElementById("login-message");
-  let email = document.getElementById("login-email");
-  console.log(email)
-  let password = document.getElementById("login-password");
-  let user = users.find(
-    (u) => u.email == email.value && u.password == password.value
-  );
+    let message = document.getElementById("login-message");
+    let email = document.getElementById("login-email");
+    console.log(email);
+    let password = document.getElementById("login-password");
+    let user = users.find((u) => u.email == email.value && u.password == password.value);
 
-  if (user) {
-      window.location.href = `./summary.html?name=${user.username}`;
-  } else {
-      message.innerHTML = "Wrong password or email! Try again.";
-  }
+    if (user) {
+        window.location.href = `./summary.html?name=${user.username}`;
+    } else {
+        message.innerHTML = "Wrong password or email! Try again.";
+    }
 
-  localStorage.setItem('loginMessageDisplayed', true);
+    localStorage.setItem("loginMessageDisplayed", true);
 }
-
 
 /**
  * Check's if the user is registred, if not a message is displayed.
  */
 function checkEmail(event) {
-  let message = document.getElementById("forgot-password-message");
-  let messageNotFound = document.getElementById('forgot-password-info');
-  let email = document.getElementById("forgot-password-email");
-  let user = users.find((u) => u.email == email.value);
-  if (user == undefined) {
-    messageNotFound.classList.remove("d-none");
-    messageNotFound.innerHTML = "This email is not registered.";
-  }  else {
-    messageNotFound.innerHTML = '';
-    checkEmailTemplate(message, user);
-  }
-  
+    let message = document.getElementById("forgot-password-message");
+    let messageNotFound = document.getElementById("forgot-password-info");
+    let email = document.getElementById("forgot-password-email");
+    let user = users.find((u) => u.email == email.value);
+    if (user == undefined) {
+        messageNotFound.classList.remove("d-none");
+        messageNotFound.innerHTML = "This email is not registered.";
+    } else {
+        messageNotFound.innerHTML = "";
+        checkEmailTemplate(message, user);
+    }
 }
 
 async function checkEmailTemplate(message, user) {
-  if (user) {
-    try {
-      // Extrahiere die E-Mail-Adresse aus dem user-Objekt
-      let email = user.email;
+    if (user) {
+        try {
+            // Extrahiere die E-Mail-Adresse aus dem user-Objekt
+            let email = user.email;
 
-      // Erstelle ein FormData-Objekt und füge die E-Mail-Adresse hinzu
-      let formData = new FormData();
-      formData.append('email', email);
+            // Erstelle ein FormData-Objekt und füge die E-Mail-Adresse hinzu
+            let formData = new FormData();
+            formData.append("email", email);
 
-      let response = await action(formData);
+            let response = await action(formData);
 
-      if (response !== null && response.ok) {
-        showMessage(message);
-      } else {
-        console.log("Error in response:", response);
-        message.innerHTML = "An error occurred. Please try again later.";
-      }
-    } catch (error) {
-      console.error("An error occurred:", error);
-      messageNotFound.innerHTML = "An error occurred. Please try again later.";
+            if (response !== null && response.ok) {
+                showMessage(message);
+            } else {
+                console.log("Error in response:", response);
+                message.innerHTML = "An error occurred. Please try again later.";
+            }
+        } catch (error) {
+            console.error("An error occurred:", error);
+            messageNotFound.innerHTML = "An error occurred. Please try again later.";
+        }
     }
-  }
 }
-
-
 
 /**
  * Displays a message element for a brief period.
@@ -170,11 +163,11 @@ async function checkEmailTemplate(message, user) {
  * @param {HTMLElement} message - The HTML element to display.
  */
 function showMessage(message) {
-  message.classList.remove("d-none");
+    message.classList.remove("d-none");
 
-  setTimeout(() => {
-    message.classList.add("d-none");
-  }, 4000);
+    setTimeout(() => {
+        message.classList.add("d-none");
+    }, 4000);
 }
 
 /**
@@ -183,8 +176,8 @@ function showMessage(message) {
  * @param {Event} event - The submit event.
  */
 async function onSubmit(event) {
-  event.preventDefault();
-  checkEmail(event);
+    event.preventDefault();
+    checkEmail(event);
 }
 
 /**
@@ -194,17 +187,16 @@ async function onSubmit(event) {
  * @returns {Promise<Response>} - A promise that resolves to the fetch response.
  */
 async function action(formData) {
-  const input = "https://pascal-huber.developerakademie.net/Join-Privat/send_mail.php";
-  const requestInit = { method: "post", body: formData };
-  console.log(formData)
-  const response = await fetch(input, requestInit);
+    const input = "https://pascal-huber.developerakademie.net/Join-Privat/send_mail.php";
+    const requestInit = { method: "post", body: formData };
+    console.log(formData);
+    const response = await fetch(input, requestInit);
 
-  if (response.ok) return response;
-  
-  console.error("Response not OK:", response);
-  return null; // Return null when response is not OK
+    if (response.ok) return response;
+
+    console.error("Response not OK:", response);
+    return null; // Return null when response is not OK
 }
-
 
 /**
  * Redirects the user to a guest login page.
@@ -212,4 +204,3 @@ async function action(formData) {
 function guestLogin() {
     window.location.href = `./summary.html?name=Guest`;
 }
-

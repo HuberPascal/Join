@@ -10,16 +10,13 @@ const userInitials = getUserInitials({ username: username });
 function getUserInitials(user) {
     const userNameParts = user["username"].split(" ");
     if (userNameParts[1] != null) {
-      userSignature =
-        userNameParts[0][0].toUpperCase() + userNameParts[1][0].toUpperCase();
+        userSignature = userNameParts[0][0].toUpperCase() + userNameParts[1][0].toUpperCase();
     } else {
-      userSignature =
-        userNameParts[0][0].toUpperCase() +
-        userNameParts[0].slice(-1).toUpperCase();
+        userSignature = userNameParts[0][0].toUpperCase() + userNameParts[0].slice(-1).toUpperCase();
     }
     return userSignature;
-  }
-  
+}
+
 /**
  * Generates the initials of a contact based on their name.
  *
@@ -32,4 +29,4 @@ function setUserHeaderInitials() {
     let myAccountResponsiv = document.getElementById("myAccount-responsive");
     myAccount.innerHTML = userInitials;
     myAccountResponsiv.innerHTML = userInitials;
-  }
+}

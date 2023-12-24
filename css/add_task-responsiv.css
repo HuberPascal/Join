@@ -36,7 +36,7 @@
     }
 
     .add-task-page-container {
-        padding: 96px 30px 0 260px
+        padding: 96px 30px 0 260px;
     }
 }
 
@@ -65,33 +65,6 @@
         width: 500px;
     }
 }
-
-@media (max-height: 880px) {
-    #addTaskContainer #newTaskSubTask, #addTaskContainer .subtask-field, #addTaskContainer #newTaskTitle, #addTaskContainer #newTaskDate, #addTaskContainer #newTaskAssignedContact {
-        height: 37px;
-    }
-
-    #addTaskContainer #newTaskDescription {
-        height: 100px;
-    }
-
-    #addTaskContainer .priority-button {
-        padding: 10px;
-    }
-
-    #addTaskContainer .task-input-container .task-input-col {
-        gap: 10px;
-    }
-
-    #addTaskContainer h1 {
-        margin: 24px 0;
-    }
-
-    #addTaskContainer #formOptions {
-        margin-top: 10px;
-    }
-}
-
 
 @media (max-width: 600px) {
     #addTaskTitle {
@@ -153,7 +126,6 @@
     }
 }
 
-
 @media (max-width: 550px) {
     #contactAvailable {
         width: 380px;
@@ -161,7 +133,6 @@
         line-height: 1.5;
     }
 }
-
 
 @media (max-width: 500px) {
     .priority-button {
@@ -172,7 +143,6 @@
     #dropDownContactsTextFieldInput {
         font-size: 16px !important;
         height: 38px !important;
-
     }
 
     #newTaskTitle {
@@ -262,6 +232,34 @@
     .task-date input {
         width: 100%;
     }
+}
 
+@media (max-height: 880px) {
+    #addTaskContainer #newTaskSubTask,
+    #addTaskContainer .subtask-field,
+    #addTaskContainer #newTaskTitle,
+    #addTaskContainer #newTaskDate,
+    #addTaskContainer #newTaskAssignedContact {
+        height: 37px;
+    }
 
+    #addTaskContainer #newTaskDescription {
+        height: 100px;
+    }
+
+    #addTaskContainer .priority-button {
+        padding: 10px;
+    }
+
+    #addTaskContainer .task-input-container .task-input-col {
+        gap: 10px;
+    }
+
+    #addTaskContainer h1 {
+        margin: 24px 0;
+    }
+
+    #addTaskContainer #formOptions {
+        margin-top: 10px;
+    }
 }

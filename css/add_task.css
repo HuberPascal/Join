@@ -31,7 +31,7 @@
 }
 
 #addTaskContainer label {
-    color: #2A3647;
+    color: #2a3647;
 }
 
 #addTaskContainer .task-input-container {
@@ -54,9 +54,8 @@
     padding-right: 32px;
 }
 
-
 #addTaskContainer .task-input-container .task-input-not-first-col {
-    border-left: 1px solid #D1D1D1;
+    border-left: 1px solid #d1d1d1;
     padding: 0 0 0 32px;
 }
 
@@ -68,7 +67,7 @@
 #addTaskContainer .task-category,
 #addTaskContainer .task-subtask {
     width: 100%;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     display: flex;
     flex-direction: column;
 }
@@ -84,9 +83,9 @@
     font-size: 20px;
     border-radius: 10px;
     margin: 12px 0;
-    border: 1px solid #D1D1D1;
+    border: 1px solid #d1d1d1;
     position: relative;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     cursor: pointer;
 }
 
@@ -110,9 +109,9 @@
     margin: 12px 0;
     padding: 12px 21px 12px 21px;
     box-sizing: border-box;
-    border: 1px solid #D1D1D1;
+    border: 1px solid #d1d1d1;
     border-radius: 10px;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
 }
 
 /* Category Dropdown */
@@ -217,7 +216,7 @@
     width: calc(100% - 42px);
     font-size: 20px;
     border-radius: 10px;
-    border: 1px solid #D1D1D1;
+    border: 1px solid #d1d1d1;
     padding: 0px 21px 0px 21px;
     cursor: pointer;
 }
@@ -231,7 +230,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    border: 1px solid #D1D1D1;
+    border: 1px solid #d1d1d1;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
@@ -255,7 +254,7 @@
     background-color: white;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    border: 1px solid #D1D1D1;
+    border: 1px solid #d1d1d1;
     border-top: none;
 }
 
@@ -264,7 +263,7 @@
 }
 
 #addTaskContainer .selected-option {
-    background-color: #2A3647;
+    background-color: #2a3647;
     color: white;
 }
 
@@ -287,13 +286,15 @@
     justify-content: space-between;
     align-items: center;
     border-radius: 10px;
-    padding: 6px 21px 6px 21px;
+    padding: 6px 97px 6px 21px;
     z-index: 10;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
+    position: relative;
+    cursor: pointer;
 }
 
 #addTaskContainer .shown-subtask:hover {
-    background-color: #EEEEEE;
+    background-color: #eeeeee;
 }
 
 #addTaskContainer .shown-subtask-menu {
@@ -315,10 +316,13 @@
     height: 32px;
     padding: 4px 16px 4px 16px;
     border: none;
+    border-radius: 10px;
     outline: none;
     display: flex;
     justify-content: space-between;
     font-size: 16px;
+    cursor: pointer;
+    background-color: #eeeeee;
 }
 
 #addTaskContainer .edit-subtask-menu {
@@ -333,20 +337,20 @@
 
 #addTaskContainer .subtask-field {
     position: relative;
-    border-left: 1px solid #D1D1D1;
+    border-left: 1px solid #d1d1d1;
     display: flex;
     align-items: center;
 }
 
 #addTaskContainer .subtask-input-field {
-    width: calc(100% - 44px);
+    width: calc(100% - 120px);
     height: 100%;
     position: absolute;
     left: 0;
     border-radius: 10px;
-    border: 1px solid #D1D1D1;
+    border: 1px solid #d1d1d1;
     font-size: 20px;
-    padding: 0px 21px 0px 21px;
+    padding: 0px 97px 0px 21px;
 }
 
 #addTaskContainer #enterSubtaskCreation {
@@ -365,7 +369,7 @@
 }
 
 #addTaskContainer .approve-subtask-menu-border {
-    background-color: #2A3647;
+    background-color: #2a3647;
     height: 24px;
     width: 1px;
 }
@@ -426,10 +430,10 @@ label {
     gap: 8px;
     font-size: 20px;
     background-color: white;
-    border: 1px solid #D1D1D1;
+    border: 1px solid #d1d1d1;
     border-radius: 10px;
     cursor: pointer;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
 }
 
 #addTaskContainer .priority-button:hover {
@@ -443,22 +447,22 @@ label {
 }
 
 /* Style the label when the radio button is checked */
-#addTaskContainer input[type="radio"]:checked+#urgentButton {
+#addTaskContainer input[type="radio"]:checked + #urgentButton {
     background-color: orangered;
     color: white;
 }
 
-#addTaskContainer input[type="radio"]:checked+#mediumButton {
+#addTaskContainer input[type="radio"]:checked + #mediumButton {
     background-color: orange;
     color: white;
 }
 
-#addTaskContainer input[type="radio"]:checked+#lowButton {
-    background-color: #7AE229;
+#addTaskContainer input[type="radio"]:checked + #lowButton {
+    background-color: #7ae229;
     color: white;
 }
 
-#addTaskContainer input[type="radio"]:checked+.priority-button img {
+#addTaskContainer input[type="radio"]:checked + .priority-button img {
     filter: brightness(0) invert(1);
 }
 
@@ -515,7 +519,7 @@ label {
 
 #addTaskContainer .task-created-notification {
     position: relative;
-    background-color: #2A3647;
+    background-color: #2a3647;
     border-radius: 20px;
     color: white;
     width: 326px;
@@ -524,34 +528,12 @@ label {
     justify-content: center;
     align-items: center;
     gap: 20px;
-    font-family: 'Inter', sans-serif; 
+    font-family: "Inter", sans-serif;
 }
 
 .brDisplayNone {
     display: none;
 }
-
-@keyframes alignAnimation {
-    from {
-        top: 100vh;
-    }
-
-    to {
-        align-items: center;
-    }
-}
-
-@keyframes contactExistAnimation {
-    from {
-        transform: translate(-50%, 100%);
-    }
-
-    to {
-        top: 50%;
-        transform: translate(-50%, -50%);
-    }
-}
-
 
 #addTaskContainer .task-created-notification p {
     color: white;
@@ -559,7 +541,7 @@ label {
 }
 
 #addTaskContainer .animated-icon:hover {
-    background-color: #EEEEEE;
+    background-color: #eeeeee;
 }
 
 /* Rotate 180 Degrees */
@@ -585,7 +567,7 @@ label {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #2A3647;
+    background-color: #2a3647;
     color: white;
     border-radius: 20px;
     width: 600px;
@@ -593,7 +575,7 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Inter', sans-serif; 
+    font-family: "Inter", sans-serif;
     z-index: 999;
     animation: contactExistAnimation 0.5s ease-out forwards;
 }
@@ -602,3 +584,23 @@ label {
     display: none !important;
 }
 
+@keyframes alignAnimation {
+    from {
+        top: 100vh;
+    }
+
+    to {
+        align-items: center;
+    }
+}
+
+@keyframes contactExistAnimation {
+    from {
+        transform: translate(-50%, 100%);
+    }
+
+    to {
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

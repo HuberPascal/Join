@@ -1,5 +1,5 @@
-const STORAGE_TOKEN = 'NPB0N2BKSZ4M9V31KOORNNRZNGIXACP28F9UGNQM';
-const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
+const STORAGE_TOKEN = "22N3ERJS0H2VJG7R06CWZA1A2B95BRDZ30S0P280";
+const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 
 /**
  * Sets an item in the storage using a key-value pair.
@@ -14,12 +14,11 @@ async function setItem(key, value) {
     const payload = { key, value, token: STORAGE_TOKEN };
     try {
         const response = await fetch(STORAGE_URL, {
-            method: 'POST',
+            method: "POST",
             body: JSON.stringify(payload),
-        })
+        });
         const res = await response.json();
         return res;
-
     } catch (error) {
         throw new Error(`Error setting item: ${error.message}`);
     }
@@ -37,9 +36,9 @@ async function getItem(key) {
     const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
 
     try {
-        const response = await fetch(url).then(res => res.json());
-        if (response['status'] == "success") {
-            let responseValue=await response['data']['value'];
+        const response = await fetch(url).then((res) => res.json());
+        if (response["status"] == "success") {
+            let responseValue = await response["data"]["value"];
             return JSON.parse(responseValue);
         } else {
             return null;

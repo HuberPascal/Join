@@ -18,25 +18,12 @@
     z-index: 2;
 }
 
-@keyframes moveLogo {
-    0% {
-        transform: scale(1);
-        transform: translate(-50%, -50%);
-    }
-
-    100% {
-        transform: scale(0.4);
-        top: -50px;
-        left: -30px;
-    }
-}
-
 #login-form {
     background-color: white;
     height: 505px;
     width: 652px;
     border-radius: 30px;
-    box-shadow: 0px 0px 14px 3px #0000000A;
+    box-shadow: 0px 0px 14px 3px #0000000a;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,12 +34,6 @@
 .animation {
     opacity: 0;
     animation: appearField 0.5s ease-in-out 1s forwards;
-}
-
-@keyframes appearField {
-    to {
-        opacity: 1;
-    }
 }
 
 .login-heading {
@@ -73,7 +54,7 @@
 .seperator {
     height: 3px;
     width: 150px;
-    background: #29ABE2;
+    background: #29abe2;
     border-radius: 1.5px;
 }
 
@@ -82,7 +63,7 @@
     height: 24px;
     padding: 12px 21px 12px 21px;
     border-radius: 10px;
-    border: 1px solid #D1D1D1;
+    border: 1px solid #d1d1d1;
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
@@ -91,7 +72,7 @@
 }
 
 .input-login:focus {
-    border-color: #29ABE2;
+    border-color: #29abe2;
     outline: none;
 }
 
@@ -124,7 +105,7 @@
 }
 
 .forgot-password-span {
-    color: #29ABE2;
+    color: #29abe2;
     font-size: 16px;
     font-weight: 400;
     line-height: 19px;
@@ -158,7 +139,7 @@
     font-size: 21px;
     padding: 15px 24px 15px 24px;
     border-radius: 8px;
-    background: #2A3647;
+    background: #2a3647;
     color: white;
     font-weight: 700;
     line-height: 25px;
@@ -170,14 +151,14 @@
 }
 
 .login-button:hover {
-    background-color: #29ABE2;
+    background-color: #29abe2;
     box-shadow: 0px 4px 9px -1px rgba(0, 0, 0, 0.4);
 }
 
 .guest-button {
     padding: 15px 24px 15px 24px;
     border-radius: 8px;
-    border: 1px solid #2A3647;
+    border: 1px solid #2a3647;
     font-size: 21px;
     font-weight: 700;
     line-height: 25px;
@@ -188,8 +169,8 @@
 }
 
 .guest-button:hover {
-    border: 1px solid #29ABE2;
-    color: #29ABE2;
+    border: 1px solid #29abe2;
+    color: #29abe2;
     box-shadow: 0px 4px 9px -1px rgba(0, 0, 0, 0.4);
 }
 
@@ -203,7 +184,7 @@
 .sign-up-btn {
     padding: 15px 16px 15px 16px;
     border-radius: 8px;
-    background-color: #2A3647;
+    background-color: #2a3647;
     color: white;
     border: unset;
 }
@@ -218,7 +199,7 @@
 }
 
 .sign-up-btn:hover {
-    background-color: #29ABE2;
+    background-color: #29abe2;
     box-shadow: 0px 4px 9px -1px rgba(0, 0, 0, 0.4);
     cursor: pointer;
 }
@@ -241,7 +222,7 @@ a {
 }
 
 a:hover {
-    color: #29ABE2;
+    color: #29abe2;
 }
 
 .sign-up-form {
@@ -262,7 +243,7 @@ a:hover {
     padding: 15px 24px 15px 24px;
     border-radius: 8px;
     gap: 10px;
-    background-color: #2A3647;
+    background-color: #2a3647;
     color: white;
     font-family: Inter;
     font-size: 21px;
@@ -274,7 +255,7 @@ a:hover {
 }
 
 #sign-up-btn-form:hover {
-    background-color: #29ABE2;
+    background-color: #29abe2;
     box-shadow: 0px 4px 9px -1px rgba(0, 0, 0, 0.4);
     cursor: pointer;
 }
@@ -338,7 +319,7 @@ a:hover {
     height: fit-content;
     padding: 15px 24px 15px 24px;
     border-radius: 8px;
-    background-color: #2A3647;
+    background-color: #2a3647;
     color: white;
     font-size: 21px;
     font-weight: 700;
@@ -348,7 +329,7 @@ a:hover {
 }
 
 .send-email-btn:hover {
-    background-color: #29ABE2;
+    background-color: #29abe2;
     box-shadow: 0px 4px 9px -1px rgba(0, 0, 0, 0.4);
     cursor: pointer;
 }
@@ -359,7 +340,7 @@ a:hover {
     width: fit-content;
     height: fit-content;
     padding: 16px;
-    background-color: #2A3647;
+    background-color: #2a3647;
     color: white;
     border-radius: 16px;
     font-size: 18px;
@@ -374,7 +355,7 @@ a:hover {
     align-items: center;
     justify-content: center;
     gap: 12px;
-    background-color: #2A3647;
+    background-color: #2a3647;
     padding: 16px 32px;
     border-radius: 16px;
     position: absolute;
@@ -391,4 +372,23 @@ a:hover {
     line-height: 24px;
     letter-spacing: 0em;
     color: white;
+}
+
+@keyframes moveLogo {
+    0% {
+        transform: scale(1);
+        transform: translate(-50%, -50%);
+    }
+
+    100% {
+        transform: scale(0.4);
+        top: -50px;
+        left: -30px;
+    }
+}
+
+@keyframes appearField {
+    to {
+        opacity: 1;
+    }
 }

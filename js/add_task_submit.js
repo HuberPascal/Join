@@ -1,9 +1,7 @@
 /**
- * Submits a new task by saving the current user entries, checking if the form is submittable,
- * adding the task to the 'tasks' array, rendering a task added element,
- * and asynchronously updating the 'tasks' data in storage. Finally, it navigates to the board page after a delay.
+ * Submits a new task, updates storage, and navigates to the board page asynchronously.
  *
- * @returns {Promise<void>} A promise that resolves when the task submission and storage update are complete.
+ * @returns {Promise<void>} Resolves when the submission and storage update are complete.
  */
 async function submitTask() {
     saveCurrentEntriesToTask();
@@ -11,24 +9,21 @@ async function submitTask() {
         tasks.push(unfinishedTaskData);
         renderTaskAddedElement();
         await setItem("tasks", tasks);
-        setTimeout(function () {
-            openBoard();
-        }, 2000);
+        setTimeout(() => openBoard(), 2000);
     }
 }
 
 /**
- * Renders a notification element to indicate that a task has been successfully added to the board.
- * This function dynamically generates HTML for the notification element and appends it to the
- * 'addTaskContainer' element to inform the user about the task addition.
+ * Renders a notification for a successfully added task dynamically in the 'addTaskContainer' element.
  *
  * @returns {void}
  */
 function renderTaskAddedElement() {
-    if (document.getElementById("addTaskContainer") != null) {
-        document.getElementById("addTaskContainer").innerHTML += /*html*/ `<div class="task-created-notification-container">
+    const addTaskContainer = document.getElementById("addTaskContainer");
+    if (addTaskContainer) {
+        addTaskContainer.innerHTML += /*html*/ `<div class="task-created-notification-container">
         <div class="task-created-notification"><p>Task added to board</p><img src="./assets/icons/board-icon.svg"></div>
-    </div>`;
+      </div>`;
     }
 }
 
@@ -62,9 +57,7 @@ function saveGlobalVariables() {
 }
 
 /**
- * Saves the values of specified direct input fields into the 'unfinishedTaskData' object.
- * If the input fields have non-empty values, they are stored in the 'unfinishedTaskData' object
- * with corresponding keys.
+ * Saves non-empty values of specified direct input fields in the 'unfinishedTaskData' object.
  *
  * @returns {void}
  */
@@ -86,12 +79,8 @@ function saveDirectInputFields() {
     }
 }
 
-//RESET INPUT VALUES
-
 /**
- * Empties and resets the elements and input fields within the Add Task form to their default states.
- * This function clears the direct input fields, updates the selected contact icons,
- * refreshes the contact assignment dropdown, resets the priority menu, and clears any indirect inputs.
+ * Resets the Add Task form to its default state.
  *
  * @returns {void}
  */
@@ -101,36 +90,23 @@ function emptyAddTaskForm() {
     renderSelectedContactIcons();
     renderContactAssignmentDropDown();
     resetPriority();
-
     unfinishedTaskData = { status: "toDo" };
 }
 
 /**
- * Resets the values of direct input fields identified by their IDs to empty strings.
- * This function iterates through the provided array of direct input field IDs,
- * retrieves each element by its ID, and sets its value to an empty string if found.
+ * Resets the values of direct input fields to empty strings.
  *
  * @param {string[]} directInputFieldIds - An array of IDs of direct input fields to be reset.
  * @returns {void}
  */
-function resetDirectInputFields() {
-    directInputFieldIds.forEach((directInputFieldId) => {
-        let field = document.getElementById(directInputFieldId);
-        if (field) {
-            field.value = "";
-        }
-    });
-}
 
 /**
  * Resets various indirect inputs and data related to task creation.
- * This function clears the selected task priority, resets the subtasks array,
- * re-renders the subtasks list, clears the subtask input field, and resets assigned contacts data.
  *
  * @returns {void}
  */
 function resetIndirectInputs() {
-    selectedTaskPriority = null; //Priorities= urgent, medium, low
+    selectedTaskPriority = null;
     subTasks = [];
     renderSubTasksList();
     resetSubTaskInput();
@@ -200,11 +176,10 @@ function setNewTaskDescriptionFieldValue(task) {
 }
 
 /**
- * Sets the assigned contacts based on the task's "assignedContacts" property.
- * If no assigned contacts are present in the task, an empty array is assigned.
- * It also triggers the rendering of selected contact icons.
+ * Sets assigned contacts based on the task's "assignedContacts" property,
+ * defaulting to an empty array if none are present. Triggers rendering of selected contact icons.
  *
- * @param {Object} task - The task object containing task-related data.
+ * @param {Object} task - Task object with relevant data.
  * @returns {void}
  */
 function setAssignedContacts(task) {
@@ -234,16 +209,9 @@ function setNewTaskDateFieldValue(task) {
  * @returns {void}
  */
 function setPriorityValue(task) {
-    /**
-     * Get a list of radio buttons with the name "priority".
-     * @type {NodeListOf<HTMLInputElement>}
-     */
     let radioButtons = document.getElementsByName("priority");
-
-    // Store the selected task's priority.
     selectedTaskPriority = task["priority"];
 
-    // Iterate through the radio buttons and check the one that matches the task's priority.
     radioButtons.forEach((button) => {
         if (button.value === selectedTaskPriority) {
             button.checked = true;
@@ -264,7 +232,7 @@ function setCategoryValue(task) {
 /**
  * Sets the subtasks array based on the task's "subTasks" property and renders the subtasks list if available.
  *
- * @param {Object} task - The task object containing task-related data.
+ * @param {Object} task
  * @returns {void}
  */
 function setSubTaskFieldValue(task) {
@@ -280,8 +248,8 @@ function setSubTaskFieldValue(task) {
  * Replaces the existing buttons in the specified parent element with a "Save Changes" button.
  * The new button is associated with the given task ID and triggers the "saveTaskChanges" function when clicked.
  *
- * @param {string} parentId - The ID of the parent element where buttons will be replaced.
- * @param {string} taskId - The ID of the task associated with the "Save Changes" button.
+ * @param {string} parentId
+ * @param {string} taskId
  * @returns {void}
  */
 function replaceCurrentAddTaskSubmit(taskId) {
@@ -292,17 +260,14 @@ function replaceCurrentAddTaskSubmit(taskId) {
 /**
  * Removes all buttons from the specified parent element by iterating through and deleting them.
  *
- * @param {string} parentId - The ID of the parent element containing the buttons to be removed.
+ * @param {string} parentId
  * @returns {void}
  */
 function removeAllButtons(parentId) {
-    // Get the div element with the specified id
     var formOptionsDiv = document.getElementById(parentId);
 
-    // Get all buttons within the div
     var buttons = formOptionsDiv.getElementsByTagName("button");
 
-    // Loop through the buttons and remove them
     for (var i = buttons.length - 1; i >= 0; i--) {
         var button = buttons[i];
         button.parentNode.removeChild(button);
@@ -313,8 +278,8 @@ function removeAllButtons(parentId) {
  * Adds a "Save Changes" button to the specified parent element. The button triggers the "saveTaskChanges" function
  * when clicked and is associated with the specified taskId.
  *
- * @param {string} parentNode - The ID of the parent element where the button will be added.
- * @param {string} taskId - The ID of the task associated with the "Save Changes" button.
+ * @param {string} parentNode
+ * @param {string} taskId
  * @returns {void}
  */
 function addSaveChangesButton(parentNode, taskId) {
@@ -327,7 +292,7 @@ function addSaveChangesButton(parentNode, taskId) {
 /**
  * Saves changes made to a task with the given taskId.
  *
- * @param {number} taskId - The ID of the task to save changes for.
+ * @param {number} taskId
  * @returns {Promise<void>}
  */
 async function saveTaskChanges(taskId) {
@@ -349,9 +314,7 @@ async function saveTaskChanges(taskId) {
  */
 function renderTaskChangesSavedElement() {
     if (document.getElementById("addTaskContainer") != null) {
-        document.getElementById("addTaskContainer").innerHTML += /*html*/ `<div class="task-created-notification-container">
-        <div class="task-created-notification"><p>Task saved</p><img src="./assets/icons/board-icon.svg"></div>
-    </div>`;
+        document.getElementById("addTaskContainer").innerHTML += renderChangesSavedElement();
     }
 }
 
@@ -361,14 +324,7 @@ function renderTaskChangesSavedElement() {
  * @returns {void}
  */
 function renderTaskDeletedElement() {
-    document.body.innerHTML += /*html*/ `
-        <div id="addTaskContainer">
-            <div class="task-created-notification-container">
-                <div class="task-created-notification">
-                    <p>Task deleted</p><img src="./assets/icons/board-icon.svg">
-                </div>
-            </div>
-        </div>`;
+    document.body.innerHTML += renderTaskDeletedElement();
 
     setTimeout(() => {
         document.getElementById("addTaskContainer").remove();
@@ -378,8 +334,7 @@ function renderTaskDeletedElement() {
 /**
  * Calls functions to see whether all required input field are set
  *
- * @returns {boolean} true if form is submittable; false if not;
- *
+ * @returns {boolean}
  * */
 function checkIfFormSubmittable() {
     if (validateTaskTitle() & validateTaskDescription() & validateTaskDate() & validateTaskCategory() & validateTaskPriority()) {
@@ -394,9 +349,7 @@ function checkIfFormSubmittable() {
  * @returns {number} true if valid, false if invalid
  */
 function validateTaskTitle() {
-    /** @type {HTMLInputElement} */
     const taskTitleInput = document.getElementById("newTaskTitle");
-    /** @type {string} */
     const taskTitleValue = taskTitleInput.value.trim();
 
     if (taskTitleValue === "") {
@@ -412,9 +365,7 @@ function validateTaskTitle() {
  * @returns {number} true if valid, false if invalid
  */
 function validateTaskDescription() {
-    /** @type {HTMLInputElement} */
     const taskDescriptionInput = document.getElementById("newTaskDescription");
-    /** @type {string} */
     const taskDescriptionValue = taskDescriptionInput.value.trim();
 
     if (taskDescriptionValue === "") {
@@ -431,10 +382,7 @@ function validateTaskDescription() {
  * @returns {boolean} true if valid, false if invalid
  */
 function validateTaskDate() {
-    /** @type {HTMLInputElement} */
     const taskDateInput = document.getElementById("newTaskDate");
-
-    /** @type {string} */
     const taskDateValue = taskDateInput.value;
 
     if (taskDateValue == "" || taskDateValue === "yyyy-mm-dd") {
@@ -464,9 +412,7 @@ function validateTaskPriority() {
  * @returns {boolean} true if is set, false if is not set
  */
 function validateTaskCategory() {
-    /** @type {HTMLSelectElement} */
     const taskCategoryElement = document.getElementById("selectCategory");
-    /** @type {string} */
     const selectCategoryValue = taskCategoryElement.value;
     if (selectCategoryValue == "") {
         taskCategoryElement.reportValidity();

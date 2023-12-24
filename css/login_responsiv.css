@@ -1,4 +1,4 @@
-@media(max-width: 1000px) {
+@media (max-width: 1000px) {
     .login-heading {
         text-align: center;
     }
@@ -9,16 +9,16 @@
     }
 }
 
-@media(max-width: 900px) {
+@media (max-width: 900px) {
     .forgot-password-form {
         width: 396px;
         height: 500px;
         margin: 150px 0 150px 0;
-        border-radius: 30px
+        border-radius: 30px;
     }
 }
 
-@media(max-width: 700px) {
+@media (max-width: 700px) {
     #homepage {
         height: fit-content;
         min-height: 100vh;
@@ -27,21 +27,6 @@
     .logo {
         height: 160px;
         object-fit: cover;
-    }
-
-    @keyframes moveLogo {
-        0% {
-            transform: scale(0.1);
-            top: 50vh;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        100% {
-            transform: scale(0.5);
-            top: -15px;
-            left: -5px;
-        }
     }
 
     #login-container {
@@ -113,14 +98,14 @@
     }
 }
 
-@media(max-width: 600px) {
+@media (max-width: 600px) {
     .forgot-password-form {
         width: 320px;
         padding: 32px;
     }
 }
 
-@media(max-width: 500px) {
+@media (max-width: 500px) {
     #login-form {
         width: 320px;
         height: 520px;
@@ -137,7 +122,7 @@
     }
 
     .sign-up-arrow {
-        left: 16px
+        left: 16px;
     }
 
     .forgot-password-arrow {
@@ -165,5 +150,20 @@
 
     .forgot-password-message {
         padding: 12px 18px;
+    }
+}
+
+@keyframes moveLogo {
+    0% {
+        transform: scale(0.1);
+        top: 50vh;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    100% {
+        transform: scale(0.5);
+        top: -15px;
+        left: -5px;
     }
 }

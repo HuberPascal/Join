@@ -45,9 +45,9 @@ async function renderContactDeleteElement() {
  * has served its purpose and should be hidden.
  */
 function removeNotificationLayout() {
-    document.getElementById("contactChangeNotificationContainer").classList.add('shift-out');
+    document.getElementById("contactChangeNotificationContainer").classList.add("shift-out");
     setTimeout(function () {
-        document.getElementById("contactChangeNotificationContainer").remove()
+        document.getElementById("contactChangeNotificationContainer").remove();
     }, 1000);
 }
 
@@ -61,13 +61,17 @@ function setNotificationValue(input) {
     for (let i = 0; i < notifications.length; i++) {
         const notification = notifications[i];
         switch (input) {
-            case 'Created': notification.innerHTML = "Contact successfully created";
+            case "Created":
+                notification.innerHTML = "Contact successfully created";
                 break;
-            case 'Changed': notification.innerHTML = "Contact changes saved";
+            case "Changed":
+                notification.innerHTML = "Contact changes saved";
                 break;
-            case 'Delete': notification.innerHTML = "Contact deleted";
+            case "Delete":
+                notification.innerHTML = "Contact deleted";
                 break;
-            default: notification.innerHTML = "Error adapting contact";
+            default:
+                notification.innerHTML = "Error adapting contact";
         }
     }
 }
@@ -78,7 +82,7 @@ function setNotificationValue(input) {
  */
 function renderNotificationLayout() {
     let newDiv = document.createElement("div");
-    newDiv.innerHTML +=/*html*/`
+    newDiv.innerHTML += /*html*/ `
     <div class="contact-change-notification-container shift-in" id="contactChangeNotificationContainer">
         <div class="contact-change-notification"><p class='change-contact-notification-text'></p></div>
     </div>`;
@@ -126,7 +130,7 @@ function saveContact() {
         let contactMail = document.getElementById("contactMailInput").value;
         let contactPhone = document.getElementById("contactPhoneInput").value;
         let color = contacts[selectedContact]["color"];
-        let contact = { "name": contactName, "mail": contactMail, "phone": contactPhone, "color": color };
+        let contact = { name: contactName, mail: contactMail, phone: contactPhone, color: color };
         contacts[selectedContact] = contact;
         setItem("contacts", contacts);
         renderContacts();
@@ -147,11 +151,11 @@ function saveContact() {
  * @param {string} color - The color associated with the contact.
  */
 function updateContactsArray(contactName, contactMail, contactPhone, color) {
-    if (contactName != "" & contactMail != "" & contactPhone != "") {
-        let contact = { "name": contactName, "mail": contactMail, "phone": contactPhone, "color": color };
+    if ((contactName != "") & (contactMail != "") & (contactPhone != "")) {
+        let contact = { name: contactName, mail: contactMail, phone: contactPhone, color: color };
         contacts.push(contact);
     }
 
-    contacts = sortByUserName(contacts)
+    contacts = sortByUserName(contacts);
     setItem("contacts", contacts);
 }

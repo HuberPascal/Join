@@ -30,14 +30,14 @@ function renderProgressBar(progressPercentage, completedSubtaskCount, subtaskCou
  */
 function renderTaskCards(index, task, categoryClass, progressBarHTML, assignedContactsIcons, priorityImageSrc) {
     return `
-    <div id="taskCard${index}" onclick="showTaskCard(${index})" draggable="true" ondrop="moveTo(event)" ondragstart="startDragging(${index})" class="task-card" data-category="${task['status']}">
+    <div id="taskCard${index}" onclick="showTaskCard(${index})" draggable="true" ondrop="moveTo(event)" ondragstart="startDragging(${index})" class="task-card" data-category="${task["status"]}">
         <div class="task-headline">
-            <div class="card-category ${categoryClass}">${task['taskCategoryValue']}</div> 
-            <div class="move" onclick="showMoveTo(event, ${index}, '${task['status']}')">Move</div>
+            <div class="card-category ${categoryClass}">${task["taskCategoryValue"]}</div> 
+            <div class="move" onclick="showMoveTo(event, ${index}, '${task["status"]}')">Move</div>
         </div>
         <div>
-            <h4>${task['taskName']}</h4>
-            <div class="card-description">${task['taskDescription']}</div>
+            <h4>${task["taskName"]}</h4>
+            <div class="card-description">${task["taskDescription"]}</div>
         </div>
         ${progressBarHTML}
         <div class="task-card-bottom-section">
@@ -67,7 +67,20 @@ function renderTaskCards(index, task, categoryClass, progressBarHTML, assignedCo
  * @param {string} subtasksHTML - The HTML for subtasks.
  * @returns {string} The HTML code for the task card overlay.
  */
-function generateTaskCardHTML(index, categoryClass, category, name, description, date, priority, priorityImageSrc, getAssignedText, assignedContactsHTML, getSubtaskText, subtasksHTML) {
+function generateTaskCardHTML(
+    index,
+    categoryClass,
+    category,
+    name,
+    description,
+    date,
+    priority,
+    priorityImageSrc,
+    getAssignedText,
+    assignedContactsHTML,
+    getSubtaskText,
+    subtasksHTML
+) {
     return `
         <div id="overlayBoard" class="overlayBoard" onclick="loadTasksHTML()">
             <div id="taskCard${index}" class="task-card-overlay">
@@ -135,7 +148,7 @@ function renderSubtask(subtaskId, subtaskStatus, i, index, subtaskImgSrc, subtas
     return `
         <div class="subtask" onclick="subtaskChangeImg('${subtaskId}'); saveSubtask(${subtaskStatus}, ${i}, ${index}), loadTasksHTML()">
             <img id="${subtaskId}" src="${subtaskImgSrc}">
-            <div>${subtask['name']}</div>
+            <div>${subtask["name"]}</div>
         </div>
     `;
 }
@@ -152,7 +165,7 @@ function getAssignedContactsRenderHTML(contacts, assignedContact) {
         return `
             <div class='assigned-contacts'>
                 <div class='contact-circle'>${getContactIconHtml(contacts[assignedContact])}</div>
-                ${contacts[assignedContact]['name']}
+                ${contacts[assignedContact]["name"]}
             </div>
         `;
     } else {
@@ -189,8 +202,8 @@ function renderMoveToInTaskCards(index) {
  * @param {object} task - The task object to be rendered.
  * @param {number} index - The index of the task.
  */
-function renderTaskHTML(task, index){
-    let taskStatus=task['status'];
+function renderTaskHTML(task, index) {
+    let taskStatus = task["status"];
     document.getElementById(taskStatus).innerHTML += generateHTML(task, index);
 }
 
@@ -204,11 +217,11 @@ function renderTaskHTML(task, index){
  */
 function renderTodoTaskHTML(todo, task, index) {
     if (todo.length > 0) {
-        if (task['status'] == 'toDo') {
-            document.getElementById('toDo').innerHTML += generateHTML(task, index);
+        if (task["status"] == "toDo") {
+            document.getElementById("toDo").innerHTML += generateHTML(task, index);
         }
     } else {
-        document.getElementById('toDo').innerHTML = renderNoTaskToDo();
+        document.getElementById("toDo").innerHTML = renderNoTaskToDo();
     }
 }
 
@@ -222,14 +235,14 @@ function renderTodoTaskHTML(todo, task, index) {
  */
 function renderInProgressTaskHTML(inProgress, task, index) {
     if (inProgress.length > 0) {
-        if (task['status'] == 'inProgress') {
-            document.getElementById('inProgress').innerHTML += generateHTML(task, index);
+        if (task["status"] == "inProgress") {
+            document.getElementById("inProgress").innerHTML += generateHTML(task, index);
         }
     } else {
-        document.getElementById('inProgress').innerHTML = renderNoInProgress();
+        document.getElementById("inProgress").innerHTML = renderNoInProgress();
     }
 }
-         
+
 /**
  * Renders the HTML for a task in the 'Awaiting Feedback' category based on the provided task, index, and filter.
  *
@@ -240,11 +253,11 @@ function renderInProgressTaskHTML(inProgress, task, index) {
  */
 function renderAwaitFeedbackTaskHTML(awaitFeedback, task, index) {
     if (awaitFeedback.length > 0) {
-        if (task['status'] == 'awaitFeedback') {
-            document.getElementById('awaitFeedback').innerHTML += generateHTML(task, index);
+        if (task["status"] == "awaitFeedback") {
+            document.getElementById("awaitFeedback").innerHTML += generateHTML(task, index);
         }
     } else {
-        document.getElementById('awaitFeedback').innerHTML = renderNoAwaitFeedback();
+        document.getElementById("awaitFeedback").innerHTML = renderNoAwaitFeedback();
     }
 }
 
@@ -258,10 +271,10 @@ function renderAwaitFeedbackTaskHTML(awaitFeedback, task, index) {
  */
 function renderDoneTaskHTML(done, task, index) {
     if (done.length > 0) {
-        if (task['status'] == 'done') {
-            document.getElementById('done').innerHTML += generateHTML(task, index);
+        if (task["status"] == "done") {
+            document.getElementById("done").innerHTML += generateHTML(task, index);
         }
     } else {
-        document.getElementById('done').innerHTML = renderNoDone();
+        document.getElementById("done").innerHTML = renderNoDone();
     }
 }

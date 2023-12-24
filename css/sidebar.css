@@ -8,8 +8,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    background-color: #2A3647;
-    font-family: 'Inter', sans-serif;
+    background-color: #2a3647;
+    font-family: "Inter", sans-serif;
     z-index: 3;
     font-weight: 400;
 }
@@ -44,7 +44,7 @@
     text-decoration: none;
     height: 46px;
     padding: 0px 30px 1px 50px;
-    color: #CDCDCD;
+    color: #cdcdcd;
     cursor: pointer;
 }
 
@@ -70,7 +70,7 @@
     flex-grow: 1;
     height: 35px;
     text-decoration: none;
-    color: #A8A8A8;
+    color: #a8a8a8;
     cursor: pointer;
 }
 
@@ -82,13 +82,12 @@
 
 .sidebar-bottom span {
     font-size: 16px;
-    /* font-weight: 400; */
     width: 110px;
 }
 
 .menu-item:hover {
     background-color: #2a3d59;
-    transition: .1s ease-in-out;
+    transition: 0.1s ease-in-out;
 }
 
 .bg-dark {
@@ -97,12 +96,11 @@
 
 .bg-dark-legal-notice {
     background-color: #091931 !important;
-    color: #A8A8A8 !important;
+    color: #a8a8a8 !important;
 }
 
 .white {
-    color: #FFFFFF !important;
-
+    color: #ffffff !important;
 }
 
 .dNone {

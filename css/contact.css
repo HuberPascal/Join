@@ -1,5 +1,5 @@
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
 }
 
 h4 {
@@ -7,7 +7,7 @@ h4 {
     font-weight: 400;
     line-height: 32px;
     text-align: left;
-    color: #2A3647;
+    color: #2a3647;
     margin: 0;
 }
 
@@ -39,26 +39,6 @@ h4 {
     animation: rightToCenter 0.5s ease-in-out forwards;
 }
 
-@keyframes rightToCenter {
-    from {
-        transform: translateX(100%);
-    }
-
-    to {
-        transform: translateX(0);
-    }
-}
-
-@keyframes bottomToCenter {
-    0% {
-        transform: translateY(100%);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
-}
-
 .add-contact-card {
     display: flex;
     justify-content: center;
@@ -74,7 +54,7 @@ h4 {
 }
 
 .add-contact-card-header {
-    background-color: #2A3647;
+    background-color: #2a3647;
     height: 100%;
     width: 100%;
     color: white;
@@ -98,7 +78,7 @@ h4 {
 }
 
 .add-contact-blue-line {
-    background-color: #29ABE2;
+    background-color: #29abe2;
     height: 3px;
     width: 90px;
 }
@@ -106,7 +86,7 @@ h4 {
 .add-contact-card-icon {
     object-fit: cover;
     width: 55.6px;
-    height: 66.48px
+    height: 66.48px;
 }
 
 .contact-name-row .circle {
@@ -147,14 +127,13 @@ h4 {
 
 .add-contact-card-form div {
     position: relative;
-
 }
 
 .add-contact-card-form input {
     width: 380px;
     height: 50px;
     border-radius: 10px;
-    border: solid 1px #D1D1D1;
+    border: solid 1px #d1d1d1;
     padding-left: 21px;
     padding-right: 21px;
     font-size: 20px;
@@ -195,7 +174,7 @@ h4 {
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    background-color: #2A3647;
+    background-color: #2a3647;
 }
 
 .contact-change-notification {
@@ -225,7 +204,7 @@ h4 {
     display: flex;
     flex-direction: column;
     padding: 10px;
-    background-color: #FFF;
+    background-color: #fff;
     position: fixed;
     border-radius: 20px 20px 0px 20px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -239,26 +218,6 @@ h4 {
     animation: letDisappear 0.5s ease-in-out;
 }
 
-@keyframes letDisappear{
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-@keyframes letAppear {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
 .responsive-menu {
     display: flex;
     align-items: center;
@@ -268,7 +227,7 @@ h4 {
 }
 
 .responsive-menu:hover {
-    color: #29ABE2;
+    color: #29abe2;
 }
 
 .visible-add-contact-menu-responsive {
@@ -288,46 +247,6 @@ h4 {
     right: 0;
 }
 
-@keyframes rightToLeft {
-    from {
-        transform: translateX(300%);
-    }
-
-    to {
-        left: 54px;
-    }
-}
-
-@keyframes leftToRight {
-    from {
-        left: 54px;
-    }
-
-    to {
-        transform: translateX(300%);
-    }
-}
-
-@keyframes fromBottomTo20Percent {
-    from {
-        bottom: -100px;
-    }
-
-    to {
-        bottom: 20%;
-    }
-}
-
-@keyframes from20PercentToBottom {
-    from {
-        bottom: 20%;
-    }
-
-    to {
-        bottom: -100px;
-    }
-}
-
 .contacts-container {
     position: absolute;
     left: 232px;
@@ -339,8 +258,8 @@ h4 {
 }
 
 .contact-list-container {
-    background-color: #FFF;
-    border-right: 1px solid #D1D1D1;
+    background-color: #fff;
+    border-right: 1px solid #d1d1d1;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -374,7 +293,7 @@ h4 {
 }
 
 .contact-list-horizontal-line {
-    background-color: #D1D1D1;
+    background-color: #d1d1d1;
     margin: 8px;
     height: 1px;
 }
@@ -396,7 +315,7 @@ h4 {
 }
 
 .contact-element.selected {
-    background-color: #2A3647;
+    background-color: #2a3647;
     color: white;
 }
 
@@ -412,7 +331,7 @@ h4 {
 }
 
 .contact-list-mail-text {
-    color: #007CEE;
+    color: #007cee;
     word-wrap: break-word;
 }
 
@@ -452,14 +371,14 @@ h4 {
 }
 
 .horizontal-blue-line {
-    background-color: #29ABE2;
+    background-color: #29abe2;
     height: 59px;
     width: 3px;
 }
 
 .vertical-blue-line {
     display: none;
-    background-color: #29ABE2;
+    background-color: #29abe2;
     height: 3px;
     width: 90px;
 }
@@ -499,7 +418,7 @@ h4 {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #2A3647;
+    color: #2a3647;
     cursor: pointer;
 }
 
@@ -538,7 +457,7 @@ h4 {
 }
 
 .mail-text {
-    color: #007CEE;
+    color: #007cee;
     font-size: 16px;
 }
 
@@ -563,53 +482,82 @@ h4 {
     display: none;
 }
 
+@keyframes rightToCenter {
+    from {
+        transform: translateX(100%);
+    }
 
-@media (min-width: 1200px) {
-    .responsive-contact-menu-container {
-        display: none;
+    to {
+        transform: translateX(0);
     }
 }
 
-@media (max-width: 800px) {
-    .visible-add-contact-menu-responsive {
-        bottom: 170px;
+@keyframes bottomToCenter {
+    0% {
+        transform: translateY(100%);
     }
 
-    .hidden-add-contact-menu-responsive {
-        bottom: 170px;
-    }
-
-    .responsive-contact-menu-container {
-        bottom: 170px;
+    100% {
+        transform: translateY(0);
     }
 }
 
-@media (max-height: 800px) {
-    .visible-add-contact-menu-responsive {
-        bottom: 98px;
+@keyframes letDisappear {
+    0% {
+        opacity: 1;
     }
 
-    .hidden-add-contact-menu-responsive {
-        bottom: 98px;
-    }
-}
-
-@media (max-height: 800px) {
-    .visible-add-contact-menu-responsive {
-        bottom: 98px;
-    }
-
-    .hidden-add-contact-menu-responsive {
-        bottom: 98px;
+    100% {
+        opacity: 0;
     }
 }
 
-@media (max-height: 786px) {
-    .visible-add-contact-menu-responsive {
-        bottom: 170px;
+@keyframes letAppear {
+    0% {
+        opacity: 0;
     }
 
-    .hidden-add-contact-menu-responsive {
-        bottom: 170px;
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes rightToLeft {
+    from {
+        transform: translateX(300%);
+    }
+
+    to {
+        left: 54px;
+    }
+}
+
+@keyframes leftToRight {
+    from {
+        left: 54px;
+    }
+
+    to {
+        transform: translateX(300%);
+    }
+}
+
+@keyframes fromBottomTo20Percent {
+    from {
+        bottom: -100px;
+    }
+
+    to {
+        bottom: 20%;
+    }
+}
+
+@keyframes from20PercentToBottom {
+    from {
+        bottom: 20%;
+    }
+
+    to {
+        bottom: -100px;
     }
 }
