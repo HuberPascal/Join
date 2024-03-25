@@ -4,21 +4,21 @@ let contacts = [];
 let currentSelectedUser;
 
 let contactIconColors = [
-    "#6E52FF",
-    "#FF7A00",
-    "#FF5EB3",
-    "#9327FF",
-    "#00BEE8",
-    "#1FD7C1",
-    "#FF745E",
-    "#FFA35E",
-    "#FC71FF",
-    "#FFC701",
-    "#0038FF",
-    "#C3FF2B",
-    "#FFE62B",
-    "#FF4646",
-    "#FFBB2B",
+  "#6E52FF",
+  "#FF7A00",
+  "#FF5EB3",
+  "#9327FF",
+  "#00BEE8",
+  "#1FD7C1",
+  "#FF745E",
+  "#FFA35E",
+  "#FC71FF",
+  "#FFC701",
+  "#0038FF",
+  "#C3FF2B",
+  "#FFE62B",
+  "#FF4646",
+  "#FFBB2B",
 ];
 
 /**
@@ -26,10 +26,10 @@ let contactIconColors = [
  * @returns {Promise<void>} A promise that resolves once the initialization is complete.
  */
 async function init() {
-    await getStorageData();
-    await initializeTasks();
-    await initializeContacts();
-    await initializeUsers();
+  await getStorageData();
+  await initializeTasks();
+  await initializeContacts();
+  await initializeUsers();
 }
 
 /**
@@ -39,14 +39,14 @@ async function init() {
  * @returns {<void>} User data and tasks data is loaded and assigned.
  */
 async function getStorageData() {
-    //fetches both arrays simoultaneously
-    let usersFetch = getItem("users");
-    let tasksFetch = getItem("tasks");
-    let contactsFetch = getItem("contacts");
-    //resolves values to global array while promise is completed
-    users = await usersFetch;
-    tasks = await tasksFetch;
-    contacts = await contactsFetch;
+  //fetches both arrays simoultaneously
+  let usersFetch = getItem("users");
+  let tasksFetch = getItem("tasks");
+  let contactsFetch = getItem("contacts");
+  //resolves values to global array while promise is completed
+  users = await usersFetch;
+  tasks = await tasksFetch;
+  contacts = await contactsFetch;
 }
 
 /**
@@ -54,10 +54,10 @@ async function getStorageData() {
  * @returns {Promise<void>} A promise that resolves once the initialization is complete.
  */
 async function initializeTasks() {
-    if (!tasks) {
-        tasks = [];
-        await setItem("tasks", tasks);
-    }
+  if (!tasks) {
+    tasks = [];
+    await setItem("tasks", tasks);
+  }
 }
 
 /**
@@ -65,10 +65,10 @@ async function initializeTasks() {
  * @returns {Promise<void>} A promise that resolves once the initialization is complete.
  */
 async function initializeContacts() {
-    if (!contacts) {
-        contacts = [];
-        await setItem("contacts", contacts);
-    }
+  if (!contacts) {
+    contacts = [];
+    await setItem("contacts", contacts);
+  }
 }
 
 /**
@@ -76,10 +76,10 @@ async function initializeContacts() {
  * @returns {Promise<void>} A promise that resolves once the initialization is complete.
  */
 async function initializeUsers() {
-    if (!users) {
-        users = [];
-        await setItem("users", users);
-    }
+  if (!users) {
+    users = [];
+    await setItem("users", users);
+  }
 }
 
 ///************INCLUDE HTML-TEMPLATES*************///
@@ -89,20 +89,20 @@ async function initializeUsers() {
  * and replaces it with the value of this attribute.
  */
 async function includeHTML(x) {
-    let includeElements = document.querySelectorAll("[w3-include-html]");
-    for (let i = 0; i < includeElements.length; i++) {
-        const element = includeElements[i];
-        file = element.getAttribute("w3-include-html"); // "includes/header.html"
-        let resp = await fetch(file);
-        if (resp.ok) {
-            element.innerHTML = await resp.text();
-        } else {
-            element.innerHTML = "Page not found";
-        }
+  let includeElements = document.querySelectorAll("[w3-include-html]");
+  for (let i = 0; i < includeElements.length; i++) {
+    const element = includeElements[i];
+    file = element.getAttribute("w3-include-html"); // "includes/header.html"
+    let resp = await fetch(file);
+    if (resp.ok) {
+      element.innerHTML = await resp.text();
+    } else {
+      element.innerHTML = "Page not found";
     }
-    bgDark(x);
-    bgDarkLegalNotice(x);
-    disableIcon();
+  }
+  bgDark(x);
+  bgDarkLegalNotice(x);
+  disableIcon();
 }
 
 /**
@@ -112,9 +112,10 @@ async function includeHTML(x) {
  * @returns {string} A hexadecimal color value representing the new contact icon color.
  */
 function getNewContactColor() {
-    const currentContactIconColorIndex = contacts.length % contactIconColors.length;
-    let color = contactIconColors[currentContactIconColorIndex + 1];
-    return color;
+  const currentContactIconColorIndex =
+    contacts.length % contactIconColors.length;
+  let color = contactIconColors[currentContactIconColorIndex + 1];
+  return color;
 }
 
 /**
@@ -125,15 +126,15 @@ function getNewContactColor() {
  * @returns {string} A string containing the HTML code for the contact's icon.
  */
 function getContactIconHtml(contact) {
-    if (contact) {
-        let userSignature = getContactInitials(contact);
-        const iconHtml = `<div class="circle" style="background-color:${contact["color"]}">
+  if (contact) {
+    let userSignature = getContactInitials(contact);
+    const iconHtml = `<div class="circle" style="background-color:${contact["color"]}">
         <span class='circle-text'>${userSignature}</span>
     </div>`;
-        return iconHtml;
-    } else {
-        return "";
-    }
+    return iconHtml;
+  } else {
+    return "";
+  }
 }
 
 /**
@@ -144,16 +145,20 @@ function getContactIconHtml(contact) {
  * @returns {string} A string containing the contact's initials in uppercase.
  */
 function getContactInitials(contact) {
-    const contactNameParts = contact["name"].split(" ");
-    let contactSignature;
+  const contactNameParts = contact["name"].split(" ");
+  let contactSignature;
 
-    if (contactNameParts.length > 1 && contactNameParts[1]) {
-        contactSignature = contactNameParts[0][0].toUpperCase() + contactNameParts[1][0].toUpperCase();
-    } else {
-        contactSignature = contactNameParts[0][0].toUpperCase() + contactNameParts[0].slice(-1).toUpperCase();
-    }
+  if (contactNameParts.length > 1 && contactNameParts[1]) {
+    contactSignature =
+      contactNameParts[0][0].toUpperCase() +
+      contactNameParts[1][0].toUpperCase();
+  } else {
+    contactSignature =
+      contactNameParts[0][0].toUpperCase() +
+      contactNameParts[0].slice(-1).toUpperCase();
+  }
 
-    return contactSignature;
+  return contactSignature;
 }
 
 /**
@@ -162,12 +167,18 @@ function getContactInitials(contact) {
  * @param {number} x - That is the menu item to be loaded
  */
 function bgDark(x) {
-    if (x < 4) {
-        document.getElementById(`menu-link${x}`).classList.add("bg-dark", "white");
-        document.getElementById(`menu-responsive-link${x}`).classList.add("bg-dark", "white");
-        document.getElementById(`menu-img${x}`).src = `assets/image/sidebar/menu-${x}-white.svg`;
-        document.getElementById(`menu-responsive-img${x}`).src = `assets/image/sidebar/menu-${x}-white.svg`;
-    }
+  if (x < 4) {
+    document.getElementById(`menu-link${x}`).classList.add("bg-dark", "white");
+    document
+      .getElementById(`menu-responsive-link${x}`)
+      .classList.add("bg-dark", "white");
+    document.getElementById(
+      `menu-img${x}`
+    ).src = `assets/image/sidebar/menu-${x}-white.svg`;
+    document.getElementById(
+      `menu-responsive-img${x}`
+    ).src = `assets/image/sidebar/menu-${x}-white.svg`;
+  }
 }
 
 /**
@@ -176,97 +187,115 @@ function bgDark(x) {
  * @param {number} x - That is the menu item to be loaded
  */
 function bgDarkLegalNotice(x) {
-    if (x > 3) {
-        document.getElementById(`menu-link${x}`).classList.add("bg-dark-legal-notice", "white");
-        document.getElementById("sidebar-menu").classList.add("dNone");
-        document.getElementById("sidebar-menu-responsive").classList.add("dNone");
-
-        document.getElementById(`legal-notice${x}`).src = `assets/image/sidebar/legal-notice-white.svg`;
+  if (x > 3) {
+    document
+      .getElementById(`menu-link${x}`)
+      .classList.add("bg-dark-legal-notice", "white");
+    document.getElementById("sidebar-menu").classList.add("dNone");
+    document.getElementById("sidebar-menu-responsive").classList.add("dNone");
+    if (x === 5) {
+      document.getElementById("menu-link6").style.visibility = "hidden";
+      document.getElementById(
+        `legal-notice${x}`
+      ).src = `assets/image/sidebar/legal-notice-white.svg`;
     }
+
+    if (x === 6) {
+      document.getElementById("menu-link5").style.visibility = "hidden";
+
+      document.getElementById(
+        `legal-notice${x}`
+      ).src = `assets/image/sidebar/privacy-policy-white.svg`;
+    }
+  }
 }
 
 /**
  * This function opens the menu from the header
  */
 function ShowMenu() {
-    document.getElementById("header-menu").classList.toggle("dNone");
-    document.getElementById("overlay").classList.remove("dNone");
+  document.getElementById("header-menu").classList.toggle("dNone");
+  document.getElementById("overlay").classList.remove("dNone");
 }
 
 function ShowMenuResponsive() {
-    let menu = document.getElementById("header-menu-responsive");
-    menu.classList.toggle("hidden");
-    menu.classList.toggle("visible");
-    document.getElementById("overlay-responsive").classList.remove("dNone");
+  let menu = document.getElementById("header-menu-responsive");
+  menu.classList.toggle("hidden");
+  menu.classList.toggle("visible");
+  document.getElementById("overlay-responsive").classList.remove("dNone");
 }
 
 function closeMenu() {
-    document.getElementById("header-menu").classList.add("dNone");
-    document.getElementById("overlay").classList.add("dNone");
+  document.getElementById("header-menu").classList.add("dNone");
+  document.getElementById("overlay").classList.add("dNone");
 }
 
 function closeMenuResponsive() {
-    document.getElementById("overlay-responsive").classList.add("dNone");
-    let menu = document.getElementById("header-menu-responsive");
-    menu.classList.toggle("hidden");
-    menu.classList.toggle("visible");
+  document.getElementById("overlay-responsive").classList.add("dNone");
+  let menu = document.getElementById("header-menu-responsive");
+  menu.classList.toggle("hidden");
+  menu.classList.toggle("visible");
 }
 
 function openSummary() {
-    window.location.href = `./summary.html?name=${username}`;
+  window.location.href = `./summary.html?name=${username}`;
 }
 
 function openAddTask() {
-    window.location.href = `./add_task.html?name=${username}`;
+  window.location.href = `./add_task.html?name=${username}`;
 }
 
 function openBoard() {
-    window.location.href = `./board.html?name=${username}`;
+  window.location.href = `./board.html?name=${username}`;
 }
 
 function openContacts() {
-    window.location.href = `./contact.html?name=${username}`;
+  window.location.href = `./contact.html?name=${username}`;
 }
 
 function openHelp() {
-    window.location.href = `./help.html?name=${username}`;
+  window.location.href = `./help.html?name=${username}`;
 }
 
 function stopClickEventPropagnationForElementById(elementId) {
-    let element = document.getElementById(elementId);
-    if (element != null) {
-        element.addEventListener("click", function (event) {
-            event.stopPropagation();
-        });
-    }
+  let element = document.getElementById(elementId);
+  if (element != null) {
+    element.addEventListener("click", function (event) {
+      event.stopPropagation();
+    });
+  }
 }
 
 /**
  * If the user is on the legal_notice.html page, the Icons get display: none.
  */
 function disableIcon() {
-    let container = document.getElementById("header-icon");
-    let container2 = document.getElementById("myAccount-responsive");
-    let link = "legal-notice.html";
+  let container = document.getElementById("header-icon");
+  let container2 = document.getElementById("myAccount-responsive");
+  let link1 = "legal-notice.html";
+  let link2 = "privacy-policy.html";
 
-    if (window.location.href.endsWith(link)) {
-        container.classList.add("d-none");
-        container2.classList.add("d-none");
-    }
+  if (
+    window.location.href.endsWith(link1) ||
+    window.location.href.endsWith(link2)
+  ) {
+    container.classList.add("d-none");
+    container2.classList.add("d-none");
+  }
 }
 
 /**
  * This function goes back to the last page.
  */
 function goBack() {
-    window.history.back();
+  window.history.back();
 }
 
 /**
  * This function scroll back to top.
  */
 function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 /**
@@ -277,7 +306,7 @@ function scrollToTop() {
  * @returns {void}
  */
 function setElementHtml(elementId, html) {
-    document.getElementById(elementId).innerHTML = html;
+  document.getElementById(elementId).innerHTML = html;
 }
 
 /**
@@ -288,10 +317,10 @@ function setElementHtml(elementId, html) {
  * @returns {void}
  */
 function setElementValue(elementId, value) {
-    document.getElementById(elementId).value = value;
+  document.getElementById(elementId).value = value;
 }
 
 async function helpInit() {
-    await includeHTML();
-    setUserHeaderInitials();
+  await includeHTML();
+  setUserHeaderInitials();
 }

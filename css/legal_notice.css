@@ -1,155 +1,155 @@
 body {
-    font-family: inter;
+  font-family: inter;
 }
 
 .privacy-policy-container {
-    position: relative;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: 96px 0 0 328px;
-    padding-right: 40px;
-    padding-bottom: 30px;
-    overflow-y: scroll;
-    hyphens: auto;
-    word-wrap: break-word;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: 96px 0 0 328px;
+  padding-right: 40px;
+  padding-bottom: 60px;
+  overflow-y: scroll;
+  hyphens: auto;
+  word-wrap: break-word;
 }
 
 .break {
-    margin-top: 80px;
+  margin-top: 80px;
 }
 
 p {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 h3 {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 li {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 h1 {
-    font-size: 56px;
+  font-size: 56px;
 }
 
 h2 {
-    font-size: 40px;
-    padding-top: 30px;
+  font-size: 40px;
+  padding-top: 30px;
 }
 
 a {
-    color: black;
+  color: black;
 }
 
 #goBack {
-    position: absolute;
-    top: 95px;
-    right: 100px;
-    height: 50px;
-    width: 50px;
+  position: absolute;
+  top: 95px;
+  right: 100px;
+  height: 50px;
+  width: 50px;
 }
 
 #goBack:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
-    cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 #scrollToTop {
-    position: absolute;
-    bottom: 0px;
-    right: 100px;
-    height: 50px;
-    width: 50px;
-    transform: rotate(90deg);
+  position: absolute;
+  bottom: 20px;
+  right: 100px;
+  height: 50px;
+  width: 50px;
+  transform: rotate(90deg);
 }
 
 #scrollToTop:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
-    cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .d-none {
-    display: none !important;
+  display: none !important;
 }
 
 .steps-cont {
-    margin-bottom: 16px;
-    font-size: 20px;
+  margin-bottom: 16px;
+  font-size: 20px;
 }
 
 .help-end {
-    margin-bottom: 34px;
+  margin-bottom: 34px;
 }
 
 /*--- Legal Notice Responsive ---*/
 
 @media (max-width: 1000px) {
-    p {
-        font-size: 16px;
-        overflow-wrap: anywhere;
-    }
+  p {
+    font-size: 16px;
+    overflow-wrap: anywhere;
+  }
 
-    h3 {
-        font-size: 20px;
-    }
+  h3 {
+    font-size: 20px;
+  }
 
-    li {
-        font-size: 14px;
-    }
+  li {
+    font-size: 14px;
+  }
 
-    h1 {
-        font-size: 52px;
-    }
+  h1 {
+    font-size: 52px;
+  }
 
-    h2 {
-        font-size: 36px;
-    }
+  h2 {
+    font-size: 36px;
+  }
 
-    #goBack {
-        top: 85px;
-        right: 24px;
-    }
+  #goBack {
+    top: 85px;
+    right: 24px;
+  }
 
-    #scrollToTop {
-        right: 24px;
-    }
+  #scrollToTop {
+    right: 24px;
+  }
 }
 
 @media (max-width: 800px) {
-    h2 {
-        font-size: 30px;
-    }
+  h2 {
+    font-size: 30px;
+  }
 
-    h1 {
-        font-size: 40px;
-    }
+  h1 {
+    font-size: 40px;
+  }
 
-    .privacy-policy-container {
-        margin: 96px 0 40px 16px;
-    }
+  .privacy-policy-container {
+    margin: 96px 0 40px 16px;
+  }
 
-    #goBack {
-        top: 43px;
-        right: 16px;
-    }
+  #goBack {
+    top: 43px;
+    right: 16px;
+  }
 
-    .break {
-        margin-top: 40px;
-    }
+  .break {
+    margin-top: 40px;
+  }
 
-    .steps-cont {
-        font-size: 16px;
-    }
+  .steps-cont {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 600px) {
-    .privacy-policy-container {
-        margin: 96px 0 30px 16px;
-    }
+  .privacy-policy-container {
+    margin: 96px 0 30px 16px;
+  }
 }
